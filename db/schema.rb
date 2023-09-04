@@ -14,6 +14,29 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_194200) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.bigint "pitch_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pitch_id"], name: "index_comments_on_pitch_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "pitches", force: :cascade do |t|
+    t.string "title"
+    t.string "languages"
+    t.string "category"
+    t.text "description"
+    t.text "source"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pitches_on_user_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.bigint "owner_id", null: false
     t.string "title"
@@ -43,5 +66,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_194200) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "pitches"
+  add_foreign_key "comments", "users"
+  add_foreign_key "pitches", "users"
   add_foreign_key "projects", "users", column: "owner_id"
 end

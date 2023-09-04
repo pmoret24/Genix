@@ -3,8 +3,8 @@ class PitchesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @pitches = Pet.all
-    @pitches = Pet.search_pets(params[:query]) if params[:query].present?
+    @pitches = Pitch.all
+    @pitches = Pitch.search_pitches(params[:query]) if params[:query].present?
   end
 
   def show
@@ -16,7 +16,7 @@ class PitchesController < ApplicationController
 
   # GET /pitches/new
   def new
-    @pitch = Pet.new
+    @pitch = Pitch.new
   end
 
   # GET /pitches/1/edit
@@ -37,7 +37,7 @@ class PitchesController < ApplicationController
 
   # PATCH/PUT /pitches/1
   def update
-    if @pitch.update(pet_params)
+    if @pitch.update(pitch_params)
       redirect_to @pitch, notice: "Pitch was successfully updated.", status: :see_other
     else
       render :edit, status: :unprocessable_entity
@@ -49,6 +49,7 @@ class PitchesController < ApplicationController
     @pitch.destroy
     redirect_to pets_url, notice: "Pitch was successfully destroyed.", status: :see_other
   end
+
 
   private
 
