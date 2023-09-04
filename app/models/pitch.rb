@@ -1,9 +1,5 @@
 class Pitch < ApplicationRecord
-  belongs_to :user_id
+  belongs_to :user
 
-  validates :title, presence: true
-  validates :languages, presence: true
-  validates :category, presence: true
-  validates :description, presence: true
-  validates :source, presence: true
+  validates :title, :languages, :category, :description, :source, presence: true
 end
