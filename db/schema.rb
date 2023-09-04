@@ -53,6 +53,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_200055) do
     t.index ["user_id"], name: "index_pitches_on_user_id"
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.bigint "owner_id", null: false
+    t.string "title"
+    t.text "description"
+    t.string "category"
+    t.string "languages"
+    t.text "github"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_projects_on_owner_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -75,4 +87,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_200055) do
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "pitches", "users"
+  add_foreign_key "projects", "users", column: "owner_id"
 end
