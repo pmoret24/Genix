@@ -7,5 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :projects, foreign_key: "owner_id"
-  has_many :members, foreign_key: "owner_id"
+  has_many :members
 end
