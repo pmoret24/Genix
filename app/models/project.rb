@@ -9,6 +9,5 @@ class Project < ApplicationRecord
   validates :languages, length: { maximum: 350 }
 
   validates :github, format: { with: URI::DEFAULT_PARSER.make_regexp(['http', 'https']), message: 'must be a valid URL' }
-
   validates :owner, presence: true
 end
