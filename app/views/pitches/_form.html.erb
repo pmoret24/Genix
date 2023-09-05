@@ -1,0 +1,18 @@
+<%= simple_form_for(@pitch, html: { class: 'custom-form' }) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :title, label: 'Pitch Name' %>
+    <%= f.input :category, label: 'Category Name' %>
+    <%= f.input :languages, label: 'Skills', collection: ['Ruby', 'Python', 'Java', 'JavaScript', 'C++', 'PHP', 'SQL', 'others'] %>
+    <%= f.input :description, label: 'Description', input_html: { rows: 4 } %>
+    <%= f.input :source, label: 'Source Name' %>
+
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Submit', class: 'btn btn-primary' %>
+  </div>
+<% end %>
