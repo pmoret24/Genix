@@ -22,6 +22,57 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_202650) do
     t.datetime "updated_at", null: false
     t.index ["friend_id"], name: "index_connections_on_friend_id"
     t.index ["user_id"], name: "index_connections_on_user_id"
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.bigint "pitch_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pitch_id"], name: "index_comments_on_pitch_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "pitches", force: :cascade do |t|
+    t.string "title"
+    t.string "languages"
+    t.string "category"
+    t.text "description"
+    t.text "source"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "status", default: false
+    t.index ["user_id"], name: "index_pitches_on_user_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.bigint "owner_id", null: false
+    t.string "title"
+    t.text "description"
+    t.string "category"
+    t.string "languages"
+    t.text "github"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_projects_on_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +93,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_202650) do
   end
 
   add_foreign_key "connections", "users"
+  add_foreign_key "comments", "pitches"
+  add_foreign_key "comments", "users"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
+  add_foreign_key "pitches", "users"
+  add_foreign_key "projects", "users", column: "owner_id"
 end

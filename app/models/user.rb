@@ -5,5 +5,5 @@ class User < ApplicationRecord
   has_many :friends, through: :connections
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  resources :connections
-end
+  has_many :projects
+ end
