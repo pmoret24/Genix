@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :pitches, only: [:index, :new, :show, :create, :edit, :update, :destroy]
 
 
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
   # Defines the root path route ("/")
 
 
