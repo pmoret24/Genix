@@ -6,4 +6,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :projects
- end
+  # validations
+  validates :first_name, :last_name, :skills, :description, :github, presence: true
+end
