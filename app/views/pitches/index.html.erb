@@ -1,0 +1,35 @@
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-9">
+      <p style="color: green"><%= notice %></p>
+      <h1 class="text-center">Add your new pitch</h1>
+      <div class="row justify-content-center">
+        <div class="col-sm-8 my-3">
+          <%= form_with url: pitches_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control",
+                  placeholder: "e.g Category, Pitch"
+              %>
+            <%= submit_tag "Search", name: "", class: "btn btn-success m-1" %>
+          <% end %>
+        </div>
+      </div>
+      <div id="pitches" class="row">
+        <%= link_to "Add a new pitch", new_pitch_path, class: 'btn btn-outline-success btn-sm center d-flex align-items-end m-2 justify-content-center ' %>
+        <% @pitches.each do |pitch| %>
+          <div class="col-md-4 mb-4">
+            <%= link_to  pitch_path(pitch) do  %>
+              <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
+                <div class="card-body">
+                  <h5 class="card-title"><%= pitch.title %></h5>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
