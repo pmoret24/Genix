@@ -8,9 +8,6 @@ class Project < ApplicationRecord
   validates :description, length: { in: 10..1000 } # Adjust max length as you see fit
   validates :category, length: { maximum: 50 } # Assuming a single-word or short phrase for category
   validates :languages, length: { maximum: 255 } # Adjust if you expect a long list of languages
-  validates :github
-
   validates :github, format: { with: URI::DEFAULT_PARSER.make_regexp(['http', 'https']), message: 'must be a valid URL' }
-
   validates :owner, presence: true
 end
