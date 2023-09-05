@@ -5,5 +5,7 @@ class User < ApplicationRecord
   has_many :friends, through: :connections
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :projects
- end
+
+  has_many :projects, foreign_key: "owner_id"
+  has_many :members
+end
