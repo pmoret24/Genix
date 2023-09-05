@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_05_180705) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_05_200620) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_180705) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "sender_id"
+    t.bigint "receiver_id"
+    t.index ["receiver_id"], name: "index_chatrooms_on_receiver_id"
+    t.index ["sender_id"], name: "index_chatrooms_on_sender_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -70,7 +74,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_180705) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "status", default: false
     t.index ["user_id"], name: "index_pitches_on_user_id"
   end
 
@@ -103,6 +106,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_180705) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chatrooms", "users", column: "receiver_id"
+  add_foreign_key "chatrooms", "users", column: "sender_id"
   add_foreign_key "comments", "pitches"
   add_foreign_key "comments", "users"
   add_foreign_key "connections", "users"
