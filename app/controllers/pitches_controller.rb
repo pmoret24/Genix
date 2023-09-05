@@ -11,6 +11,7 @@ class PitchesController < ApplicationController
     @pitch = Pitch.find(params[:id])
     @pitches_users = Pitch.where(pitch_id: @pitch.id)
     @pitches_count = Pitch.where(user_id: current_user.id, id: @pitch.id).count
+    @comment = Comment.new
     # @pitches_approved = Pitch.where(status: true, id: @pitch.id).count
   end
 
@@ -48,7 +49,7 @@ class PitchesController < ApplicationController
   # DELETE /pitches/1
   def destroy
     @pitch.destroy
-    redirect_to pets_url, notice: "Pitch was successfully destroyed.", status: :see_other
+    redirect_to pitches_url, notice: "Pitch was successfully destroyed.", status: :see_other
   end
 
 
