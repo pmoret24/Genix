@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_04_200055) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_04_204918) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,6 +29,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_200055) do
     t.datetime "updated_at", null: false
     t.index ["pitch_id"], name: "index_comments_on_pitch_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "project_id", null: false
+    t.boolean "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_members_on_project_id"
+    t.index ["user_id"], name: "index_members_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -84,6 +94,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_200055) do
 
   add_foreign_key "comments", "pitches"
   add_foreign_key "comments", "users"
+  add_foreign_key "members", "projects"
+  add_foreign_key "members", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "pitches", "users"
