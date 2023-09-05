@@ -1,0 +1,9 @@
+<h1><%= @project.title %></h1>
+
+<p><strong>Description:</strong> <%= @project.description %></p>
+<p><strong>Category:</strong> <%= @project.category %></p>
+<p><strong>Languages:</strong> <%= @project.languages %></p>
+<p><strong>Github Link:</strong> <%= @project.github %></p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back to Projects', projects_path %>
