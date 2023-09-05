@@ -16,11 +16,11 @@
         <%= simple_form_for [@pitch, @comment]  do |f| %>
           <%= f.input :content  %>
           <%= f.input :rating %>
-          <%= f.submit "Create your pitch.comments ", class: "btn btn-primary"  %>
+          <%= f.submit "Create your comments ", class: "btn btn-primary m-4"  %>
         <% end %>
       </div>
     </div>
-    <div id="comments" class="row">
+    <div id="comments" class="row m-3">
       <% @pitch.comments.each do |comment| %>
         <div class="col-md-4 mb-4">
           <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
