@@ -8,11 +8,12 @@ class PitchesController < ApplicationController
   end
 
   def show
-    @pitch = Pitch.new
-    @pitchs_users = Pitch.where(pitch: @pitch)
-    @pitchs_count = Pitch.where(pitch: @pitch, owner: current_user).count
-    @pitchs_approved = Pitch.where(pitch: @pitch, status: true).count
+    @pitch = Pitch.find(params[:id])
+    @pitches_users = Pitch.where(pitch_id: @pitch.id)
+    @pitches_count = Pitch.where(user_id: current_user.id, id: @pitch.id).count
+    @pitches_approved = Pitch.where(status: true, id: @pitch.id).count
   end
+
 
   # GET /pitches/new
   def new
@@ -25,8 +26,8 @@ class PitchesController < ApplicationController
 
   # POST /pitches
   def create
-    @pitch = Pitch.new(pet_params)
-    @pitch.user_id = current_user
+    @pitch = Pitch.new(pitch_params)
+    @pitch.user_id = current_user.id
 
     if @pitch.save
       redirect_to @pitch, notice: "Pitch was successfully created."
