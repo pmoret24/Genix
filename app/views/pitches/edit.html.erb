@@ -1,0 +1,10 @@
+ <h1 class="text-center">Editing a pet</h1>
+
+<%= render "form", pitch: @pitch %>
+
+<br>
+
+<div>
+  <%= link_to "Show this Pitch", @pitch , class: "btn btn-success " %> |
+  <%= link_to "Back to Pitches", pitches_path, class: "btn btn-success "%>
+</div>
