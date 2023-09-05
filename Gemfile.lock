@@ -97,6 +97,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.3)
     debug (1.8.0)
@@ -204,6 +205,10 @@ GEM
     rake (13.0.6)
     rdoc (6.5.0)
       psych (>= 4.0.0)
+    redis (5.0.7)
+      redis-client (>= 0.9.0)
+    redis-client (0.16.0)
+      connection_pool
     regexp_parser (2.8.1)
     reline (0.3.8)
       io-console (~> 0.5)
@@ -283,6 +288,7 @@ DEPENDENCIES
   psych (~> 4.0.6)
   puma (~> 5.0)
   rails (~> 7.0.7, >= 7.0.7.2)
+  redis
   sassc-rails
   selenium-webdriver
   simple_form!
