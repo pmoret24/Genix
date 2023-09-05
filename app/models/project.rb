@@ -4,7 +4,6 @@ class Project < ApplicationRecord
 
   validates :title, :description, :category, :languages, :github, presence: true
 
-  validates :title, length: { in: 5..100 }
   validates :description, length: { in: 10..1000 }
   validates :category, length: { maximum: 50 }
   validates :languages, length: { maximum: 350 }
