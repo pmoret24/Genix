@@ -23,7 +23,8 @@
             <%= link_to  pitch_path(pitch) do  %>
               <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
                 <div class="card-body">
-                  <h5 class="card-title"><%= pitch.title %></h5>
+                  <h2 class="card-title"><%= pitch.title %></h2>
+                   <h5 class="card-title"><%= pitch.description %></h5>
                 </div>
               </div>
             <% end %>
