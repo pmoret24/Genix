@@ -1,0 +1,18 @@
+<h1>estou no comment<h1>
+
+    <div id="comments" class="row">
+      <% @comments.each do |comment| %>
+        <div class="col-md-4 mb-4">
+          <%= link_to  new_comment_path(comment) do  %>
+            <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
+              <div class="card-body">
+                <h2 class="card-title"><%= comment.content %></h2>
+                <h5 class="card-title"><%= comment.rating %></h5>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
