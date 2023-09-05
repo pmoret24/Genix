@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :pitches, only: [:index, :new, :show, :create, :edit, :update, :destroy] do
     resources :comments, only: [:create, :show]
-    
+
   end
   resources :chatrooms, only: :show do
     resources :messages, only: :create
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
 
   get "users/:id", to: "profiles#show", as: "profile"
+  get "users", to: "profiles#index", as: "profiles"
 
 
 end

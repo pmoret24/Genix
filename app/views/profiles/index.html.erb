@@ -1,0 +1,8 @@
+<div class = "container">
+    <% @users.each do |user| %>
+      <% if user != current_user  %>
+      <h5> <%= user.first_name %> <%= user.last_name %> </h5>
+      <%= link_to "see this user", profile_path(user) %>
+      <% end %>
+    <% end  %>
+</div>
