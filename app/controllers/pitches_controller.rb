@@ -11,7 +11,7 @@ class PitchesController < ApplicationController
     @pitch = Pitch.find(params[:id])
     @pitches_users = Pitch.where(pitch_id: @pitch.id)
     @pitches_count = Pitch.where(user_id: current_user.id, id: @pitch.id).count
-    @pitches_approved = Pitch.where(status: true, id: @pitch.id).count
+    # @pitches_approved = Pitch.where(status: true, id: @pitch.id).count
   end
 
 
