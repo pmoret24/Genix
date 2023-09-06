@@ -1,32 +1,73 @@
 <body>
     <div class="main-container">
         <div class="container home-container">
+          <div class="left-content">
             <h1 class="title">Genix</h1>
-            <p>Where Every Great Idea Begins</p>
-            <div class="home-buttons">
-                <a href="#" class="hm-btn">Explore Pitches</a>
-                <a href="#" class="hm-btn">View Projects</a>
-                <a href="#" class="hm-btn">Connect</a>
-                <a href="#" class="hm-btn">Chat</a>
+            <p class="slogan">
+              Where Every Great Idea Begins
+            </p>
+            <div class="home-button">
+                <%= link_to "Explore Pitches", pitches_path, class: "main-btn" %>
             </div>
+          </div>
+          <div class="right-content">
+            <div class="lighthouse">
+              <%= image_tag "lighthouse.svg", width: 450, height: 450%>
+            </div>
+          </div>
         </div>
-        <div class="description-container">
-            <div class="description-item">
-                <img src="link_to_image" alt="Explore Pitches">
-                <p>Explore Pitches allows users to discover, comment, rate, and save project ideas.</p>
+
+        <div class="bottom">
+          <div class="index">
+            <div class="container">
+              <h1 class="index-title"><%= image_tag "logo-genix.svg", width: 65, height: 65 %>Genix</h1>
+              <p class="index-intro">
+                Welcome to Genix - the innovative social hub for passionate creators and dreamers. Dive into a sea of groundbreaking project ideas, offer your invaluable insights, and forge meaningful connections with like-minded individuals. Whether you're seeking inspiration, feedback, or collaboration, Genix brings your visions closer to reality. Turn ideas into action, and dreams into projects. Join the Genix community today.
+              </p>
+              <ul class="index-elements">
+                <li>Pitches</li>
+                <li>Projects</li>
+                <li>Connect</li>
+                <li>About Us</li>
+              </ul>
             </div>
-            <div class="description-item">
-                <img src="link_to_image" alt="View Projects">
-                <p>Projects allows people to browse projects, apply to become a member, or post their project and state they need someone with specific skillsets to collaborate.</p>
+            <p class="card-text">
+              <i class="fa-brands fa-linkedin"></i>
+              <i class="fa-brands fa-github"></i>
+              <i class="fa-brands fa-instagram"></i>
+            </p>
+          </div>
+          <div class="details">
+            <div class="description-container">
+                <div class="description-item">
+                  <%= image_tag "pitch.svg", width: 150, height: 150 %>
+                  <p>
+                    <strong>Pitches:</strong> Dive deep into the world of innovation with Genix's Explore Pitches. Here, users have the opportunity to discover cutting-edge project ideas from across the globe. Engage with these ideas by commenting, rating, and saving your favorites. Have an idea of your own? Share it and gather invaluable feedback from a community eager to support and nurture creativity.
+                  </p>
+              </div>
+              <hr>
+              <div class="description-item">
+                  <%= image_tag "project.svg", width: 150, height: 150 %>
+                  <p>
+                    <strong>Projects:</strong> Transition from ideation to execution with our Projects section. Browse through a diverse range of ongoing projects, connect with teams that align with your skillsets, or seek out individuals with expertise you need. Posting a project also lets you clearly state the skills you're looking for, ensuring that the right collaborators come your way.
+                  </p>
+              </div>
+              <hr>
+              <div class="description-item">
+                  <%= image_tag "connect.svg", width: 150, height: 150 %>
+                  <p>
+                    <strong>Connect:</strong> Genix's Connect is more than just a networking platform. It's a hub tailored for passionate developers and creators. Regardless of your programming language, skill level, or area of passion, Connect ensures you find individuals whose goals resonate with yours. Forge lifelong professional relationships and embark on collaborative journeys that redefine innovation.
+                  </p>
+              </div>
+              <hr>
+              <div class="description-item">
+                  <%= image_tag "about-us.svg", width: 150, height: 150 %>
+                  <p>
+                    <strong>About Us:</strong> At Genix, we believe in the power of collaboration and the boundless potential of the human mind. Our platform was conceived with the vision of bringing together creators from various walks of life to ideate, collaborate, and revolutionize the digital landscape. Learn more about our journey, our mission, and the values that fuel our ever-evolving platform.
+                  </p>
+              </div>
             </div>
-            <div class="description-item">
-                <img src="link_to_image" alt="Connect">
-                <p>Connect allows people to meet other like-minded programmers tailored to each language skill or passion.</p>
-            </div>
-            <div class="description-item">
-                <img src="link_to_image" alt="Chat">
-                <p>The chat is just a chat to connect with others.</p>
-            </div>
+          </div>
         </div>
     </div>
 </body>
