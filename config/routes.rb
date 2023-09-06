@@ -16,5 +16,5 @@ Rails.application.routes.draw do
 
   resources :members, only: %i[update]
   # Defines the root path route ("/")
-  get "aboutus", to: "projects#about", as: "aboutus"
+  get "aboutus", to: "pages#about", as: "aboutus"
 end
