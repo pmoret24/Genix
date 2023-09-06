@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema[7.0].define(version: 2023_09_06_145335) do
 ActiveRecord::Schema[7.0].define(version: 2023_09_06_143653) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +72,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_143653) do
     t.datetime "updated_at", null: false
     t.index ["friend_id"], name: "index_connections_on_friend_id"
     t.index ["user_id"], name: "index_connections_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "pitch_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pitch_id"], name: "index_favorites_on_pitch_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -141,6 +151,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_143653) do
   add_foreign_key "comments", "pitches"
   add_foreign_key "comments", "users"
   add_foreign_key "connections", "users"
+  add_foreign_key "favorites", "pitches"
+  add_foreign_key "favorites", "users"
   add_foreign_key "members", "projects"
   add_foreign_key "members", "users"
   add_foreign_key "messages", "chatrooms"
