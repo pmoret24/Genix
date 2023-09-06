@@ -19,7 +19,7 @@ class ConnectionsController < ApplicationController
   def destroy
     connection = Connection.find(params[:id])
     connection.destroy
-    redirect_to profiles_path
+    redirect_to profiles_path,notice: "Connection was successfully destroyed.", status: :see_other
   end
 
 end
