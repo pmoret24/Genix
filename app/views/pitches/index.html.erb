@@ -25,6 +25,12 @@
                 <div class="card-body">
                   <h2 class="card-title"><%= pitch.title %></h2>
                    <h5 class="card-title"><%= pitch.description %></h5>
+                    <% if pitch.photo.attached? %>
+                  <%= cl_image_tag pitch.photo.key, height: 200, width: 200, crop: :fill %>
+                <% else %>
+                  <%= image_tag "placeholder.webp", height: 200, width: 200, crop: :fill %>
+                <% end %>
+                <%= link_to "Show this pitch", pitch, class: 'btn btn-outline-success btn-sm center d-flex align-items-end m-2 justify-content-center' %>
                 </div>
               </div>
             <% end %>
