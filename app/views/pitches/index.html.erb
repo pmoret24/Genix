@@ -1,7 +1,6 @@
-
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-9">
+  <div class="row justify-content-end">
+    <div class="col-md-8">
       <p style="color: green"><%= notice %></p>
       <h1 class="text-center">Add your new pitch</h1>
       <div class="row justify-content-center">
@@ -16,6 +15,7 @@
           <% end %>
         </div>
       </div>
+
       <div id="pitches" class="row">
         <%= link_to "Add a new pitch", new_pitch_path, class: 'btn btn-outline-success btn-sm center d-flex align-items-end m-2 justify-content-center ' %>
         <% @pitches.each do |pitch| %>
