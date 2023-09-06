@@ -5,4 +5,11 @@ class Pitch < ApplicationRecord
 
   has_one_attached :photo
   validates :title, :languages, :category, :description, :source, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_pitches,
+    against: [ :title, :languages, :category],
+      using: {
+      tsearch: { prefix: true }
+      }
 end

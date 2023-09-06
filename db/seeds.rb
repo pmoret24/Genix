@@ -236,8 +236,6 @@ end
   pitch.save!
 
 end
-
-
 20.times do
 
   project = Project.new({

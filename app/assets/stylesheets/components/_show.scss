@@ -1,0 +1,52 @@
+body {
+  background-color: #f3f2ef;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.jumbotron {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0073b1;
+}
+
+.form-control {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.btn-success {
+  background-color: #8246EA;
+  color: #fff;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #600ca0;
+}
+
+.card {
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 20px;
+  color: #333;
+}
+
+.card-subtitle {
+  font-size: 16px;
+  color: #666;
+}
