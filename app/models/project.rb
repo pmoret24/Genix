@@ -15,4 +15,5 @@ class Project < ApplicationRecord
 
   validates :github, format: { with: URI::DEFAULT_PARSER.make_regexp(['http', 'https']), message: 'must be a valid URL' }
   validates :owner, presence: true
+  has_one_attached :photo
 end
