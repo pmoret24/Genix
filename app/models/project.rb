@@ -11,4 +11,12 @@ class Project < ApplicationRecord
 
   validates :github, format: { with: URI::DEFAULT_PARSER.make_regexp(['http', 'https']), message: 'must be a valid URL' }
   validates :owner, presence: true
+  has_one_attached :photo
+
+  include PgSearch::Model
+  pg_search_scope :search_projects,
+    against: [ :title, :languages, :category],
+      using: {
+      tsearch: { prefix: true }
+      }
 end

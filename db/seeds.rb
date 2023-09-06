@@ -7,6 +7,8 @@ require 'faker'
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 Pitch.destroy_all
+Project.destroy_all
+Chatroom.destroy_all
 User.destroy_all
 
 github = [
@@ -37,6 +39,60 @@ skills = [
 
 ]
 pitches = [
+  "NuvemCéuAzul",
+  "RobôsAmigos",
+  "AceleraInovação",
+  "SoluçõesVirtuais",
+  "VisãoFuturo",
+  "CodeWave",
+  "TechVanguarda",
+  "DataMágica",
+  "ConexãoDigital",
+  "InovaTech",
+  "PixelPerfeito",
+  "QuantumLeap",
+  "CyberGuardians",
+  "CidadeInteligente",
+  "BrainStormTech",
+  "CryptoPioneiros",
+  "NanoNet",
+  "VidaDigital",
+  "ProjetosEstelares",
+  "StudioInovação",
+  "FutureFusion",
+  "CodeCrafters",
+  "TechSapiens",
+  "DigitalDreamscape",
+  "DataDynamo",
+  "InfiniteInnovate",
+  "QuantumQuest",
+  "PixelPioneers",
+  "VortexVirtuoso",
+  "CyberNexa",
+  "SmartSync",
+  "InovaSphere",
+  "TechTrailblazers",
+  "NanotechNirvana",
+  "CosmoCode",
+  "IntelliSync",
+  "InovaçãoEclética",
+  "TechFoguete",
+  "BitBliss",
+  "HoloHarmonia",
+  "VidaVirtual",
+  "TechnoTranse",
+  "NovaOrdemDigital",
+  "ProjectProton",
+  "MindMatrix",
+  "FuturoFluxo",
+  "TechTesserato",
+  "Inovação360",
+  "CyberSólido",
+  "NexaNeural"
+]
+
+
+projects = [
   "NuvemCéuAzul",
   "RobôsAmigos",
   "AceleraInovação",
@@ -130,3 +186,16 @@ end
   puts "Criou o pitch #{pitch.title}"
 
 end
+20.times do
+
+  project = Project.new({
+    title: projects.sample,
+    languages: skills.sample(3).join(", " ),
+    category: Faker::Company.suffix,
+    description: Faker::Company.catch_phrase,
+    github: Faker::Internet.url
+  })
+    project.owner = users.sample
+    project.save!
+    puts "Criou o Project #{project.title}"
+    end
