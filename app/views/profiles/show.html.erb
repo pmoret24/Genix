@@ -6,5 +6,21 @@
     <p class="profile-info">Skills: <%= @user.skills %></p>
     <p class="profile-info">Github: <%= @user.github %></p>
   </div>
+  <% if current_user == @user %>
+    <div class="request-details">
+      <% @connections_current_user.each do |connection| %>
+        <% if connection.status == false %>
+          <p> Pending connections requests: </p>
+          <%= link_to "Approve?", connection_path(connection), data: {turbo_method: :patch} %>
+        <% else %>
+          <p>Friends:
+            <%= link_to  connection.friend.first_name, profile_path(connection), class:"d-flex" %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  <% elsif (current_user != @user && @connection_two.first.status == true)  %>
+    <%= link_to "Delete Connection?", connection_path(@connection_two), data: {turbo_method: :delete} %>
+  <%end%>
     <%= link_to "Back to users", profiles_path %>
 </div>
