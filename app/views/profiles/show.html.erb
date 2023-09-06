@@ -10,7 +10,7 @@
     <div class="request-details">
       <p> Pending connections requests: </p>
       <% @pending_connections.each do |connection| %>
-          <p><%= connection.other_person(current_user).first_name%> <%= connection.other_person(current_user).last_name %> <%= link_to "Approve!", connection_path(connection), data: {turbo_method: :patch} %> </p>
+          <p> <%= connection.other_person(current_user).first_name%> <%= connection.other_person(current_user).last_name %> <%= link_to "Approve!", connection_path(connection), data: {turbo_method: :patch} %> </p>
       <% end  %>
       <p>Friends:</p>
       <% @approved_connections.each do |connection| %>
