@@ -63,6 +63,6 @@ class PitchesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def pitch_params
-    params.require(:pitch).permit(:title, :languages, :category, :description, :source)
+    params.require(:pitch).permit(:title, :languages, :category, :description, :source, :photo)
   end
 end
