@@ -8,22 +8,18 @@
   </div>
   <% if current_user == @user %>
     <div class="request-details">
-      <% @connections_current_user.each do |connection| %>
-        <% if connection.status == false %>
-          <p> Pending connections requests: </p>
-          <%= link_to "Approve?", connection_path(connection), data: {turbo_method: :patch} %>
-        <% else %>
-          <p>Friends:
-            <%= link_to  connection.friend.first_name, profile_path(connection), class:"d-flex" %>
-          </p>
-        <% end %>
+      <p> Pending connections requests: </p>
+      <% @pending_connections.each do |connection| %>
+          <p><%= connection.other_person(current_user).first_name%> <%= connection.other_person(current_user).last_name %> <%= link_to "Approve!", connection_path(connection), data: {turbo_method: :patch} %> </p>
+      <% end  %>
+      <p>Friends:</p>
+      <% @approved_connections.each do |connection| %>
+            <%= link_to  connection.other_person(current_user).first_name, profile_path(connection.other_person(current_user)), class:"d-flex" %>
       <% end %>
     </div>
   <% else (current_user != @user)  %>
-    <% if @connection_two.status == nil %>
-    <% elsif  @connection_two.status == true %>
+    <% if  @connection_two %>
       <%= link_to "Delete Connection?", connection_path(@connection_two), data: {turbo_method: :delete} %>
-    <% else %>
     <%end%>
   <% end %>
 

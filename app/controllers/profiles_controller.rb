@@ -2,8 +2,13 @@ class ProfilesController < ApplicationController
   before_action :set_user, only: %i[show]
   def show
     @connection = Connection.new
-    @connections_current_user = Connection.where(user: current_user) # array of connections which users are the current user
-    @connection_two = Connection.where(user: current_user, friend: @user).first # ta pegando o primeiro active record de conexoes entre esses dois usuarios
+
+    @pending_connections = Connection.where(status: false).where(friend: current_user)
+    @approved_connections = Connection.where(status: true).where(user: current_user).or(Connection.where(friend_id: current_user))
+    @connection_two = Connection.where(
+      '(user_id = ? AND friend_id = ?) OR (user_id = ? AND friend_id = ?)',
+      current_user.id, @user.id, @user.id, current_user.id
+    ).where(status: true).first
   end
 
   def index
