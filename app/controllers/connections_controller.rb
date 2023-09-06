@@ -1,5 +1,4 @@
 class ConnectionsController < ApplicationController
-  before_action :set_connection, only: :destroy
 
   def create
     friend = User.find(params[:friend_id]) # passou a id do usuario ao qual o usuario logado quer ser amigo
@@ -19,7 +18,6 @@ class ConnectionsController < ApplicationController
   def destroy
     connection = Connection.find(params[:id])
     connection.destroy
-    redirect_to profiles_path,notice: "Connection was successfully destroyed.", status: :see_other
+    redirect_to profiles_path, notice: "Connection was successfully destroyed.", status: :see_other
   end
-
 end
