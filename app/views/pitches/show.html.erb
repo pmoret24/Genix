@@ -16,21 +16,39 @@
         <%= simple_form_for [@pitch, @comment]  do |f| %>
           <%= f.input :content  %>
           <%= f.input :rating %>
-          <%= f.submit "Create your pitch.comments ", class: "btn btn-primary"  %>
+          <%= f.submit "Create your comments ", class: "btn btn-primary m-4"  %>
         <% end %>
       </div>
     </div>
-    <div id="comments" class="row">
+    <div id="comments" class="row m-4">
       <% @pitch.comments.each do |comment| %>
-        <div class="col-md-4 mb-4">
+        <div class="col-md-12 mb-0">
           <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
             <div class="card-body">
+               <%= cl_image_tag current_user.photo.key, alt: "1 ", class: "carousel-img" %>
               <h2 class="card-title"><%= comment.content %></h2>
-              <h5 class="card-title"><%= comment.rating %></h5>
+              <h5 class="card-title"><%= comment.rating %>/5</h5>
             </div>
           </div>
         </div>
       <% end %>
     </div>
+  </div>
+
+  <%= simple_form_for [@pitch, @favorite]  do |f| %>
+    <%= f.submit "Do you like it ?", class: "btn btn-primary m-4"  %>
+  <% end %>
+
+  <div id="comments" class="row m-3">
+    <% @pitch.favorites.each do |favorite| %>
+      <div class="col-md-6 mb-6">
+        <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
+            <%= cl_image_tag current_user.photo.key, alt: "1 ", class: "carousel-img" %>
+          <div class="card-body">
+            <h2 class="card-title"><%= favorite.user.first_name %> <%= favorite.user.last_name %></h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

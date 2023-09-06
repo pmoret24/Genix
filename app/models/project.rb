@@ -1,16 +1,22 @@
 class Project < ApplicationRecord
   belongs_to :owner, class_name: 'User', foreign_key: "owner_id"
+  has_many :members, dependent: :destroy
+  has_one_attached :photo
 
-  # Presence validations
-  validates :title, :description, :category, :languages, :links, presence: true
+  validates :title, :description, :category, :languages, :github, presence: true
 
-  validates :title, length: { in: 5..100 } # Titles usually aren't very long
-  validates :description, length: { in: 10..1000 } # Adjust max length as you see fit
-  validates :category, length: { maximum: 50 } # Assuming a single-word or short phrase for category
-  validates :languages, length: { maximum: 255 } # Adjust if you expect a long list of languages
-  validates :github
+  validates :description, length: { in: 10..1000 }
+  validates :category, length: { maximum: 50 }
+  validates :languages, length: { maximum: 350 }
 
   validates :github, format: { with: URI::DEFAULT_PARSER.make_regexp(['http', 'https']), message: 'must be a valid URL' }
-
   validates :owner, presence: true
+  has_one_attached :photo
+
+  include PgSearch::Model
+  pg_search_scope :search_projects,
+    against: [ :title, :languages, :category],
+      using: {
+      tsearch: { prefix: true }
+      }
 end

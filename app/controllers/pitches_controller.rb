@@ -12,6 +12,7 @@ class PitchesController < ApplicationController
     @pitches_users = Pitch.where(pitch_id: @pitch.id)
     @pitches_count = Pitch.where(user_id: current_user.id, id: @pitch.id).count
     @comment = Comment.new
+    @favorite = Favorite.new
     # @pitches_approved = Pitch.where(status: true, id: @pitch.id).count
   end
 
@@ -62,6 +63,6 @@ class PitchesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def pitch_params
-    params.require(:pitch).permit(:title, :languages, :category, :description, :source)
+    params.require(:pitch).permit(:title, :languages, :category, :description, :source, :photo)
   end
 end

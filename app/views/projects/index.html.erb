@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-9">
+      <p style="color: green"><%= notice %></p>
+      <h1 class="text-center">View Projects</h1>
+      <div class="row justify-content-center">
+        <div class="col-sm-8 my-3">
+          <%= form_with url: projects_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control",
+                  placeholder: "e.g Ruby, Frontend"
+              %>
+            <%= submit_tag "Search", name: "", class: "btn btn-success m-1" %>
+          <% end %>
+        </div>
+      </div>
+      <div id="projects" class="row">
+        <%= link_to "Post a new project", new_project_path, class: 'btn btn-outline-success btn-sm center d-flex align-items-end m-2 justify-content-center ' %>
+        <% @projects.each do |project| %>
+          <div class="col-md-4 mb-4">
+            <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
+              <div class="card-body">
+                <h5 class="card-title"><%= project.title %></h5>
+                <% if project.photo.attached? %>
+                  <%= cl_image_tag project.photo.key, height: 200, width: 200, crop: :fill %>
+                <% else %>
+                  <%= image_tag "placeholder.webp", height: 200, width: 200, crop: :fill %>
+                <% end %>
+                <%= link_to "Show this project", project, class: 'btn btn-outline-success btn-sm center d-flex align-items-end m-2 justify-content-center' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

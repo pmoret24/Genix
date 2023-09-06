@@ -1,0 +1,32 @@
+<div>
+  <H2>
+   <%= project.title %>
+  </H2>
+
+  <% if project.photo.attached? %>
+      <%= cl_image_tag project.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <%= image_tag "placeholder.webp" %>
+  <% end %>
+
+  <p>
+    <strong>Programming Languages:</strong>
+    <%= project.languages %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= project.description %>
+  </p>
+
+    <p>
+    <strong>Category:</strong>
+    <%= project.category %>
+  </p>
+
+    <p>
+    <strong>Github Link:</strong>
+    <%= project.github %>
+  </p>
+
+  </div>
