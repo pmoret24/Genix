@@ -1,11 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :owner, class_name: 'User', foreign_key: "owner_id"
   has_many :members, dependent: :destroy
-<<<<<<< Updated upstream
-=======
   has_one_attached :photo
-
->>>>>>> Stashed changes
 
   validates :title, :description, :category, :languages, :github, presence: true
 
@@ -15,5 +11,4 @@ class Project < ApplicationRecord
 
   validates :github, format: { with: URI::DEFAULT_PARSER.make_regexp(['http', 'https']), message: 'must be a valid URL' }
   validates :owner, presence: true
-  has_one_attached :photo
 end
