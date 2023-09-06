@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :owner, class_name: 'User', foreign_key: "owner_id"
   has_many :members, dependent: :destroy
+  has_one_attatched :image
 
   validates :title, :description, :category, :languages, :github, presence: true
 
