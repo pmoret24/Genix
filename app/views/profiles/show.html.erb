@@ -8,11 +8,16 @@
   </div>
   <% if current_user == @user %>
     <div class="request-details">
-      <p> Pending connections requests: </p>
+      <% if @pending_connections.each.count >= 1  %>
+        <p> Pending connections requests: </p>
+      <% end %>
       <% @pending_connections.each do |connection| %>
           <p> <%= connection.other_person(current_user).first_name%> <%= connection.other_person(current_user).last_name %> <%= link_to "Approve!", connection_path(connection), data: {turbo_method: :patch} %> </p>
       <% end  %>
-      <p>Friends:</p>
+
+      <% if @approved_connections.each.count >= 1  %>
+        <p> Friends: </p>
+      <% end %>
       <% @approved_connections.each do |connection| %>
             <%= link_to  connection.other_person(current_user).first_name, profile_path(connection.other_person(current_user)), class:"d-flex" %>
       <% end %>
