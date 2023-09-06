@@ -22,6 +22,11 @@
             <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
               <div class="card-body">
                 <h5 class="card-title"><%= project.title %></h5>
+                <% if project.photo.attached? %>
+                  <%= cl_image_tag project.photo.key, height: 200, width: 200, crop: :fill %>
+                <% else %>
+                  <%= image_tag "placeholder.webp", height: 200, width: 200, crop: :fill %>
+                <% end %>
                 <%= link_to "Show this project", project, class: 'btn btn-outline-success btn-sm center d-flex align-items-end m-2 justify-content-center' %>
               </div>
             </div>
