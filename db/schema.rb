@@ -111,6 +111,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_145335) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status", default: false
     t.index ["user_id"], name: "index_pitches_on_user_id"
   end
 

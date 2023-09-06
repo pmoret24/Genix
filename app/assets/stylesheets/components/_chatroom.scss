@@ -1,11 +1,14 @@
 .chatroom {
-  background: white;
-  margin-top: 9px;
+  background: #f0f0f0;
   height: calc(100vh - 75px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
 
   h1 {
     border-bottom: 1px solid $gray-200;
@@ -15,8 +18,8 @@
 
   .messages {
     height: 100%;
-    overflow: scroll;
     padding: 1rem;
+    overflow-y: scroll;
   }
 
   #new_message {
@@ -26,5 +29,41 @@
     .form-group {
       margin-bottom: 0;
     }
+  }
+
+  .flex-grow-1 {
+    flex-grow: 1;
+  }
+
+  .btn-messages {
+    background-color: #8246EA;
+    color: #fff;
+    border-radius: 5px;
+    margin-left: 4px;
+
+    &:hover {
+      background-color: rgb(98, 0, 210);
+    }
+  }
+
+  .message {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    max-width: 70%;
+  }
+
+  .current-user {
+    background-color: #007bff;
+    color: #fff;
+    float: right;
+    clear: both;
+  }
+
+  .other-user {
+    background-color: #20c300;
+    color: #ffffff;
+    float: left;
+    clear: both;
   }
 }
