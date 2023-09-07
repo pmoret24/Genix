@@ -1,5 +1,11 @@
+<div class="container chat-index-container">
 <% @chatrooms.each do |chat| %>
   <%= link_to chatroom_path(chat) do %>
-    <%= chat.sender.first_name %>
+    <% if current_user == chat.sender %>
+      <%= chat.receiver.first_name %>
+    <% else %>
+      <%= chat.sender.first_name %>
+    <% end %>
   <% end %>
 <% end %>
+</div>
