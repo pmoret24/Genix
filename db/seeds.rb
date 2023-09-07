@@ -11,8 +11,6 @@ Project.destroy_all
 Chatroom.destroy_all
 User.destroy_all
 
-
-
 user_pics = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHDRlp-KGr_M94k_oor4Odjn2UzbAS7n1YoA&usqp=CAU",
              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLDk_pGSeCU1lVzSpFsq2KZrFFgtBnVIUZ5i9HGLI1tx3h85nGsF7tTiEg1vf1Ygf3SPs&usqp=CAU",
              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRROt7YUKa7excpJt4CR59ZwHzhWDfV1mr0eQ&usqp=CAU",
@@ -70,15 +68,15 @@ github = [
 ]
 
 skills = [
-'Ruby',
-'Python',
-'C++',
-'Java',
-'JavaScript',
-'Flutter',
-'Rust',
-'COOBOL',
-'C'
+  'Ruby',
+  'Python',
+  'C++',
+  'Java',
+  'JavaScript',
+  'Flutter',
+  'Rust',
+  'COOBOL',
+  'C'
 
 ]
 pitches = [
@@ -133,7 +131,6 @@ pitches = [
   "CyberSólido",
   "NexaNeural"
 ]
-
 
 projects = [
   "NuvemCéuAzul",
@@ -231,7 +228,7 @@ end
   pet = Pet.new(pet_data)
   file = URI.open(pet_pics.shuffle!.pop)
   random_user = user_data.sample
-  pitch.user = random_seller
+  pitch.user = random_user
   pitch.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
   pitch.save!
 
