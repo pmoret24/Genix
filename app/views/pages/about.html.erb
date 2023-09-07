@@ -1,106 +1,178 @@
-<div class="container">
-  <!-- Text Section -->
-  <div class="text-main">
-    <h2 class="text-center">Empowering Our Community for Growth and Collaboration <i class="fa-solid fa-heart"></i></h2>
-    <p>Genix is a thriving web community dedicated to supporting all its members in various ways, including obtaining valuable community feedback on user pitches, collaborating on real projects, and fostering connections among like-minded individuals.</p>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genix</title>
+    <!-- Add your CSS stylesheet link here -->
+    <link rel="stylesheet" href="your-stylesheet.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="container home-container">
+            <div class="left-content">
+                <h1 class="title">Genix</h1>
+                <p class="slogan">
+                    Where Every Great Idea Begins
+                </p>
+                <div class="home-button">
+                    <%= link_to "Explore Pitches", pitches_path, class: "main-btn" %>
+                </div>
+            </div>
+            <div class="right-content">
+                <div class="lighthouse">
+                    <%= image_tag "lighthouse.svg", width: 450, height: 450 %>
+                </div>
+            </div>
+        </div>
 
-  <div class="text mt-3 about-us">
-    <div class="d-flex">
-      <div>
-         <p>Our journey at Genix is about transformation. It's about understanding each other's experiences, building trust, and forging connections that stand the test of time. Every member of our community has a unique story, and by joining Genix, you become an integral part of our collective journey filled with hope, warmth, and collaboration.</p>
-        <p>It's a journey filled with rewards for everyone involved. This choice goes beyond just gaining a network of collaborators; it's a deep, emotional commitment with countless benefits.</p>
-
-        <p>Being part of Genix offers a new perspective, especially for those who have faced challenges in their projects. It not only provides fresh opportunities but also encourages innovation and creative thinking. Being part of our community can alleviate stress and isolation, enhancing personal and professional well-being. Our genuine connections bring immeasurable joy and moments of growth.</p>
-      </div>
+        <div class="bottom">
+            <div class="index">
+                <div class="container">
+                    <h1 class="index-title">
+                        <%= image_tag "logo-genix.svg", width: 65, height: 65 %>
+                        Genix
+                    </h1>
+                    <p class="index-intro">
+                        Welcome to Genix - the innovative social hub for passionate creators and dreamers. Dive into a sea of groundbreaking project ideas, offer your invaluable insights, and forge meaningful connections with like-minded individuals. Whether you're seeking inspiration, feedback, or collaboration, Genix brings your visions closer to reality. Turn ideas into action, and dreams into projects. Join the Genix community today.
+                    </p>
+                    <ul class="index-elements">
+                        <li>Pitches</li>
+                        <li>Projects</li>
+                        <li>Connect</li>
+                        <li>About Us</li>
+                    </ul>
+                </div>
+                <p class="card-text">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <i class="fa-brands fa-github"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                </p>
+            </div>
+            <div class="details">
+                <div class="description-container">
+                    <div class="description-item">
+                        <%= image_tag "pitch.svg", width: 150, height: 150 %>
+                        <p>
+                            <strong>Pitches:</strong> Dive deep into the world of innovation with Genix's Explore Pitches. Here, users have the opportunity to discover cutting-edge project ideas from across the globe. Engage with these ideas by commenting, rating, and saving your favorites. Have an idea of your own? Share it and gather invaluable feedback from a community eager to support and nurture creativity.
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="description-item">
+                        <%= image_tag "project.svg", width: 150, height: 150 %>
+                        <p>
+                            <strong>Projects:</strong> Transition from ideation to execution with our Projects section. Browse through a diverse range of ongoing projects, connect with teams that align with your skillsets, or seek out individuals with expertise you need. Posting a project also lets you clearly state the skills you're looking for, ensuring that the right collaborators come your way.
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="description-item">
+                        <%= image_tag "connect.svg", width: 150, height: 150 %>
+                        <p>
+                            <strong>Connect:</strong> Genix's Connect is more than just a networking platform. It's a hub tailored for passionate developers and creators. Regardless of your programming language, skill level, or area of passion, Connect ensures you find individuals whose goals resonate with yours. Forge lifelong professional relationships and embark on collaborative journeys that redefine innovation.
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="description-item">
+                        <%= image_tag "about-us.svg", width: 150, height: 150 %>
+                        <p>
+                            <strong>About Us:</strong> At Genix, we believe in the power of collaboration and the boundless potential of the human mind. Our platform was conceived with the vision of bringing together creators from various walks of life to ideate, collaborate, and revolutionize the digital landscape. Learn more about our journey, our mission, and the values that fuel our ever-evolving platform.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-      <p>However, being part of Genix also entails significant responsibilities, like active participation, constructive feedback, and consistent collaboration. It's a decision that demands commitment and dedication, ensuring a fulfilling experience for every member. In essence, Genix is a place of growth, collaboration, and responsibility, transforming lives and strengthening our community's collective knowledge. So, if you're considering joining our community, think about the potential for growth and connection.</p>
 
-      <p>Driven by our profound belief in the power of community and recognizing the challenges many face, we founded Genix. Our platform is designed for individuals and teams to not only share their ideas but also find collaborators, ensuring they can turn their visions into reality. Our mission with Genix is to bridge the gap between aspiring creators and experienced professionals. We envision a community where every member has the resources and connections they need to succeed. Through Genix, we aim to change the way web communities work, making it a place for growth and innovation. We invite you to be a part of this exciting journey with Genix, where your ideas can come to life.</p>
-  </div>
+    <div class="container about-container">
+        <!-- Text Section -->
+        <div class="text-main">
+            <h2 class="text-center">Empowering Our Community for Growth and Collaboration <i class="fa-solid fa-heart"></i></h2>
+            <p>Genix is a thriving web community dedicated to supporting all its members in various ways, including obtaining valuable community feedback on user pitches, collaborating on real projects, and fostering connections among like-minded individuals.</p>
+        </div>
 
+        <div class="text mt-3 about-us">
+            <div class="d-flex">
+                <div>
+                    <p>Our journey at Genix is about transformation. It's about understanding each other's experiences, building trust, and forging connections that stand the test of time. Every member of our community has a unique story, and by joining Genix, you become an integral part of our collective journey filled with hope, warmth, and collaboration.</p>
+                    <p>It's a journey filled with rewards for everyone involved. This choice goes beyond just gaining a network of collaborators; it's a deep, emotional commitment with countless benefits.</p>
 
+                    <p>Being part of Genix offers a new perspective, especially for those who have faced challenges in their projects. It not only provides fresh opportunities but also encourages innovation and creative thinking. Being part of our community can alleviate stress and isolation, enhancing personal and professional well-being. Our genuine connections bring immeasurable joy and moments of growth.</p>
+                </div>
+            </div>
+            <p>However, being part of Genix also entails significant responsibilities, like active participation, constructive feedback, and consistent collaboration. It's a decision that demands commitment and dedication, ensuring a fulfilling experience for every member. In essence, Genix is a place of growth, collaboration, and responsibility, transforming lives and strengthening our community's collective knowledge. So, if you're considering joining our community, think about the potential for growth and connection.</p>
 
-    <h4 class=" color-green text-center my-5"> <i class="fa-solid fa-code"></i> Our Development Team </h4>
-  <!-- Programmers' Pictures Section -->
-  <div class="programmers-pictures text-center">
+            <p>Driven by our profound belief in the power of community and recognizing the challenges many face, we founded Genix. Our platform is designed for individuals and teams to not only share their ideas but also find collaborators, ensuring they can turn their visions into reality. Our mission with Genix is to bridge the gap between aspiring creators and experienced professionals. We envision a community where every member has the resources and connections they need to succeed. Through Genix, we aim to change the way web communities work, making it a place for growth and innovation. We invite you to be a part of this exciting journey with Genix, where your ideas can come to life.</p>
+        </div>
 
-    <div class="card" style="width: 18rem;">
-      <%= image_tag "Will.jpg", class: "card-img-top" %>
-      <div class="card-body">
-        <h5>William</h5>
-          <p class="card-text">
+        <h4 class="color-green text-center my-5"> <i class="fa-solid fa-code"></i> Our Development Team </h4>
+        <!-- Programmers' Pictures Section -->
+        <div class="programmers-pictures text-center">
+            <div class="card" style="width: 18rem;">
+                <%= image_tag "Will.jpg", class: "card-img-top" %>
+                <div class="card-body">
+                    <h5>William</h5>
+                    <p class="card-text">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <i class="fa-brands fa-github"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                    </p>
+                </div>
+            </div>
 
-            <i class="fa-brands fa-linkedin"></i>
+            <div class="card" style="width: 18rem;">
+                <%= image_tag "Filipe.jpg", class: "card-img-top" %>
+                <div class="card-body">
+                    <h5>Filipe</h5>
+                    <p class="card-text">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <i class="fa-brands fa-github"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                    </p>
+                </div>
+            </div>
 
-            <i class="fa-brands fa-github"></i>
+            <div class="card" style="width: 18rem;">
+                <%= image_tag "Pedro.jpg", class: "card-img-top" %>
+                <div class="card-body">
+                    <h5>Pedro</h5>
+                    <p class="card-text">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <i class="fa-brands fa-github"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                    </p>
+                </div>
+            </div>
 
-            <i class="fa-brands fa-instagram"></i>
+            <div class="card" style="width: 18rem;">
+                <%= image_tag "Luis.jpg", class: "card-img-top" %>
+                <div class="card-body">
+                    <h5>Luis</h5>
+                    <p class="card-text">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <i class="fa-brands fa-github"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class='team'>
+            <p>In the bustling metropolis of São Paulo, where the rhythm of life reverberates with vibrant energy, we, a group of four individuals, converged on a shared path, setting the foundation for what would become a formidable development team. The setting? LeWagon Bootcamp, a renowned programming bootcamp known for nurturing some of the brightest minds in tech.</p>
 
-          </p>
-      </div>
+            <p>Our journey began as participants in this bootcamp. As the days progressed, the synergy between us grew evident. Will and Filipe, with their sharp instincts for frontend development, showcased their prowess in creating interfaces that were not only functional but visually captivating. On the other hand, Luis and Pedro, with their backend expertise, ensured that databases were meticulously designed, servers efficiently set up, and data flowed seamlessly, forming the backbone of our projects.</p>
+
+            <p>Our collaboration transcended the confines of the bootcamp. Driven by a shared vision, we embarked on our next big venture: Genix. Envisioned as a social platform for programmers, Genix is more than just another website. It represents a community, a nexus for sharing, learning, and evolving in the tech realm.</p>
+
+            <p>We are buoyant about the future of Genix and hope that our initiative will resonate with fellow developers. With each of our unique strengths and a shared purpose, we are confident that Genix has all the makings of the next big name in the programming world. And as we often emphasize, "It's not just about the code, it's about the community." Through Genix, we aspire to cultivate a sense of belonging and champion the spirit of collective learning.</p>
+        </div>
     </div>
 
-     <div class="card" style="width: 18rem;">
-      <%= image_tag "Filipe.jpg", class: "card-img-top" %>
-      <div class="card-body">
-        <h5>Filipe</h5>
-        <p class="card-text">
-          <i class="fa-brands fa-linkedin"></i>
+    <!-- Group Picture Section -->
+    <div class="group-picture mt-5 text-center">
+        <h4>Group Snapshot</h4>
 
-          <i class="fa-brands fa-github"></i>
-
-          <i class="fa-brands fa-instagram"></i>
-
-        </p>
-      </div>
+        <div class="mt-3">
+            <%= image_tag "Group.jpg", alt: "Developer Group", class: "img-fluid group-img" %>
+        </div>
     </div>
-
-    <div class="card" style="width: 18rem;">
-      <%= image_tag "Pedro.jpg", class: "card-img-top" %>
-      <div class="card-body">
-        <h5>Pedro</h5>
-        <p class="card-text">
-
-          <i class="fa-brands fa-linkedin"></i>
-          <i class="fa-brands fa-github"></i>
-          <i class="fa-brands fa-instagram"></i>
-        </p>
-      </div>
-    </div>
-
-    <div class="card" style="width: 18rem;">
-      <%= image_tag "Luis.jpg", class: "card-img-top" %>
-      <div class="card-body">
-        <h5>Luis</h5>
-        <p class="card-text">
-
-          <i class="fa-brands fa-linkedin"></i>
-          <i class="fa-brands fa-github"></i>
-          <i class="fa-brands fa-instagram"></i>
-        </p>
-      </div>
-    </div>
-
-
-    </div>
-    <div class='team'>
-      <p>In the bustling metropolis of São Paulo, where the rhythm of life reverberates with vibrant energy, we, a group of four individuals, converged on a shared path, setting the foundation for what would become a formidable development team. The setting? LeWagon Bootcamp, a renowned programming bootcamp known for nurturing some of the brightest minds in tech.</p>
-
-      <p>Our journey began as participants in this bootcamp. As the days progressed, the synergy between us grew evident. Will and Filipe, with their sharp instincts for frontend development, showcased their prowess in creating interfaces that were not only functional but visually captivating. On the other hand, Luis and Pedro, with their backend expertise, ensured that databases were meticulously designed, servers efficiently set up, and data flowed seamlessly, forming the backbone of our projects.</p>
-
-      <p>Our collaboration transcended the confines of the bootcamp. Driven by a shared vision, we embarked on our next big venture: Genix. Envisioned as a social platform for programmers, Genix is more than just another website. It represents a community, a nexus for sharing, learning, and evolving in the tech realm.</p>
-
-      <p>We are buoyant about the future of Genix and hope that our initiative will resonate with fellow developers. With each of our unique strengths and a shared purpose, we are confident that Genix has all the makings of the next big name in the programming world. And as we often emphasize, "It's not just about the code, it's about the community." Through Genix, we aspire to cultivate a sense of belonging and champion the spirit of collective learning.</p>
-    </div>
-  </div>
-
-  <!-- Group Picture Section -->
-  <div class="group-picture mt-5 text-center">
-    <h4>Group Snapshot</h4>
-
-    <div class="mt-3">
-      <%= image_tag "Group.jpg", alt: "Developer Group", class: "img-fluid group-img" %>
-    </div>
-  </div>
-</div>
+</body>
+</html>
