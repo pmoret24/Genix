@@ -1,31 +1,26 @@
-<div class="container">
+<div class="container proj-container">
   <div class="row justify-content-center">
-  <div class="col-md-4">
-      <div class="sidebar border rounded">
-      <div class="sidebar">
-        <ul class="list-group">
-          <li class="list-group-item">
-            <%= link_to "My profile", root_path %>
-          </li>
-          <li class="list-group-item">
-            <%= link_to "Item 2 Link", projects_path %>
-          </li>
-          <li class="list-group-item">
-            <%= link_to "Item 3 Link", root_path %>
-          </li>
-          <li class="list-group-item">
-            <%= link_to "Item 4 Link", root_path %>
-        </ul>
-      </div>
-        <div class="row justify-content-center">
-          <div class="col-sm-8 my-3">
-            <%= link_to "Add a new pitch", new_pitch_path, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center '%>
-
-          </div>
+    <div class="col-md-2">
+      <div class="sidebar border rounded bar">
+        <div class="sidebar">
+          <ul class="list-group">
+            <li class="list-group-item"><%= link_to "Home", root_path %></li>
+            <li class="list-group-item"><%= link_to "Pitches", pitches_path %></li>
+            <li class="list-group-item"><%= link_to "Connect", profiles_path %></li>
+            <li class="list-group-item"><%= link_to "About us", aboutus_path %>
+          </ul>
         </div>
+          <div class="row justify-content-center">
+            <div class="col-sm-8 my-3">
+              <%= link_to "Post a Project", new_project_path, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center '%>
+           </div>
+          </div>
+      </div>
+      <div class="img-proj">
+        <%= image_tag "lighthouse.svg", width: 50, height: 50%>
       </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-10">
       <p style="color: green"><%= notice %></p>
       <h1 class="text-center">View Projects</h1>
       <div class="row justify-content-center">
@@ -40,22 +35,23 @@
           <% end %>
         </div>
       </div>
-      <div id="projects" class="row">
-        <%= link_to "Post a new project", new_project_path, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center ' %>
+      <div id="projects">
         <% @projects.each do |project| %>
-          <div class="col-md-4 mb-4">
+          <div class="mb-4">
             <%= link_to project_path(project) do  %>
-              <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
-                <div class="card-body">
-                  <h2 class="card-title"><%= project.title %></h2>
-                  <h5 class="card-title"><%= project.description %></h5>
+              <div class="card whole-card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
+                <div class="card-proj">
                   <% if project.photo.attached? %>
-                    <%= cl_image_tag project.photo.key, height: 200, width: 200, crop: :fill %>
+                    <%= cl_image_tag project.photo.key, height: 70, width: 70, crop: :fill %>
                   <% else %>
-                    <%= image_tag "placeholder.webp", height: 200, width: 200, crop: :fill %>
+                    <%= image_tag "placeholder.webp", height: 70, width: 80, crop: :fill %>
                   <% end %>
-                  <%= link_to "Show this project", project, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center' %>
+                  <div class="card-content-proj">
+                    <h2 class="card-title-proj w-100"><%= project.title %></h2>
+                    <h2 class="card-category-proj w-100"><%= project.category %></h2>
+                  </div>
                 </div>
+                <%= link_to "Show this project", project, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center' %>
               </div>
             <% end %>
           </div>
