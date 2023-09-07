@@ -29,4 +29,5 @@
   <% end %>
 
   <%= link_to "Back to users", profiles_path %>
+  <%= link_to "Start a new chat", chatrooms_path(receiver: @user), data: {turbo_method: :post} %>
 </div>
