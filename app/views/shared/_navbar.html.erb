@@ -9,7 +9,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mx-auto justify-content-center"> 
+      <ul class="navbar-nav mx-auto justify-content-center">
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%=  link_to "Home", root_path, class: "nav-link" %>
@@ -17,8 +17,8 @@
           <li class="nav-item">
             <%= link_to "Pitches", pitches_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Connect", pitches_path, class: "nav-link" %>
+          <li class="nav-item-a">
+            <%= link_to "Connect", profiles_path, class: "nav-link" %>
           </li>
           <li class="nav-item-a">
             <%= link_to "Projects", projects_path, class: "nav-link" %>
@@ -33,7 +33,7 @@
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", "#", class: "dropdown-item" %>
+              <%= link_to "Profile", profile_path(current_user), class: "dropdown-item" %>
               <%= link_to "Message", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>

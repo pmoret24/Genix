@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :connections, only: [:destroy, :create, :update]
+
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :pitches, only: [:index, :new, :show, :create, :edit, :update, :destroy] do
@@ -16,5 +18,10 @@ Rails.application.routes.draw do
 
   resources :members, only: %i[update]
   # Defines the root path route ("/")
+
+  get "users/:id", to: "profiles#show", as: "profile"
+  get "users", to: "profiles#index", as: "profiles"
+
+
   get "aboutus", to: "pages#about", as: "aboutus"
 end

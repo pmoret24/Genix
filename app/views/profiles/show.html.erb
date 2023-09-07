@@ -1,0 +1,32 @@
+<div class="container">
+
+  <h1 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h1>
+  <div class="profile-details">
+    <p class="profile-info">Description: <%= @user.description %></p>
+    <p class="profile-info">Skills: <%= @user.skills %></p>
+    <p class="profile-info">Github: <%= @user.github %></p>
+  </div>
+  <% if current_user == @user %>
+    <div class="request-details">
+      <% if @pending_connections.each.count >= 1  %>
+        <p> Pending connections requests: </p>
+      <% end %>
+      <% @pending_connections.each do |connection| %>
+          <p> <%= connection.other_person(current_user).first_name%> <%= connection.other_person(current_user).last_name %> <%= link_to "Approve!", connection_path(connection), data: {turbo_method: :patch} %> </p>
+      <% end  %>
+
+      <% if @approved_connections.each.count >= 1  %>
+        <p> Friends: </p>
+      <% end %>
+      <% @approved_connections.each do |connection| %>
+            <%= link_to  connection.other_person(current_user).first_name, profile_path(connection.other_person(current_user)), class:"d-flex" %>
+      <% end %>
+    </div>
+  <% else (current_user != @user)  %>
+    <% if  @connection_two %>
+      <%= link_to "Delete Connection?", connection_path(@connection_two), data: {turbo_method: :delete} %>
+    <%end%>
+  <% end %>
+
+  <%= link_to "Back to users", profiles_path %>
+</div>
