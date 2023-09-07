@@ -23,19 +23,21 @@
       </div>
       </div>
     </div>
-    <% if @project.owner == current_user %>
-    <div class="requests">
-      <p>Member Request(s):</p>
-        <% @members_users.each do |member| %>
-          <li>
-            <%= link_to member.user.first_name, root_path(member.user), class: "btn btn-outline-dark" %>
-            <% if member.status %>
-              <p>Your membership is approved!</p>
-            <% else %>
-              <%= link_to "Approve?", member_path(member), data: {turbo_method: :patch}, class: "btn btn-outline-success btn-sm center m-3" %>
-            <% end %>
-          </li>
+    <div class="container member-container">
+      <% if @project.owner == current_user %>
+      <div class="requests">
+        <p>Member Request(s):</p>
+          <% @members_users.each do |member| %>
+            <li>
+              <%= link_to member.user.first_name, root_path(member.user), class: "btn btn-outline-dark" %>
+              <% if member.status %>
+                <p>Your membership is approved!</p>
+              <% else %>
+                <%= link_to "Approve?", member_path(member), data: {turbo_method: :patch}, class: "btn btn-outline-success btn-sm center m-3" %>
+              <% end %>
+            </li>
+        <% end %>
+      </div>
       <% end %>
     </div>
-  <% end %>
 </div>
