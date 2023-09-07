@@ -1,0 +1,24 @@
+body {
+  background-color: #8246EA;
+}
+
+  .sidebar {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+  }
+
+
+  .list-group-item {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 10;
+
+  }
+
+  .list-group-item:hover {
+    background-color: #e5e5e5;
+  }

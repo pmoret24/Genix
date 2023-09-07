@@ -1,51 +1,55 @@
 <div class="container mt-5">
   <div class="row justify-content-center m-5">
     <div class="col-md-9">
-      <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
-        <div class="card-body mb-4">
-          <h1 class="card-title"><%= @pitch.title %></h1>
+      <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="card-body">
+          <h1 class="card-title text-center"><%= @pitch.title %></h1>
+          <p class="card-text"><%= @pitch.description %></p>
+          <p class="card-text"><%= @pitch.category %></p>
 
-          <div class="d-flex justify-content-between mb-3">
-            <%= link_to "Edit this pitch", edit_pitch_path(@pitch), class: "btn btn-outline-primary btn-sm m-3" if @pitch.user == current_user %>
-            <%= link_to "Back to pitches", pitches_path, class: "btn btn-outline-success btn-sm center m-3" %>
+          <div class="d-flex justify-content-between mb-4">
+            <%= link_to "Edit this pitch", edit_pitch_path(@pitch), class: "btn btn-primary" if @pitch.user == current_user %>
+            <%= link_to "Back to pitch", pitches_path, class: "btn btn-success" %>
             <% if @pitch.user == current_user %>
-              <%= button_to "Destroy this pitch", @pitch, method: :delete, class: "btn btn-outline-danger btn-sm m-3", data: { confirm: "Are you sure?" } %>
+              <%= button_to "Delete this pitch", @pitch, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
             <% end %>
           </div>
         </div>
-        <%= simple_form_for [@pitch, @comment]  do |f| %>
-          <%= f.input :content  %>
-          <%= f.input :rating %>
-          <%= f.submit "Create your comments ", class: "btn btn-primary m-4"  %>
-        <% end %>
       </div>
-    </div>
-    <div id="comments" class="row m-4">
-      <% @pitch.comments.each do |comment| %>
-        <div class="col-md-12 mb-0">
-          <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
-            <div class="card-body">
-               <%= cl_image_tag current_user.photo.key, alt: "1 ", class: "carousel-img" %>
-              <h2 class="card-title"><%= comment.content %></h2>
-              <h5 class="card-title"><%= comment.rating %>/5</h5>
+
+      <%= simple_form_for [@pitch, @comment], class: "mt-4" do |f| %>
+        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+            <h4 class="card-title">Add Your Comment</h4>
+            <div class="form-group">
+              <%= f.input :content, label: false, placeholder: "Type your comment here...", input_html: { class: "form-control" }  %>
             </div>
+            <div class="form-group">
+              <%= f.input :rating, label: "Rating (1-5)", input_html: { class: "form-control" } %>
+            </div>
+            <%= f.submit "Create Comment", class: "btn btn-primary btn-block"  %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
 
-  <%= simple_form_for [@pitch, @favorite]  do |f| %>
-    <%= f.submit "Do you like it ?", class: "btn btn-primary m-4"  %>
+  <%= simple_form_for [@pitch, @favorite], class: "mt-4" do |f| %>
+    <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+      <div class="card-body">
+        <h4 class="card-title">Do You Like It?</h4>
+        <%= f.submit "Yes", class: "btn btn-success" %>
+      </div>
+    </div>
   <% end %>
 
-  <div id="comments" class="row m-3">
+  <div class="row mt-4">
     <% @pitch.favorites.each do |favorite| %>
-      <div class="col-md-6 mb-6">
-        <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
-            <%= cl_image_tag current_user.photo.key, alt: "1 ", class: "carousel-img" %>
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
           <div class="card-body">
-            <h2 class="card-title"><%= favorite.user.first_name %> <%= favorite.user.last_name %></h2>
+            <%= cl_image_tag favorite.user.photo.key, alt: favorite.user.first_name, class: "img-fluid rounded-circle mx-auto d-block" %>
+            <h4 class="card-title text-center"><%= favorite.user.first_name %> <%= favorite.user.last_name %></h4>
           </div>
         </div>
       </div>
