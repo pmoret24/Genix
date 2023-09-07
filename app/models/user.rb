@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  # validations
+  validates :first_name, :last_name, :skills, :description, :github, presence: true
 
   has_many :projects, foreign_key: "owner_id"
   has_many :members
