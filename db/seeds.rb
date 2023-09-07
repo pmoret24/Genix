@@ -185,8 +185,8 @@ projects = [
   "NexaNeural"
 ]
 
-sender = User.create!(email: "sebastien@lewagon.org", first_name: "Sebastien", password: "123456")
-receiver = User.create!(email: "boris@lewagon.org", first_name: "Boris", password: "123456")
+# sender = User.create!(email: "sebastien@lewagon.org", first_name: "Sebastien", password: "123456")
+# receiver = User.create!(email: "boris@lewagon.org", first_name: "Boris", password: "123456")
 Chatroom.create!(name: "general", sender:, receiver:)
 
 
