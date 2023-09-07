@@ -1,0 +1,5 @@
+<% @chatrooms.each do |chat| %>
+  <%= link_to chatroom_path(chat) do %>
+    <%= chat.sender.first_name %>
+  <% end %>
+<% end %>
