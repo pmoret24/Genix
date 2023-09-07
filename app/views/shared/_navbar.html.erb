@@ -9,7 +9,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mx-auto"> <!-- Centralize esta lista -->
+      <ul class="navbar-nav mx-auto justify-content-center"> 
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%=  link_to "Home", root_path, class: "nav-link" %>
@@ -17,11 +17,14 @@
           <li class="nav-item">
             <%= link_to "Pitches", pitches_path, class: "nav-link" %>
           </li>
-           <li class="nav-item">
+          <li class="nav-item">
             <%= link_to "Connect", pitches_path, class: "nav-link" %>
           </li>
-           <li class="nav-item">
-            <%= link_to "Project", projects_path, class: "nav-link" %>
+          <li class="nav-item-a">
+            <%= link_to "Projects", projects_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item-a">
+            <%= link_to "About Us", aboutus_path, class: "nav-link" %>
           </li>
         </ul>
         <ul class="navbar-nav me-auto">

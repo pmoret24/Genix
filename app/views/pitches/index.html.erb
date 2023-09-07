@@ -1,5 +1,30 @@
 <div class="container">
-  <div class="row justify-content-end">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="sidebar border rounded">
+      <div class="sidebar">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <%= link_to "My profile", root_path %>
+          </li>
+          <li class="list-group-item">
+            <%= link_to "Item 2 Link", projects_path %>
+          </li>
+          <li class="list-group-item">
+            <%= link_to "Item 3 Link", root_path %>
+          </li>
+          <li class="list-group-item">
+            <%= link_to "Item 4 Link", root_path %>
+        </ul>
+      </div>
+        <div class="row justify-content-center">
+          <div class="col-sm-8 my-3">
+            <%= link_to "Add a new pitch", new_pitch_path, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center '%>
+
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="col-md-8">
       <p style="color: green"><%= notice %></p>
       <h1 class="text-center">Add your new pitch</h1>
@@ -17,14 +42,19 @@
       </div>
 
       <div id="pitches" class="row">
-        <%= link_to "Add a new pitch", new_pitch_path, class: 'btn btn-outline-success btn-sm center d-flex align-items-end m-2 justify-content-center ' %>
         <% @pitches.each do |pitch| %>
           <div class="col-md-4 mb-4">
             <%= link_to  pitch_path(pitch) do  %>
               <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
                 <div class="card-body">
                   <h2 class="card-title"><%= pitch.title %></h2>
-                   <h5 class="card-title"><%= pitch.description %></h5>
+                  <h5 class="card-title"><%= pitch.description %></h5>
+                  <% if pitch.photo.attached? %>
+                    <%= cl_image_tag pitches.pitch.photo.key, height: 200, width: 200, crop: :fill %>
+                  <% else %>
+                    <%= image_tag "placeholder.webp", height: 200, width: 200, crop: :fill %>
+                  <% end %>
+                  <%= link_to "Show this pitch", pitch, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center' %>
                 </div>
               </div>
             <% end %>
