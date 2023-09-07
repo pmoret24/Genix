@@ -1,24 +1,36 @@
 <div class = "container">
 
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: profiles_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Type a name"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-success" %>
-    <% end %>
+  <div class="row justify-content-center">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: profiles_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Type a name"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-success" %>
+      <% end %>
+    </div>
   </div>
-</div>
 
-  <% @users.each do |user| %>
-    <% if user != current_user  %>
-      <h5> <%= user.first_name %> <%= user.last_name %> </h5>
-      <%= link_to "connect", connections_path(friend_id: user.id), data: { turbo_method: :post} %>
-      <%#= link_to "disconnect", connections_path(), data: { turbo_method: :delete} %>
-      <%= link_to "see this user", profile_path(user) %>
-    <% end %>
-  <% end  %>
+  <div class="row">
+    <% @users.each do |user| %>
+      <% if user != current_user  %>
+        <div class=" col-4">
+          <div class="text-center">
+            <% if user.photo.attached? %>
+              <%= link_to profile_path(user) do %> <%= cl_image_tag user.photo.key,class: "rounded-circle", height: 120, width: 120, crop: :fill %> <% end %>
+            <% else %>
+              <%= link_to profile_path(user) do %> <%= image_tag "profile_placeholder.png",class: "rounded-circle", height: 120, width: 120, crop: :fill %> <% end %>
+            <% end %>
+          </div>
+          <div class="text-center mt-2">
+            <h5> <%= user.first_name %> <%= user.last_name %> </h5>
+            <%= link_to connections_path(friend_id: user.id), data: { turbo_method: :post} do %> <button type="button" class="btn btn-success">Connect</button> <% end %>
+            <%#= link_to "disconnect", connections_path(), data: { turbo_method: :delete} %>
+          </div>
+        </div>
+      <% end %>
+    <% end  %>
+  </div>
 </div>
