@@ -231,7 +231,7 @@ end
   pet = Pet.new(pet_data)
   file = URI.open(pet_pics.shuffle!.pop)
   random_user = user_data.sample
-  pitch.seller = random_seller
+  pitch.user = random_seller
   pitch.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
   pitch.save!
 
