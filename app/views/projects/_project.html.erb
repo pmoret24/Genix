@@ -4,9 +4,9 @@
   </H2>
 
   <% if project.photo.attached? %>
-      <%= cl_image_tag project.photo.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag project.photo.key, height: 250, width: 250, crop: :fill %>
     <% else %>
-      <%= image_tag "placeholder.webp" %>
+      <%= image_tag "placeholder.webp", height: 250, width: 250, crop: :fill %>
   <% end %>
 
   <p>
