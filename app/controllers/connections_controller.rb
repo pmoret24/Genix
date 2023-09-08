@@ -18,6 +18,6 @@ class ConnectionsController < ApplicationController
   def destroy
     connection = Connection.find(params[:id])
     connection.destroy
-    redirect_to profile_path, notice: "Pending connection deleted!", status: :see_other
+    redirect_to profile_path(current_user), notice: "Pending connection deleted!", status: :see_other
   end
 end
