@@ -3,12 +3,14 @@ body {
 }
 
   .sidebar {
-    background-color: #f8f9fa;
+
+    background: linear-gradient(#8246EA 13%, 0, #f8f9fa 87%);
     padding: 20px;
     border-right: 1px solid #ddd;
     border-radius: 5px;
     align-items: left;
-    width: 100%;
+    width: 80%;
+    border-radius: 10px;
   }
 
 
@@ -59,4 +61,18 @@ body {
   }
 .pitch-container{
   margin-bottom: 20px;
+
+}
+
+.card-text{
+  color: #040404;
+  font-size: 36px;
+  margin-top: 20px;
+}
+
+.card-pitches{
+  color: gray;
+  font-size: 16px;
+  padding: 16px;
+
 }
