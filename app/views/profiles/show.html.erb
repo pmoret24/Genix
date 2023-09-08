@@ -14,16 +14,16 @@
     <p class="profile-info">Github: <%= @user.github %></p>
   </div>
   <% if current_user == @user %>
-    <div class="request-details">
+    <div class="request-details text-center mt-2">
       <% if @pending_connections.each.count >= 1  %>
-        <p> Pending connections requests: </p>
+        <p> <strong> Pending connections requests: </strong> </p>
       <% end %>
       <% @pending_connections.each do |connection| %>
           <p> <%= connection.other_person(current_user).first_name%> <%= connection.other_person(current_user).last_name %> <%= link_to "Approve!", connection_path(connection), data: {turbo_method: :patch} %> or <%= link_to connection_path(connection), data: {turbo_method: :delete} do %> <i class="fa-regular fa-trash-can"></i> <% end %></p>
       <% end  %>
 
       <% if @approved_connections.each.count >= 1  %>
-        <p> Friends: </p>
+        <p> <strong> Friends: </strong> </p>
       <% end %>
       <% @approved_connections.each do |connection| %>
             <%= link_to  connection.other_person(current_user).first_name, profile_path(connection.other_person(current_user)), class:"d-flex" %>
