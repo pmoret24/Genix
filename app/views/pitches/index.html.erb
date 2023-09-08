@@ -1,30 +1,22 @@
 <div class="container pitch-container">
   <div class="row">
-    <div class="col-md-4">
-      <div class="sidebar border rounded">
-      <div class="sidebar">
-      <div class="d-flex  flex-column align-items-center p-2 gap-4 m-2">
-        <%= cl_image_tag current_user.photo.key, class: "img-fluid rounded-circle mx-auto d-block" %>
-        <p><strong><%= current_user.first_name %> <%= current_user.last_name %> </strong></p>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <%= link_to "My profile", root_path %>
-          </li>
-          <li class="list-group-item">
-            <%= link_to "Favorite Pitches", pitches_path %>
-          </li>
-          <li class="list-group-item">
-            <%= link_to "Connect ", projects_path %>
-          </li>
-          <li class="list-group-item">
-            <%= link_to "", root_path %>
-        </ul>
-       </div>
+    <div class="col-md-3">
+      <div class="sticky">
+        <div class="sidebar border rounded pitches-bar">
+          <div class="d-flex  flex-column align-items-center p-2 gap-4 m-2">
+            <%= cl_image_tag current_user.photo.key, class: "img-fluid rounded-circle mx-auto d-block" %>
+            <p><strong><%= current_user.first_name %> <%= current_user.last_name %> </strong></p>
+              <ul class="list-group">
+                <li class="list-group-item"><%= link_to root_path do %><i class="fa-solid fa-circle-user"></i>   My Profile<% end %></li>
+                <li class="list-group-item"><%= link_to root_path do %><i class="fa-solid fa-house"></i>   Home<% end %></li>
+                <li class="list-group-item"><%= link_to pitches_path do %><i class="fa-solid fa-person-chalkboard"></i>   Pitches<% end %></li>
+                <li class="list-group-item"><%= link_to profiles_path do %><i class="fa-solid fa-users"></i>    Connect<% end %></li>
+              </ul>
+        </div>
       </div>
         <div class="row justify-content-center">
-          <div class="col-sm-8 my-3">
+          <div class="col-sm-9 my-3">
             <%= link_to "Add a new pitch", new_pitch_path, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center '%>
-
           </div>
         </div>
       </div>
@@ -47,21 +39,25 @@
 
       <div id="pitches" class="row">
         <% @pitches.each do |pitch| %>
-          <div class="col-md-4 mb-4">
-            <%= link_to  pitch_path(pitch) do  %>
-              <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
+
+          <div class=" col-md-4 mb-4">
+             <div class="card "  data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" title="Description" data-bs-content="
+             <%= pitch.description %>" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
                 <div class="card-body">
-                  <h2 class="card-title"><%= pitch.title %></h2>
-                  <h5 class="card-title"><%= pitch.description %></h5>
+                        <h5 class="card-title">
+                      <%= pitch.title %>
+                      <i class="fa-solid fa-circle-info" data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= pluralize(pitch.comments.size, "review") %>"></i>
+                        </h5>
+                  <p class="card-pitches"><%= pitch.description %></p>
                   <% if pitch.photo.attached? %>
                     <%= cl_image_tag pitch.photo.key, height: 200, width: 200, crop: :fill %>
                   <% else %>
                     <%= image_tag "placeholder.webp", height: 200, width: 200, crop: :fill %>
                   <% end %>
-                  <%= link_to "Show this pitch", pitch, class: 'btn btn-outline-success btn-sm center d-flex align-items-end m-2 justify-content-center' %>
+
+                  <%= link_to "Show this pitch", pitch, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center' %>
                 </div>
               </div>
-            <% end %>
           </div>
         <% end %>
       </div>
