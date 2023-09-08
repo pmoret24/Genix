@@ -244,7 +244,7 @@ end
     title: pitches.sample,
     languages: skills.sample(3).join(", " ),
     category: Faker::Company.suffix,
-    description: Faker::Company.department,
+    description: Faker::Lorem.paragraph_by_chars,
     source: "link"
   })
 
@@ -262,7 +262,7 @@ end
     title: projects.sample,
     languages: skills.sample(3).join(", " ),
     category: Faker::Company.suffix,
-    description: Faker::Company.catch_phrase,
+    description: Faker::Lorem.paragraph_by_chars,
     github: Faker::Internet.url
   })
 

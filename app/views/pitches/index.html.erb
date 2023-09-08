@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-md-4">
       <div class="sidebar border rounded">
-      <div class="sidebar">
       <div class="d-flex  flex-column align-items-center p-2 gap-4 m-2">
         <%= cl_image_tag current_user.photo.key, class: "img-fluid rounded-circle mx-auto d-block" %>
         <p><strong><%= current_user.first_name %> <%= current_user.last_name %> </strong></p>
+         <p class="card-pitches"><%= current_user.description %></p>
         <ul class="list-group">
           <li class="list-group-item">
             <%= link_to "My profile", root_path %>
@@ -20,7 +20,6 @@
             <%= link_to "", root_path %>
         </ul>
        </div>
-      </div>
         <div class="row justify-content-center">
           <div class="col-sm-8 my-3">
             <%= link_to "Add a new pitch", new_pitch_path, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center '%>
@@ -47,21 +46,27 @@
 
       <div id="pitches" class="row">
         <% @pitches.each do |pitch| %>
-          <div class="col-md-4 mb-4">
-            <%= link_to  pitch_path(pitch) do  %>
+
+          <div class=" col-md-4 mb-4" data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" title="Description" data-bs-content="<%= pitch.description %>">
+
+
+
               <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
                 <div class="card-body">
-                  <h2 class="card-title"><%= pitch.title %></h2>
-                  <h5 class="card-title"><%= pitch.description %></h5>
+                                     <h5 class="card-title">
+                      <%= pitch.title %>
+                      <i class="fa-solid fa-circle-info" data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= pluralize(pitch.comments.size, "review") %>"></i>
+                    </h5>
+                  <h5 class="card-pitches"><%= pitch.description %></h5>
                   <% if pitch.photo.attached? %>
                     <%= cl_image_tag pitch.photo.key, height: 200, width: 200, crop: :fill %>
                   <% else %>
                     <%= image_tag "placeholder.webp", height: 200, width: 200, crop: :fill %>
                   <% end %>
+
                   <%= link_to "Show this pitch", pitch, class: 'btn btn-outline-success btn-sm center d-flex align-items-end m-2 justify-content-center' %>
                 </div>
               </div>
-            <% end %>
           </div>
         <% end %>
       </div>
