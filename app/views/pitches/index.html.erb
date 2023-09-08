@@ -40,24 +40,22 @@
       <div id="pitches" class="row">
         <% @pitches.each do |pitch| %>
 
-          <div class=" col-md-4 mb-4" data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" title="Description" data-bs-content="<%= pitch.description %>">
-
-
-
-              <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
+          <div class=" col-md-4 mb-4">
+             <div class="card "  data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" title="Description" data-bs-content="
+             <%= pitch.description %>" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
                 <div class="card-body">
-                                     <h5 class="card-title">
+                        <h5 class="card-title">
                       <%= pitch.title %>
                       <i class="fa-solid fa-circle-info" data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= pluralize(pitch.comments.size, "review") %>"></i>
-                    </h5>
-                  <h5 class="card-pitches"><%= pitch.description %></h5>
+                        </h5>
+                  <p class="card-pitches"><%= pitch.description %></p>
                   <% if pitch.photo.attached? %>
                     <%= cl_image_tag pitch.photo.key, height: 200, width: 200, crop: :fill %>
                   <% else %>
                     <%= image_tag "placeholder.webp", height: 200, width: 200, crop: :fill %>
                   <% end %>
 
-                  <%= link_to "Show this pitch", pitch, class: 'btn btn-outline-success btn-sm center d-flex align-items-end m-2 justify-content-center' %>
+                  <%= link_to "Show this pitch", pitch, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center' %>
                 </div>
               </div>
           </div>
