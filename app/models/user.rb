@@ -13,4 +13,11 @@ class User < ApplicationRecord
   has_many :projects, foreign_key: "owner_id"
   has_many :members
   has_one_attached :photo
+
+  include PgSearch::Model
+  pg_search_scope :search_by_first_name_and_last_name,
+  against: [ :first_name, :last_name ],
+  using: {
+    tsearch: { prefix: true } # used for getting incomplete words
+  }
 end

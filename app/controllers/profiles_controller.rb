@@ -15,6 +15,11 @@ class ProfilesController < ApplicationController
 
   def index
     @users = User.all
+    if params[:query].present? # se tiver uma query presente executa esse metodo
+      sql_subquery = "first_name ILIKE :query OR last_name ILIKE :query"
+      @users = @users.where(sql_subquery, query: "%#{params[:query]}%")
+    end
+    # @users = User.search_by_first_name_and_last_name(params[:query]) if params[:query].present?
   end
 
   private
