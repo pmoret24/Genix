@@ -6,6 +6,10 @@
           <h1 class="card-title text-center"><%= @pitch.title %></h1>
           <p class="card-text"><%= @pitch.description %></p>
           <p class="card-text"><%= @pitch.category %></p>
+          <div class="card-body">
+            <%= cl_image_tag @pitch.photo.key, alt: current_user.first_name, class: "img-pitches " %>
+            <h4 class="card-title text-center"><%= current_user.first_name %> <%= current_user.last_name %></h4>
+          </div>
 
           <div class="d-flex justify-content-between mb-4">
             <%= link_to "Edit this pitch", edit_pitch_path(@pitch), class: "btn btn-primary" if @pitch.user == current_user %>
@@ -15,6 +19,11 @@
             <% end %>
           </div>
         </div>
+        <% @pitch.comments.each do |comment| %>
+          <%= cl_image_tag comment.user.photo.key, class: "img comment rounded-circle mx-auto d-block d-flex aling-items-left" %>
+          <%= comment.user.first_name %>
+          <%= comment.content %> - <%= comment.rating %>
+        <% end  %>
       </div>
 
       <%= simple_form_for [@pitch, @comment], class: "mt-4" do |f| %>
@@ -25,7 +34,7 @@
               <%= f.input :content, label: false, placeholder: "Type your comment here...", input_html: { class: "form-control" }  %>
             </div>
             <div class="form-group">
-              <%= f.input :rating, label: "Rating (1-5)", input_html: { class: "form-control" } %>
+              <%= f.input :rating, label: "Rating (1-5)", input_html: { class: "form-control ", min: 1 ,max: 5 } %>
             </div>
             <%= f.submit "Create Comment", class: "btn btn-primary btn-block"  %>
           </div>

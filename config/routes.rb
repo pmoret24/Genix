@@ -9,11 +9,15 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create]
 
   end
-  resources :chatrooms, only: [:show, :create] do
+  resources :chatrooms, only: [:show, :index] do
     resources :messages, only: :create
   end
   resources :projects do
     resources :members, only: %i[new create]
+  end
+
+  resources :profiles, only: [] do
+    resources :chatrooms, only: [:create]
   end
 
   resources :members, only: %i[update]
@@ -22,7 +26,6 @@ Rails.application.routes.draw do
   get "users/:id", to: "profiles#show", as: "profile"
 
   get "users", to: "profiles#index", as: "profiles"
-
 
   get "aboutus", to: "pages#about", as: "aboutus"
 end
