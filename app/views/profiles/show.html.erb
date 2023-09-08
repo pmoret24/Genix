@@ -1,7 +1,14 @@
-<div class="container">
+<div class="container mb-3 ">
+  <div class="profile-image text-center">
+    <% if @user.photo.attached? %>
+      <%= cl_image_tag current_user.photo.key,class: "rounded-circle", height: 120, width: 120, crop: :fill %>
+    <% else %>
+      <%= image_tag "profile_placeholder.png",class: "rounded-circle", height: 120, width: 120, crop: :fill %>
+    <% end %>
+  </div>
 
-  <h1 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h1>
-  <div class="profile-details">
+  <div class="profile-details text-center">
+    <h1 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h1>
     <p class="profile-info">Description: <%= @user.description %></p>
     <p class="profile-info">Skills: <%= @user.skills %></p>
     <p class="profile-info">Github: <%= @user.github %></p>
