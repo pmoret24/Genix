@@ -6,7 +6,7 @@ class ConnectionsController < ApplicationController
     connection.user = current_user
     connection.friend = friend
     connection.save!
-    redirect_to root_path
+    redirect_to profiles_path
   end
 
   def update
