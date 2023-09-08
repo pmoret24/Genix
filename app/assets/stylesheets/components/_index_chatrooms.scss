@@ -6,4 +6,31 @@
   height: 100%;
   width: 100%;
   margin-bottom: 20px;
+
+  a {
+    width: 100%;
+    text-decoration: none;
+  }
+
+  hr {
+    margin: 1rem 0;
+    border: 0;
+    border-top: 1px solid #c0c0c0;
+    opacity: 1.0;
+  }
+}
+
+.chat-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+  }
 }

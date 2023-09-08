@@ -1,6 +1,10 @@
 class ChatroomsController < ApplicationController
   def index
     @chatrooms = Chatroom.where(sender: current_user).or(Chatroom.where(receiver: current_user))
+    if params[:query].present? # se tiver uma query presente executa esse metodo
+      sql_subquery = "name ILIKE :query"
+      @chatrooms = Chatroom.where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def create
