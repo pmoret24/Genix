@@ -7,8 +7,12 @@ class Chatroom < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_chatrooms,
-    against: [ :first_name, :last_name],
-      using: {
-      tsearch: { prefix: true }
-      }
+                  against: [:name],
+                  associated_against: {
+                    receiver: [ :first_name, :last_name ],
+                    sender: [ :first_name, :last_name ]
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
