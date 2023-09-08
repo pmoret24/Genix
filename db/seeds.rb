@@ -1,4 +1,5 @@
 require 'faker'
+require 'open-uri'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -41,7 +42,6 @@ pitches_pics = [
   'https://i0.wp.com/idocode.com.br/blog/wp-content/uploads/2020/01/Ba%C3%BA-do-heitor.jpeg?fit=1024%2C967&ssl=1',
   'https://idocode.com.br/blog/wp-content/uploads/2020/01/Pixel-mamprim.jpg',
   'https://img.ibxk.com.br/2012/7/materias/2587374894125847.jpg?ims=328x',
-  'https://funtec.toledo.pr.gov.br/wp-content/uploads/2022/04/technology-human-touch-background-modern-remake-of-the-creation-of-adam-1024x683.jpg',
   'https://s2-g1.glbimg.com/wAs4hNEY0QAo1nHRaIDefQUy5s4=/0x0:724x333/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2022/Q/e/xpOiojQsqJIaUghxiLaA/cao-robo.png',
   'https://images.tcdn.com.br/img/img_prod/858160/kit_robotica_lego_mindstorms_nxt_9797_education_17_1_20200918160335.jpg',
   'https://media.slidesgo.com/storage/21235973/conversions/0-technology-project-proposal-minitheme-thumb.jpg',
@@ -49,7 +49,32 @@ pitches_pics = [
   'https://i0.wp.com/valoragregado.com/wp-content/uploads/2023/08/unnamed-2023-08-09T111926.252.jpg?ssl=1',
   'https://midias.correiobraziliense.com.br/_midias/jpg/2022/10/14/675x450/1_walking_grass-26641734.jpg?20221014170417?20221014170417',
   'https://files.passeidireto.com/993943de-1a48-4d82-995a-f7b445fbf7cc/bg1.png',
-  'https://i0.wp.com/idocode.com.br/blog/wp-content/uploads/2020/01/Catapulta.jpeg?fit=1024%2C645&ssl=1'
+  'https://i0.wp.com/idocode.com.br/blog/wp-content/uploads/2020/01/Catapulta.jpeg?fit=1024%2C645&ssl=1',
+  'https://colorindo.org/wp-content/uploads/2023/01/Dicas-completar-projetos-arte-casa-software.webp',
+  'https://static.portaldaindustria.com.br/media/filer_public/ca/27/ca275166-3e38-48a9-a82b-89ee29f90fac/industria-4-0-o-que-e-seus-conceitos.jpg',
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8QApDcv-GHgy8AmTuRPqYKNUrYmwkWvD_-w&usqp=CAU'
+]
+
+project_pics = [
+  'https://itajai.sc.gov.br/img/noticias/foto/121857.jpg',
+  'https://cdn.abcdoabc.com.br/braco-mecanico-cps_089e9a76.jpg',
+  'https://idocode.com.br/blog/wp-content/uploads/2020/07/impressora-3d.jpg',
+  'https://paginazero.com.br/homologacao/wp-content/uploads/2020/07/Barueri-Marcos-Pontes-1.jpg',
+  'https://img.ibxk.com.br/2012/7/materias/2587374894125317.jpg?ims=328x',
+  'https://i0.wp.com/idocode.com.br/blog/wp-content/uploads/2020/01/Ba%C3%BA-do-heitor.jpeg?fit=1024%2C967&ssl=1',
+  'https://idocode.com.br/blog/wp-content/uploads/2020/01/Pixel-mamprim.jpg',
+  'https://img.ibxk.com.br/2012/7/materias/2587374894125847.jpg?ims=328x',
+  'https://s2-g1.glbimg.com/wAs4hNEY0QAo1nHRaIDefQUy5s4=/0x0:724x333/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2022/Q/e/xpOiojQsqJIaUghxiLaA/cao-robo.png',
+  'https://images.tcdn.com.br/img/img_prod/858160/kit_robotica_lego_mindstorms_nxt_9797_education_17_1_20200918160335.jpg',
+  'https://media.slidesgo.com/storage/21235973/conversions/0-technology-project-proposal-minitheme-thumb.jpg',
+  'https://media.slidesgo.com/storage/21236018/responsive-images/18-technology-project-proposal-minitheme___media_library_original_459_258.jpg',
+  'https://i0.wp.com/valoragregado.com/wp-content/uploads/2023/08/unnamed-2023-08-09T111926.252.jpg?ssl=1',
+  'https://midias.correiobraziliense.com.br/_midias/jpg/2022/10/14/675x450/1_walking_grass-26641734.jpg?20221014170417?20221014170417',
+  'https://files.passeidireto.com/993943de-1a48-4d82-995a-f7b445fbf7cc/bg1.png',
+  'https://i0.wp.com/idocode.com.br/blog/wp-content/uploads/2020/01/Catapulta.jpeg?fit=1024%2C645&ssl=1',
+  'https://colorindo.org/wp-content/uploads/2023/01/Dicas-completar-projetos-arte-casa-software.webp',
+  'https://static.portaldaindustria.com.br/media/filer_public/ca/27/ca275166-3e38-48a9-a82b-89ee29f90fac/industria-4-0-o-que-e-seus-conceitos.jpg',
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8QApDcv-GHgy8AmTuRPqYKNUrYmwkWvD_-w&usqp=CAU'
 ]
 
 github = [
@@ -187,12 +212,12 @@ projects = [
 
 # sender = User.create!(email: "sebastien@lewagon.org", first_name: "Sebastien", password: "123456")
 # receiver = User.create!(email: "boris@lewagon.org", first_name: "Boris", password: "123456")
-Chatroom.create!(name: "general", sender:, receiver:)
+# Chatroom.create!(name: "general", sender:, receiver:)
 
 
 users = []
 Pitch.destroy_all
-20.times do
+10.times do
   first = Faker::Name.first_name
   last = Faker::Name.last_name
   user = User.create!({
@@ -213,7 +238,7 @@ Pitch.destroy_all
 end
 
 
-20.times do
+10.times do
 
   pitch = Pitch.new({
     title: pitches.sample,
@@ -222,18 +247,16 @@ end
     description: Faker::Company.department,
     source: "link"
   })
+
   pitch.user = users.sample
-  pitch.save!
-  puts "Criou o pitch #{pitch.title}"
-  pet = Pet.new(pet_data)
-  file = URI.open(pet_pics.shuffle!.pop)
-  random_user = user_data.sample
-  pitch.user = random_user
+  url = pitches_pics.shuffle!.pop
+  file = URI.open(url)
   pitch.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
   pitch.save!
-
+  puts "Criou o Pitches com a URL: #{url}"
 end
-20.times do
+
+10.times do
 
   project = Project.new({
     title: projects.sample,
@@ -242,7 +265,11 @@ end
     description: Faker::Company.catch_phrase,
     github: Faker::Internet.url
   })
-    project.owner = users.sample
-    project.save!
-    puts "Criou o Project #{project.title}"
-    end
+
+  project.owner = users.sample
+  url = project_pics.shuffle!.pop
+  file = URI.open(url)
+  project.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+  project.save!
+  puts "Criou o Project com a URL: #{url}"
+end

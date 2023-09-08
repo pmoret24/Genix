@@ -3,19 +3,23 @@
     <div class="col-md-4">
       <div class="sidebar border rounded">
       <div class="sidebar">
+      <div class="d-flex  flex-column align-items-center p-2 gap-4 m-2">
+        <%= cl_image_tag current_user.photo.key, class: "img-fluid rounded-circle mx-auto d-block" %>
+        <p><strong><%= current_user.first_name %> <%= current_user.last_name %> </strong></p>
         <ul class="list-group">
           <li class="list-group-item">
             <%= link_to "My profile", root_path %>
           </li>
           <li class="list-group-item">
-            <%= link_to "Item 2 Link", projects_path %>
+            <%= link_to "Favorite Pitches", pitches_path %>
           </li>
           <li class="list-group-item">
-            <%= link_to "Item 3 Link", root_path %>
+            <%= link_to "Connect ", projects_path %>
           </li>
           <li class="list-group-item">
-            <%= link_to "Item 4 Link", root_path %>
+            <%= link_to "", root_path %>
         </ul>
+       </div>
       </div>
         <div class="row justify-content-center">
           <div class="col-sm-8 my-3">
@@ -50,11 +54,11 @@
                   <h2 class="card-title"><%= pitch.title %></h2>
                   <h5 class="card-title"><%= pitch.description %></h5>
                   <% if pitch.photo.attached? %>
-                    <%= cl_image_tag pitches.pitch.photo.key, height: 200, width: 200, crop: :fill %>
+                    <%= cl_image_tag pitch.photo.key, height: 200, width: 200, crop: :fill %>
                   <% else %>
                     <%= image_tag "placeholder.webp", height: 200, width: 200, crop: :fill %>
                   <% end %>
-                  <%= link_to "Show this pitch", pitch, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center' %>
+                  <%= link_to "Show this pitch", pitch, class: 'btn btn-outline-success btn-sm center d-flex align-items-end m-2 justify-content-center' %>
                 </div>
               </div>
             <% end %>
