@@ -213,7 +213,6 @@ projects = [
 # sender = User.create!(email: "sebastien@lewagon.org", first_name: "Sebastien", password: "123456")
 # receiver = User.create!(email: "boris@lewagon.org", first_name: "Boris", password: "123456")
 # Chatroom.create!(name: "general", sender:, receiver:)
-Chatroom.create!(name: "general", sender:, receiver:)
 
 
 users = []
@@ -252,12 +251,6 @@ end
   pitch.user = users.sample
   url = pitches_pics.shuffle!.pop
   file = URI.open(url)
-  pitch.save!
-  puts "Criou o pitch #{pitch.title}"
-  pet = Pet.new(pet_data)
-  file = URI.open(pet_pics.shuffle!.pop)
-  random_user = user_data.sample
-  pitch.user = random_user
   pitch.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
   pitch.save!
   puts "Criou o Pitches com a URL: #{url}"
