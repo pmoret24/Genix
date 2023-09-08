@@ -1,11 +1,11 @@
-<div class="container mt-5">
+<div class="show-cont">
   <div class="d-flex justify-content-center m-5">
     <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1); width: 42rem;">
       <div class="card-body mb-4">
         <%= render @project %>
         <div class="d-flex justify-content-between mb-3">
-          <%= link_to "Edit", edit_project_path(@project), class: "btn btn-outline-primary btn-sm m-3" if @project.owner == current_user %>
           <%= link_to "Back to projects", projects_path, class: "btn btn-outline-success btn-sm center m-3" %>
+          <%= link_to "Edit", edit_project_path(@project), class: "btn btn-outline-primary btn-sm m-3" if @project.owner == current_user %>
           <% if @project.owner == current_user %>
             <%= button_to "Delete", @project, method: :delete, class: "btn btn-outline-danger btn-sm m-3", data: { confirm: "Are you sure?" } %>
           <% else %>
@@ -23,9 +23,9 @@
       </div>
       </div>
     </div>
-    <div class="container member-container">
+    <div class="members">
       <% if @project.owner == current_user %>
-      <div class="requests">
+      <div class="container member-container">
         <p>Member Request(s):</p>
           <% @members_users.each do |member| %>
             <li>

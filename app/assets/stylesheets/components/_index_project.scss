@@ -5,12 +5,12 @@
 .bar {
   position: sticky;
   top: 20px;
-  width: 180px;
+  width: 250px;
 }
 
 #projects{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .whole-card{
@@ -47,4 +47,9 @@
   font-size: 20px;
   font-weight: 300;
   color: #333;
+}
+
+.list-group-item a{
+  text-decoration: none;
+  color: rgb(115, 115, 115);
 }
