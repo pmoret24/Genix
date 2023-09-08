@@ -1,24 +1,27 @@
 <div class="container proj-container">
   <div class="row justify-content-center">
     <div class="col-md-3">
-      <div class="sidebar border rounded bar">
-        <div class="sidebar">
-          <ul class="list-group">
-            <li class="list-group-item"><%= link_to root_path do %><i class="fa-solid fa-circle-user"></i>   My Profile<% end %></li>
-            <li class="list-group-item"><%= link_to root_path do %><i class="fa-solid fa-house"></i>   Home<% end %></li>
-            <li class="list-group-item"><%= link_to pitches_path do %><i class="fa-solid fa-person-chalkboard"></i>   Pitches<% end %></li>
-            <li class="list-group-item"><%= link_to profiles_path do %><i class="fa-solid fa-users"></i>    Connect<% end %></li>
-          </ul>
-        </div>
-          <div class="row justify-content-center">
-            <div class="col-sm-8 my-3">
-              <%= link_to "Post a Project", new_project_path, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center '%>
-           </div>
+      <div class="sticky">
+        <div class="sidebar border rounded bar">
+          <div class="d-flex  flex-column align-items-center p-2 gap-4 m-2">
+            <%= cl_image_tag current_user.photo.key, class: "img-fluid rounded-circle mx-auto d-block" %>
+            <p><strong><%= current_user.first_name %> <%= current_user.last_name %> </strong></p>
+            <ul class="list-group">
+              <li class="list-group-item"><%= link_to root_path do %><i class="fa-solid fa-circle-user"></i>   My Profile<% end %></li>
+              <li class="list-group-item"><%= link_to root_path do %><i class="fa-solid fa-house"></i>   Home<% end %></li>
+              <li class="list-group-item"><%= link_to pitches_path do %><i class="fa-solid fa-person-chalkboard"></i>   Pitches<% end %></li>
+              <li class="list-group-item"><%= link_to profiles_path do %><i class="fa-solid fa-users"></i>    Connect<% end %></li>
+            </ul>
           </div>
-      </div>
-      <div class="img-proj">
-        <%= image_tag "lighthouse.svg", width: 50, height: 50%>
-      </div>
+
+        </div>
+            <div class="justify-content-center">
+              <div class="col-sm-11 my-4">
+                <%= link_to "Post a Project", new_project_path, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center '%>
+            </div>
+           </div>
+    </div>
+
     </div>
     <div class="col-md-9">
       <p style="color: green"><%= notice %></p>
