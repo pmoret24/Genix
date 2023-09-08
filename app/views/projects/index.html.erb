@@ -16,8 +16,8 @@
 
         </div>
             <div class="justify-content-center">
-              <div class="col-sm-11 my-4">
-                <%= link_to "Post a Project", new_project_path, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center '%>
+              <div class="my-4">
+                <%= link_to "Post a Project", new_project_path, class: 'btn btn-success btn-sm center d-flex align-items-end justify-content-center '%>
             </div>
            </div>
     </div>
@@ -44,7 +44,7 @@
             <%= link_to project_path(project) do  %>
               <div class="card whole-card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
                 <div class="card-proj "  data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" title="Description" data-bs-content="
-             <%= project.description %>" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">>
+             <%= project.description %>" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
                   <% if project.photo.attached? %>
                     <%= cl_image_tag project.photo.key, height: 70, width: 70, crop: :fill %>
                   <% else %>
