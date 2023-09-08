@@ -6,7 +6,7 @@ class ConnectionsController < ApplicationController
     connection.user = current_user
     connection.friend = friend
     connection.save!
-    redirect_to root_path
+    redirect_to profiles_path, notice:"Connection Invite sent to #{connection.friend.first_name}!"
   end
 
   def update
