@@ -1,3 +1,8 @@
+.connect-container{
+  margin-bottom: 20px;
+}
+
+
 .connect-bar {
   background: linear-gradient(#8246EA 13%, 0, #f8f9fa 87%);
   padding: 20px;
@@ -10,4 +15,15 @@
 .sticky {
   position: sticky;
   top: 20px;
+}
+
+.conect-title {
+  text-align: center;
+  font-size: 56px;
+  font-weight: 700;
+}
+
+.conect-search {
+  text-align: center;
+  font-size: 24px;
 }
