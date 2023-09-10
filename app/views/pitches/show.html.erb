@@ -4,14 +4,14 @@
       <div class="card shadow-lg p-3 mb-5 bg-white rounded">
         <div class="card-body">
           <h1 class="card-title text-center"><%= @pitch.title %></h1>
-          <p class="card-text"><%= @pitch.description %></p>
-          <p class="card-text"><%= @pitch.category %></p>
-          <div class="card-body">
-            <%= cl_image_tag @pitch.photo.key, alt: current_user.first_name, class: "img-pitches " %>
-            <h4 class="card-title text-center"><%= current_user.first_name %> <%= current_user.last_name %></h4>
+          <p class="card-text text-center"><%= @pitch.description %></p>
+          <p class="card-text text-center"><strong>Category:</strong> <%= @pitch.category %></p>
+          <div class="text-center">
+            <%= cl_image_tag @pitch.photo.key, alt: current_user.first_name, class: "img-pitches img-thumbnail" %>
+            <h4 class="card-title mt-3"><%= current_user.first_name %> <%= current_user.last_name %></h4>
           </div>
 
-          <div class="d-flex justify-content-between mb-4">
+          <div class="d-flex justify-content-between mt-4">
             <%= link_to "Edit this pitch", edit_pitch_path(@pitch), class: "btn btn-primary" if @pitch.user == current_user %>
             <%= link_to "Back to pitch", pitches_path, class: "btn btn-success" %>
             <% if @pitch.user == current_user %>
@@ -19,43 +19,42 @@
             <% end %>
           </div>
         </div>
+      </div>
+
+      <div class="comments-section mt-4">
         <% @pitch.comments.each do |comment| %>
-          <%= cl_image_tag comment.user.photo.key, class: "img comment rounded-circle mx-auto d-block d-flex aling-items-left" %>
-          <%= comment.user.first_name %>
-          <%= comment.content %> - <%= comment.rating %>
-        <% end  %>
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex align-items-start">
+                <div>
+                  <%= cl_image_tag comment.user.photo.key, class: "comment-user-img img-thumbnail rounded-circle" %>
+                </div>
+                <div class="ml-3">
+                  <h5 class="card-title"><%= comment.user.first_name %> <%= comment.user.last_name %></h5>
+                  <p class="card-text"><%= comment.content %></p>
+                  <p class="card-text text-muted"><small><%= time_ago_in_words(comment.created_at) %> ago</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
 
       <%= simple_form_for [@pitch, @comment], class: "mt-4" do |f| %>
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="card shadow-lg p-3 mb-5 bg-white">
           <div class="card-body">
             <h4 class="card-title">Add Your Comment</h4>
             <div class="form-group">
-
               <%= f.input :content, label: false, placeholder: "Type your comment here...", input_html: { class: "form-control" }  %>
             </div>
             <div class="form-group">
-              <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+              <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: { data: { controller: "star-rating" } } %>
             </div>
             <%= f.submit "Create Comment", class: "btn btn-primary btn-block"  %>
           </div>
         </div>
       <% end %>
+
     </div>
-  </div>
-
-
-
-  <div class="row mt-4">
-    <% @pitch.favorites.each do |favorite| %>
-      <div class="col-md-6 mb-4">
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
-          <div class="card-body">
-            <%= cl_image_tag favorite.user.photo.key, alt: favorite.user.first_name, class: "img-fluid rounded-circle mx-auto d-block" %>
-            <h4 class="card-title text-center"><%= favorite.user.first_name %> <%= favorite.user.last_name %></h4>
-          </div>
-        </div>
-      </div>
-    <% end %>
   </div>
 </div>
