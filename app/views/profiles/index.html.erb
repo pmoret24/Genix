@@ -6,7 +6,7 @@
       <div class="sticky">
         <div class="sidebar border rounded connect-bar">
           <div class="d-flex  flex-column align-items-center p-2 gap-4 m-2">
-            <%= cl_image_tag current_user.photo.key, class: "img-fluid rounded-circle mx-auto d-block" %>
+            <%= cl_image_tag current_user.photo.key, class: "img-fluid rounded-circle img-thumbnail mx-auto d-block" %>
             <p><strong><%= current_user.first_name %> <%= current_user.last_name %> </strong></p>
             <ul class="list-group">
               <li class="list-group-item"><%= link_to root_path do %><i class="fa-solid fa-circle-user"></i>   My Profile<% end %></li>
@@ -40,7 +40,7 @@
           <div class="col-4 mt-3">
             <div class="text-center">
               <% if user.photo.attached? %>
-                <%= link_to profile_path(user) do %> <%= cl_image_tag user.photo.key,class: "rounded-circle", height: 120, width: 120, crop: :fill %> <% end %>
+                <%= link_to profile_path(user) do %> <%= cl_image_tag user.photo.key,class: "rounded-circle img-thumbnail", height: 120, width: 120, crop: :fill %> <% end %>
               <% else %>
                 <%= link_to profile_path(user) do %> <%= image_tag "profile_placeholder.png",class: "rounded-circle", height: 120, width: 120, crop: :fill %> <% end %>
               <% end %>

@@ -4,7 +4,7 @@
       <div class="sticky">
         <div class="sidebar border rounded pitches-bar">
           <div class="d-flex  flex-column align-items-center p-2 gap-4 m-2">
-            <%= cl_image_tag current_user.photo.key, class: "img-fluid rounded-circle mx-auto d-block" %>
+            <%= cl_image_tag current_user.photo.key, class: "img-fluid rounded-circle img-thumbnail mx-auto d-block" %>
             <p><strong><%= current_user.first_name %> <%= current_user.last_name %> </strong></p>
               <ul class="list-group">
                 <li class="list-group-item"><%= link_to root_path do %><i class="fa-solid fa-circle-user"></i>   My Profile<% end %></li>
@@ -16,7 +16,7 @@
       </div>
         <div class="row justify-content-center">
           <div class="my-4">
-            <%= link_to "Add a new pitch", new_pitch_path, class: 'btn btn-success btn-sm center d-flex align-items-end justify-content-center '%>
+            <%= link_to "Add a new pitch", new_pitch_path, class: 'btn btn-roxo btn-sm center d-flex align-items-end justify-content-center '%>
           </div>
         </div>
       </div>
@@ -55,7 +55,7 @@
                     <%= image_tag "placeholder.webp", height: 200, width: 200, crop: :fill %>
                   <% end %>
 
-                  <%= link_to "Show this pitch", pitch, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center' %>
+                  <%= link_to "View Details", pitch, class: 'btn btn-success btn-sm center  d-flex align-items-end m-2 justify-content-center' %>
                 </div>
               </div>
           </div>
