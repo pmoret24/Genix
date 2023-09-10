@@ -31,10 +31,11 @@
           <div class="card-body">
             <h4 class="card-title">Add Your Comment</h4>
             <div class="form-group">
+
               <%= f.input :content, label: false, placeholder: "Type your comment here...", input_html: { class: "form-control" }  %>
             </div>
             <div class="form-group">
-              <%= f.input :rating, label: "Rating (1-5)", input_html: { class: "form-control ", min: 1 ,max: 5 } %>
+              <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
             </div>
             <%= f.submit "Create Comment", class: "btn btn-primary btn-block"  %>
           </div>
@@ -43,14 +44,7 @@
     </div>
   </div>
 
-  <%= simple_form_for [@pitch, @favorite], class: "mt-4" do |f| %>
-    <div class="card shadow-lg p-3 mb-5 bg-white rounded">
-      <div class="card-body">
-        <h4 class="card-title">Do You Like It?</h4>
-        <%= f.submit "Yes", class: "btn btn-success" %>
-      </div>
-    </div>
-  <% end %>
+
 
   <div class="row mt-4">
     <% @pitch.favorites.each do |favorite| %>
