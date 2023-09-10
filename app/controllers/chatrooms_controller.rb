@@ -1,6 +1,9 @@
 class ChatroomsController < ApplicationController
   def index
     @chatrooms = Chatroom.where(sender: current_user).or(Chatroom.where(receiver: current_user))
+    if params[:query].present? # se tiver uma query presente executa esse metodo
+      @chatrooms = @chatrooms.search_chatrooms(params[:query])
+    end
   end
 
   def create

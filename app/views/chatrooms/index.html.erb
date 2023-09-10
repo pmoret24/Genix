@@ -1,11 +1,36 @@
 <div class="container chat-index-container">
-<% @chatrooms.each do |chat| %>
-  <%= link_to chatroom_path(chat) do %>
-    <% if current_user == chat.sender %>
-      <%= chat.receiver.first_name %>
-    <% else %>
-      <%= chat.sender.first_name %>
+  <h1 ><i class="fa-regular fa-comments"></i> Messages</h1>
+  <%= image_tag "chat-index-2.svg", width: 300, height: 300%>
+        <div class="row justify-content-center">
+          <%= form_with url: chatrooms_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control",
+                  placeholder: "User Name"
+              %>
+            <%= submit_tag "Search", name: "", class: "btn btn-success m-1" %>
+          <% end %>
+      </div>
+
+    <% @chatrooms.each_with_index do |chat, index| %>
+      <%= link_to chatroom_path(chat) do %>
+        <div class="chat-user">
+          <div>
+            <% if current_user == chat.sender %>
+              <%= image_tag(chat.receiver.photo) %>
+              <%= chat.receiver.first_name %>
+            <% else %>
+              <%= image_tag(chat.sender.photo) %>
+              <%= chat.sender.first_name %>
+            <% end %>
+          </div>
+          <div class="btn btn-success">
+            <i class="fa-regular fa-comments"></i> Keep talking
+          </div>
+        </div>
+        <% unless index == @chatrooms.size - 1 %>
+          <hr>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-<% end %>
 </div>

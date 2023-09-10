@@ -1,7 +1,29 @@
-<div class = "container">
-
+<div class="container connect-container">
   <div class="row justify-content-center">
-    <div class="col-sm-9 my-3">
+
+    <%# SIDEBAR %>
+    <div class="col-md-3">
+      <div class="sticky">
+        <div class="sidebar border rounded connect-bar">
+          <div class="d-flex  flex-column align-items-center p-2 gap-4 m-2">
+            <%= cl_image_tag current_user.photo.key, class: "img-fluid rounded-circle mx-auto d-block" %>
+            <p><strong><%= current_user.first_name %> <%= current_user.last_name %> </strong></p>
+            <ul class="list-group">
+              <li class="list-group-item"><%= link_to root_path do %><i class="fa-solid fa-circle-user"></i>   My Profile<% end %></li>
+              <li class="list-group-item"><%= link_to root_path do %><i class="fa-solid fa-house"></i>   Home<% end %></li>
+              <li class="list-group-item"><%= link_to pitches_path do %><i class="fa-solid fa-person-chalkboard"></i>   Pitches<% end %></li>
+              <li class="list-group-item"><%= link_to profiles_path do %><i class="fa-solid fa-users"></i>    Connect<% end %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <%# CONNECT %>
+    <div class="col-md-9">
+      <h1 class="conect-title">Connect</h1>
+      <h1 class="conect-search">Search here:</h1>
+    <div class="my-3">
       <%= form_with url: profiles_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
               params[:query],
@@ -11,26 +33,27 @@
         <%= submit_tag "Search", name: "", class: "btn btn-success" %>
       <% end %>
     </div>
-  </div>
 
-  <div class="row">
-    <% @users.each do |user| %>
-      <% if user != current_user  %>
-        <div class=" col-4 mt-3">
-          <div class="text-center">
-            <% if user.photo.attached? %>
-              <%= link_to profile_path(user) do %> <%= cl_image_tag user.photo.key,class: "rounded-circle", height: 120, width: 120, crop: :fill %> <% end %>
-            <% else %>
-              <%= link_to profile_path(user) do %> <%= image_tag "profile_placeholder.png",class: "rounded-circle", height: 120, width: 120, crop: :fill %> <% end %>
-            <% end %>
+    <div class="row">
+      <% @users.each do |user| %>
+        <% if user != current_user  %>
+          <div class="col-4 mt-3">
+            <div class="text-center">
+              <% if user.photo.attached? %>
+                <%= link_to profile_path(user) do %> <%= cl_image_tag user.photo.key,class: "rounded-circle", height: 120, width: 120, crop: :fill %> <% end %>
+              <% else %>
+                <%= link_to profile_path(user) do %> <%= image_tag "profile_placeholder.png",class: "rounded-circle", height: 120, width: 120, crop: :fill %> <% end %>
+              <% end %>
+            </div>
+            <div class="text-center mt-2">
+              <h5> <%= user.first_name %> <%= user.last_name %> </h5>
+              <%= link_to connections_path(friend_id: user.id), data: { turbo_method: :post} do %> <button type="button" class="btn btn-success">Connect</button> <% end %>
+              <%#= link_to "disconnect", connections_path(), data: { turbo_method: :delete} %>
+            </div>
           </div>
-          <div class="text-center mt-2">
-            <h5> <%= user.first_name %> <%= user.last_name %> </h5>
-            <%= link_to connections_path(friend_id: user.id), data: { turbo_method: :post} do %> <button type="button" class="btn btn-success">Connect</button> <% end %>
-            <%#= link_to "disconnect", connections_path(), data: { turbo_method: :delete} %>
-          </div>
-        </div>
-      <% end %>
-    <% end  %>
+        <% end %>
+      <% end  %>
+    </div>
+    </div>
   </div>
 </div>
