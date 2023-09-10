@@ -55,12 +55,89 @@ h1 {
   background-color:#8246EA ;
   display: inline-block;
   padding: 10px 20px;
-  color: #fff; /* Cor do texto */
+  color: #fff;
   border: none;
-  border-radius: 50px; /* Raio da borda para tornar o botão redondo */
-  text-decoration: none; /* Remova a sublinhado do link */
+  border-radius: 50px;
+  text-decoration: none;
   font-weight: bold;
   font-size: 16px;
   text-align: center;
 }
 
+.comment-user-img{
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  border: 50%;
+}
+
+
+/* Estilos para a caixa de comentários */
+/* Estilos para a caixa de comentários estilo Facebook */
+.comment-box {
+  background-color: #f0f2f5;
+  border: 1px solid #dddfe2;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  display: flex;
+}
+
+.comment-box .comment-user-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 12px;
+}
+
+.comment-box .comment-user-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.comment-box .comment-box-content {
+  flex-grow: 1;
+}
+
+.comment-box h5 {
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.comment-box .form-group {
+  margin-bottom: 8px;
+}
+
+.comment-box textarea {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px;
+  border: 1px solid #dddfe2;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.comment-box .btn-primary {
+  background-color: #1877f2;
+  border-color: #1877f2;
+  color: #fff;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.comment-box .btn-primary:hover {
+  background-color: #0e5aeb;
+}
+
+/* Remova o estilo de foco padrão do botão */
+.comment-box .btn-primary:focus {
+  box-shadow: none;
+}
+
+/* Estilize o botão de envio */
+.comment-box .btn-submit {
+  margin-top: 8px;
+}
