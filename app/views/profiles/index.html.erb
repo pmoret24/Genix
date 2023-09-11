@@ -52,7 +52,7 @@
 
             <div class="text-center mt-2">
               <h5> <%= user.first_name %> <%= user.last_name %> </h5>
-
+              <%# this block is for disable button "Connect" %>
               <% if Connection.where(
       '(user_id = ? AND friend_id = ?) OR (user_id = ? AND friend_id = ?)',
       current_user.id, user.id, user.id, current_user.id
@@ -66,7 +66,7 @@
               <% else %>
               <%= link_to connections_path(friend_id: user.id), data: { turbo_method: :post} do %> <button type="button" class="btn btn-success">Connect</button> <% end %>
               <% end %>
-              <%#= link_to "disconnect", connections_path(), data: { turbo_method: :delete} %>
+              <%# this block is for disable button "Connect" %>
             </div>
           </div>
         <% end %>
