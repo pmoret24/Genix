@@ -24,7 +24,7 @@
       </div>
     </div>
 
-  <%# CONNECT %>
+    <%# CONNECT %>
     <div class="col-md-9">
       <h1 class="text-center">Connect</h1>
     <div class="my-3">
@@ -49,15 +49,30 @@
                 <%= link_to profile_path(user) do %> <%= image_tag "profile_placeholder.png",class: "rounded-circle", height: 120, width: 120, crop: :fill %> <% end %>
               <% end %>
             </div>
+
             <div class="text-center mt-2">
               <h5> <%= user.first_name %> <%= user.last_name %> </h5>
+
+              <% if Connection.where(
+      '(user_id = ? AND friend_id = ?) OR (user_id = ? AND friend_id = ?)',
+      current_user.id, user.id, user.id, current_user.id
+    ).where(status: true).first%>
+                <p>Connected!</p>
+              <% elsif Connection.where(
+      '(user_id = ? AND friend_id = ?) OR (user_id = ? AND friend_id = ?)',
+      current_user.id, user.id, user.id, current_user.id
+    ).where(status: false).first%>
+                <p>Pending Connection</p>
+              <% else %>
               <%= link_to connections_path(friend_id: user.id), data: { turbo_method: :post} do %> <button type="button" class="btn btn-success">Connect</button> <% end %>
+              <% end %>
               <%#= link_to "disconnect", connections_path(), data: { turbo_method: :delete} %>
             </div>
           </div>
         <% end %>
       <% end  %>
     </div>
+
     </div>
   </div>
 </div>
