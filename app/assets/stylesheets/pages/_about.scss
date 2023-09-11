@@ -17,10 +17,9 @@
 
 }
 .color-green{
-  color: #1f4d27;
+  color: #8246EA;
 }
 .programmers-pictures, .group-picture {
-  border-top: 1px solid #eee;
   margin-top: 40px;
   margin-bottom: 20px;
 
@@ -34,7 +33,7 @@
     width: 100%;
     height: 300px;
     object-fit: cover;
-
+    border-radius: 20px 20px 0 0;
   }
 }
 
@@ -48,7 +47,7 @@
 .group-img {
   max-width: 80%;
   margin: 0 auto;
-  box-shadow: 0px 0px 20px rgba(0,0,0,0.15);
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
 }
 
 .team {
@@ -68,33 +67,35 @@
 }
 
 .about-us {
-    background-color: #fcfcfc;
-    padding: 60px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+  background-color: #fcfcfc;
+  padding: 60px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
 
-    img {
-      width: 50%;
-      height: 435px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin-left: 20px;
-    }
+  img {
+    width: 50%;
+    height: 435px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-left: 20px;
+  }
+  p {
+    text-align: justify;
+  }
 }
 
 .about-us h2 {
-
-    margin-bottom: 30px;
-    color: #2c3e50;
-    font-weight: bold;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  font-weight: bold;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
 }
 
 .about-us p {
-    font-size: 16px;
-    color: #a2a2a2;
-    margin-bottom: 25px;
+  font-size: 16px;
+  color: #a2a2a2;
+  margin-bottom: 25px;
 }
 .group-text {
   margin-top: 30px;
@@ -107,4 +108,27 @@
   max-width: 80%;
   margin: 0 auto;
   box-shadow: 0px 0px 20px rgba(0,0,0,0.15);
+  border-radius: 20px;
+}
+
+.card-about {
+  border-radius: 20px;
+}
+
+.text-main i {
+  color: #8246EA;
+}
+
+.fa-smallprofilepic {
+  color: #8246EA;
+  font-size: x-large;
+}
+
+.purple-underscore {
+  color: #8246EA;
+}
+
+.about-tech-img {
+  float: right;
+  margin-left: 20px;
 }
