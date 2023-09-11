@@ -9,28 +9,16 @@
   text-align: center;
 }
 
-.comment-box {
-  background-color: #f3f3f3;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 15px;
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
+
+.btn-apply {
+  background-color: #9971df;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
 }
 
-.comment-box .comment-user-info {
-  margin-right: 15px;
-}
-
-.comment-box .comment-input {
-  flex-grow: 1;
-}
-
-.comment-box h5 {
-  margin-bottom: 0;
-}
-
-.comment-box .form-group {
-  margin-bottom: 10px;
+.btn-apply:hover {
+  background-color: #8246EA;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  color: #fff
 }
