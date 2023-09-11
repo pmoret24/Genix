@@ -12,6 +12,10 @@ body {
   padding: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
+.card-category{
+  font-size: 20px;
+
+}
 
 h1 {
   font-size: 28px;
@@ -41,9 +45,13 @@ h1 {
   margin-bottom: 20px;
 }
 
-.card-title {
-  font-size: 20px;
+.card-title-show {
+  font-size: 32px;
   color: #333;
+
+}
+.comments-icons i {
+  color: rgb(210, 169, 4);
 }
 
 .card-subtitle {
@@ -55,12 +63,70 @@ h1 {
   background-color:#8246EA ;
   display: inline-block;
   padding: 10px 20px;
-  color: #fff; /* Cor do texto */
+  color: #fff;
   border: none;
-  border-radius: 50px; /* Raio da borda para tornar o botão redondo */
-  text-decoration: none; /* Remova a sublinhado do link */
+  border-radius: 50px;
+  text-decoration: none;
   font-weight: bold;
   font-size: 16px;
   text-align: center;
 }
 
+.comment-box-pitch {
+  background-color: #f0f2f5;
+  border: 1px solid #dddfe2;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  display: flex;
+}
+
+.comment-user-img {
+  width: 58px;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 12px;
+
+}
+
+.comment-box-pitch .comment-box-content {
+  flex-grow: 1;
+}
+
+.comment-box-pitch h5 {
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.comment-box-pitch .form-group {
+  margin-bottom: 8px;
+}
+
+.comment-box-pitch textarea {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px;
+  border: 1px solid #dddfe2;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.comment-box-pitch .btn-primary:hover {
+  background-color: #0e5aeb;
+}
+
+/* Remova o estilo de foco padrão do botão */
+.comment-box .btn-primary:focus {
+  box-shadow: none;
+}
+
+/* Estilize o botão de envio */
+.comment-box .btn-submit {
+  margin-top: 8px;
+}
+
+.card-body-pitch{
+
+}

@@ -21,3 +21,31 @@
   font-size: 16px;
   text-align: center;
 }
+
+
+/* Estilos para a caixa de comentários */
+.comment-box {
+  background-color: #f3f3f3;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 15px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.comment-box .comment-user-info {
+  margin-right: 15px;
+}
+
+.comment-box .comment-input {
+  flex-grow: 1;
+}
+
+.comment-box h5 {
+  margin-bottom: 0;
+}
+
+.comment-box .form-group {
+  margin-bottom: 10px;
+}
