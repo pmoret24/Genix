@@ -73,8 +73,8 @@ h1 {
 }
 
 .comment-box-pitch {
-  background-color: #f0f2f5;
-  border: 1px solid #dddfe2;
+  background-color: #b6b6b6;
+  border: 1px solid #0b0b0b;
   border-radius: 8px;
   padding: 12px;
   margin-bottom: 16px;
@@ -89,14 +89,17 @@ h1 {
   margin-right: 12px;
 
 }
+.comment-box-pitch-content{
+  width: 80%;
+}
 
 .comment-box-pitch .comment-box-content {
-  flex-grow: 1;
+  flex-grow: 3;
 }
 
 .comment-box-pitch h5 {
   margin-bottom: 6px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -107,7 +110,7 @@ h1 {
 .comment-box-pitch textarea {
   width: 100%;
   min-height: 40px;
-  padding: 8px;
+  padding: 12px;
   border: 1px solid #dddfe2;
   border-radius: 4px;
   resize: vertical;
@@ -117,7 +120,7 @@ h1 {
   background-color: #0e5aeb;
 }
 
-/* Remova o estilo de foco padrão do botão */
+
 .comment-box .btn-primary:focus {
   box-shadow: none;
 }
@@ -127,6 +130,7 @@ h1 {
   margin-top: 8px;
 }
 
-.card-body-pitch{
-
+.form-group-show{
+  width: 100%;
+  height: 100%;
 }
