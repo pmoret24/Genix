@@ -33,10 +33,13 @@ h1 {
   background-color: #8246EA;
   color: #fff;
   border: none;
+  border-radius: 5px;
 }
 
 .btn-success:hover {
-  background-color: #600ca0;
+  background-color: #9971df;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  color: #fff
 }
 
 .card {
