@@ -1,32 +1,37 @@
-<div>
-  <H2>
+<div class="proj-container">
+
+  <H2 class="proj-title">
    <%= project.title %>
   </H2>
+  <hr class="proj-hr">
 
-  <% if project.photo.attached? %>
-      <%= cl_image_tag project.photo.key, height: 250, width: 250, crop: :fill %>
-    <% else %>
-      <%= image_tag "placeholder.webp", height: 250, width: 250, crop: :fill %>
-  <% end %>
+  <div class="proj-content">
+    <hr class="proj-hr">
 
-  <p>
-    <strong>Programming Languages:</strong>
-    <%= project.languages %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= project.description %>
-  </p>
+    <% if project.photo.attached? %>
+        <%= cl_image_tag project.photo.key, height: 250, width: 250, crop: :fill %>
+      <% else %>
+        <%= image_tag "placeholder.webp", height: 250, width: 250, crop: :fill %>
+    <% end %>
 
     <p>
-    <strong>Category:</strong>
-    <%= project.category %>
-  </p>
+      <strong>Prog. Languages:</strong>
+      <%= project.languages %>
+    </p>
 
     <p>
-    <strong>Github Link:</strong>
-    <%= project.github %>
-  </p>
+      <strong>Description:</strong>
+      <%= project.description %>
+    </p>
 
+      <p>
+      <strong>Category:</strong>
+      <%= project.category %>
+    </p>
+
+      <p>
+      <strong>Github Link:</strong>
+      <%= project.github %>
+    </p>
+  </div>
 </div>

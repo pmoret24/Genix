@@ -1,0 +1,16 @@
+.proj-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.proj-title {
+  text-align: center;
+}
+
+.proj-hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid black;
+  opacity: .75;
+}
