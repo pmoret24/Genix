@@ -59,7 +59,7 @@ h1 {
 
 .card-subtitle {
   font-size: 16px;
-  color: #666;
+  color: #cfc8c8;
 }
 
 .btn-roxo {
@@ -76,8 +76,8 @@ h1 {
 }
 
 .comment-box-pitch {
-  background-color: #b6b6b6;
-  border: 1px solid #0b0b0b;
+  background-color: #ececec;
+  border: 1px solid #dbdbdb;
   border-radius: 8px;
   padding: 12px;
   margin-bottom: 16px;
@@ -91,9 +91,14 @@ h1 {
   border-radius: 50%;
   margin-right: 12px;
 
+
+}
+.form-group-s{
+  color: black;
 }
 .comment-box-pitch-content{
   width: 80%;
+
 }
 
 .comment-box-pitch .comment-box-content {
@@ -104,6 +109,7 @@ h1 {
   margin-bottom: 6px;
   font-size: 20px;
   font-weight: bold;
+  color :black
 }
 
 .comment-box-pitch .form-group {
