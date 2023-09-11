@@ -1,7 +1,17 @@
+.proj-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .proj-content{
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  img{
+    width: 50%;
+    object-fit: cover;
+  }
 }
 
 .proj-title {
@@ -13,4 +23,23 @@
   border: 0;
   border-top: 1px solid black;
   opacity: .75;
+}
+
+.proj-card {
+  border-radius: 10px;
+}
+
+.gray{
+  color: gray;
+}
+
+.github-link{
+  a {
+    text-decoration: none;
+    color: #8246EA;
+    font-weight: 700;
+  }
+  i {
+    font-size: 20px;
+  }
 }
