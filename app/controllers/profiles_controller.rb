@@ -1,5 +1,8 @@
 class ProfilesController < ApplicationController
   before_action :set_user, only: %i[show]
+  before_action :skip_authorization, exept: :index
+  before_action :skip_policy_scope, only: :index
+
   def show
     @connection = Connection.new
     @chatroom = Chatroom.new

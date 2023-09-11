@@ -1,4 +1,5 @@
 class ConnectionsController < ApplicationController
+  before_action :skip_authorization
 
   def create
     friend = User.find(params[:friend_id]) # passou a id do usuario ao qual o usuario logado quer ser amigo
