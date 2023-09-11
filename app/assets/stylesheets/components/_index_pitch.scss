@@ -15,7 +15,9 @@ body {
   position: sticky;
   top: 20px;
 }
-
+.card{
+  border-radius: 10px;
+}
   .pitches-bar {
     background: linear-gradient(#8246EA 15%, 0, #f8f9fa 85%);
     padding: 20px;
@@ -59,6 +61,12 @@ body {
     height: 90px;
 
   }
+  .card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
 
   .img-comment{
     width: 6px;
@@ -71,11 +79,13 @@ body {
   }
 
   .img-pitches {
-    width: 100%;
+    width: 80%;
     height: 100%;
     margin: -30px auto 1.2rem;
     border: #f8f9fa 2px solid var(--color-background-container);
     background-color: #ddd;
+    display: flex;
+    align-items: center;
   }
 .pitch-container{
   margin-bottom: 20px;
