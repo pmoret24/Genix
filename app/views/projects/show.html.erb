@@ -15,7 +15,7 @@
               <p>pending...</p>
             <% else %>
               <%= simple_form_for [@project, @member] do |f| %>
-                <%= f.submit "Apply", class: "btn btn-outline-success btn-sm center m-3" %>
+                <%= f.submit "Apply", class: "btn btn-apply btn-sm center m-3" %>
               <% end %>
             <% end %>
           <% end %>
