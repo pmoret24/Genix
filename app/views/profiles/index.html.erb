@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
 
     <%# SIDEBAR %>
-    <div class="col-md-3">
+    <div class="col-md-3"> <%# column ta 3 %>
       <div class="sticky">
         <div class="sidebar border rounded connect-bar">
           <div class="d-flex  flex-column align-items-center p-2 gap-4 m-2">
@@ -25,53 +25,55 @@
     </div>
 
     <%# CONNECT SEARCH BAR %>
-    <div class="col-md-9">
+    <div class="col-md-9"> <%# column ta 9 %>
       <h1 class="text-center" ><i class="fa-solid fa-users"></i> Connect</h1>
-    <div class="my-3">
-      <%= form_with url: profiles_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Type a name"
-          %>
-        <%= submit_tag "Search", name: "", class: "btn btn-success" %>
-      <% end %>
-    </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-8 my-3">
+          <%= form_with url: profiles_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control",
+                  placeholder: "Type a name"
+              %>
+            <%= submit_tag "Search", name: "", class: "btn btn-success" %>
+          <% end %>
+        </div>
+      </div>
 
-    <div class="row">
-      <% @users.each do |user| %>
-        <% if user != current_user  %>
-          <div class="col-4 mt-3">
-            <div class="text-center">
-              <% if user.photo.attached? %>
-                <%= link_to profile_path(user) do %> <%= cl_image_tag user.photo.key,class: "rounded-circle img-thumbnail", height: 120, width: 120, crop: :fill %> <% end %>
-              <% else %>
-                <%= link_to profile_path(user) do %> <%= image_tag "profile_placeholder.png",class: "rounded-circle", height: 120, width: 120, crop: :fill %> <% end %>
-              <% end %>
-            </div>
+      <div class="row">
+        <% @users.each do |user| %>
+          <% if user != current_user  %>
+            <div class="col-4 mt-3">
+              <div class="text-center">
+                <% if user.photo.attached? %>
+                  <%= link_to profile_path(user) do %> <%= cl_image_tag user.photo.key,class: "rounded-circle img-thumbnail", height: 120, width: 120, crop: :fill %> <% end %>
+                <% else %>
+                  <%= link_to profile_path(user) do %> <%= image_tag "profile_placeholder.png",class: "rounded-circle", height: 120, width: 120, crop: :fill %> <% end %>
+                <% end %>
+              </div>
 
-            <div class="text-center mt-2">
-              <h5> <%= user.first_name %> <%= user.last_name %> </h5>
-              <%# this block is for disable button "Connect" %>
-              <% if Connection.where(
-      '(user_id = ? AND friend_id = ?) OR (user_id = ? AND friend_id = ?)',
-      current_user.id, user.id, user.id, current_user.id
-    ).where(status: true).first%>
-                <p>Connected!</p>
-              <% elsif Connection.where(
-      '(user_id = ? AND friend_id = ?) OR (user_id = ? AND friend_id = ?)',
-      current_user.id, user.id, user.id, current_user.id
-    ).where(status: false).first%>
-                <p>Pending Connection</p>
-              <% else %>
-              <%= link_to connections_path(friend_id: user.id), data: { turbo_method: :post} do %> <button type="button" class="btn btn-success">Connect</button> <% end %>
-              <% end %>
-              <%# this block is for disable button "Connect" %>
+              <div class="text-center mt-2">
+                <h5> <%= user.first_name %> <%= user.last_name %> </h5>
+                <%# this block is for disable button "Connect" %>
+                <% if Connection.where(
+                  '(user_id = ? AND friend_id = ?) OR (user_id = ? AND friend_id = ?)',
+                  current_user.id, user.id, user.id, current_user.id
+                  ).where(status: true).first%>
+                  <p>Connected!</p>
+                <% elsif Connection.where(
+                  '(user_id = ? AND friend_id = ?) OR (user_id = ? AND friend_id = ?)',
+                  current_user.id, user.id, user.id, current_user.id
+                  ).where(status: false).first%>
+                  <p>Pending Connection</p>
+                <% else %>
+                <%= link_to connections_path(friend_id: user.id), data: { turbo_method: :post} do %> <button type="button" class="btn btn-success">Connect</button> <% end %>
+                <% end %>
+                <%# this block is for disable button "Connect" %>
+              </div>
             </div>
-          </div>
-        <% end %>
-      <% end  %>
-    </div>
+          <% end %>
+        <% end  %>
+      </div>
 
     </div>
   </div>
