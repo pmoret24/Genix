@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @projects = Project.all
+    @projects = policy_scope(Project)
     @projects = Project.search_projects(params[:query]) if params[:query].present?
   end
 
@@ -13,17 +13,22 @@ class ProjectsController < ApplicationController
     @members_count = Member.where(project: @project, user: current_user).count
     @members_approved = Member.where(project: @project, status: true, user: current_user).count
     @members_pending = Member.where(project: @project, status: false, user: current_user).count
+    authorize @project
   end
 
   def new
     @project = Project.new
+    authorize @project
   end
 
-  def edit; end
+  def edit
+    authorize @project
+  end
 
   def create
     @project = Project.new(project_params)
     @project.owner = current_user
+    authorize @project
 
     if @project.save
       redirect_to @project, notice: "Project was successfully created."
@@ -38,11 +43,13 @@ class ProjectsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+    authorize @project
   end
 
   def destroy
     @project.destroy
     redirect_to projects_url, notice: "Project was successfully destroyed.", status: :see_other
+    authorize @project
   end
 
   private

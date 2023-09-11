@@ -1,9 +1,12 @@
 class ProfilesController < ApplicationController
   before_action :set_user, only: %i[show]
+  before_action :skip_authorization, exept: :index
+  before_action :skip_policy_scope, only: :index
+
   def show
-    @connection = Connection.new
     @chatroom = Chatroom.new
     @chatroom_available = Chatroom.where(sender: current_user, receiver: @user).or(Chatroom.where(sender: @user, receiver: current_user)).first
+    @connection = Connection.new
     @pending_connections = Connection.where(status: false).where(friend: current_user)
     @approved_connections = Connection.where(status: true, user: current_user).or(Connection.where(status: true, friend: current_user))
     # o acima é essa query otimizada @approved_connections = Connection.where(status: true).where(user: current_user).or(Connection.where(status: true).where(friend_id: current_user))
@@ -20,6 +23,7 @@ class ProfilesController < ApplicationController
       @users = @users.where(sql_subquery, query: "%#{params[:query]}%")
     end
     # @users = User.search_by_first_name_and_last_name(params[:query]) if params[:query].present?
+    @connection = Connection.new
   end
 
   private

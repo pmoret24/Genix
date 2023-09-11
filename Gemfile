@@ -18,6 +18,9 @@ gem "puma", "~> 5.0"
 #gema instalada
 # gem "psych", "~> 4.0.6"
 
+# Pundit
+gem "pundit"
+
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
@@ -59,7 +62,6 @@ gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem 'faker'
-gem "pg_search"
 
 
 group :development, :test do

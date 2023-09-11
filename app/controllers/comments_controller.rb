@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :skip_authorization
+
   def create
     @pitch = Pitch.find(params[:pitch_id])
     @comment = Comment.new(comment_params)
