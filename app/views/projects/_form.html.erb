@@ -1,48 +1,64 @@
-<%= simple_form_for(@project, html: { class: 'custom-form' }) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <%= simple_form_for(@project, html: { class: 'custom-form' }) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :title, label: 'Project Name' %>
-    <%= f.input :description, label: 'Description', input_html: { rows: 4 } %>
-    <%= f.input :category, label: 'Category' %>
-    <%= f.input :languages, label: 'Languages' %>
-    <%= f.input :github, label: 'Github Link' %>
-    <%= f.input :photo, as: :file %>
+        <div class="form-group">
+          <label for="title">Project Name</label>
+          <div class="input-icon">
+            <i class="fas fa-user"></i>
+            <%= f.input_field :title, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category Name</label>
+          <div class="input-icon">
+            <i class="fas fa-tags"></i>
+            <%= f.input_field :category, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="languages">Skills</label>
+          <div class="input-icon">
+            <i class="fas fa-code"></i>
+            <%= f.input_field :languages, collection: ['Ruby', 'Python', 'Java', 'JavaScript', 'C++', 'PHP', 'SQL', 'others'], class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <div class="input-icon">
+            <i class="fas fa-info-circle"></i>
+            <%= f.input_field :description, as: :text, rows: 4, class: 'form-control' %>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="photo">Github:</label>
+          <div class="input-icon">
+            <i class="fa-brands fa-github"></i>
+            <%= f.input_field :github, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="photo">Upload Photo</label>
+          <div class="input-icon">
+            <i class="fas fa-camera"></i>
+            <%= f.input_field :photo, as: :file, class: 'form-control-file' %>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, 'Submit', class: 'btn btn-primary m-3' %>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to "Back to projects", projects_path, class: "btn" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, 'Submit', class: 'btn btn-primary' %>
-  </div>
-  <%= link_to "Cancel", projects_path, class: "btn btn-outline-success btn-sm center m-3" %>
-
-<% end %>
-<style>
-.custom-form {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-}
-
-.form-inputs {
-  margin-bottom: 20px;
-}
-
-.form-actions {
-  text-align: center;
-}
-
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
-}
-</style>
+</div>

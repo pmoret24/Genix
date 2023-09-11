@@ -16,7 +16,7 @@
       </div>
         <div class="row justify-content-center">
           <div class="my-4">
-            <%= link_to "Add a new pitch", new_pitch_path, class: 'btn btn-roxo btn-sm center d-flex align-items-end justify-content-center '%>
+            <%= link_to "Add a new pitch", new_pitch_path, class: 'btn btn-roxo btn-success btn-sm center d-flex align-items-end justify-content-center '%>
           </div>
         </div>
       </div>
@@ -41,8 +41,8 @@
         <% @pitches.each do |pitch| %>
 
           <div class=" col-md-4 mb-4">
-             <div class="card "  data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" title="Description" data-bs-content="
-             <%= pitch.description %>" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
+             <div class="card pitch-card"  data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" title="Description" data-bs-content="
+             <%= pitch.description  %>" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
                 <div class="card-body">
                         <h5 class="card-title">
                       <%= pitch.title %>
