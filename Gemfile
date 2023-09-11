@@ -19,6 +19,9 @@ gem "puma", "~> 5.0"
 #gema instalada
 # gem "psych", "~> 4.0.6"
 
+# Pundit
+gem "pundit"
+
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
@@ -33,7 +36,7 @@ gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
 gem "redis"
-gem "cloudinary"
+gem "cloudinary", "~> 1.27.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -60,7 +63,6 @@ gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem 'faker'
-gem "pg_search"
 
 
 group :development, :test do

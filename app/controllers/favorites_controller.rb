@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  before_action :skip_authorization
 
   def create
     @pitch = Pitch.find(params[:pitch_id])

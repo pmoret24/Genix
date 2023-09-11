@@ -1,6 +1,7 @@
 class MembersController < ApplicationController
   before_action :set_member, only: :destroy
   before_action :set_project, only: %i[new create]
+  before_action :skip_authorization
 
   def new
     @member = Member.new

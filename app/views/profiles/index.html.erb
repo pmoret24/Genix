@@ -9,20 +9,24 @@
             <%= cl_image_tag current_user.photo.key, class: "img-fluid rounded-circle img-thumbnail mx-auto d-block" %>
             <p><strong><%= current_user.first_name %> <%= current_user.last_name %> </strong></p>
             <ul class="list-group">
-              <li class="list-group-item"><%= link_to root_path do %><i class="fa-solid fa-circle-user"></i>   My Profile<% end %></li>
+              <li class="list-group-item"><%= link_to profile_path(current_user) do %><i class="fa-solid fa-circle-user"></i>   My Profile<% end %></li>
               <li class="list-group-item"><%= link_to root_path do %><i class="fa-solid fa-house"></i>   Home<% end %></li>
               <li class="list-group-item"><%= link_to pitches_path do %><i class="fa-solid fa-person-chalkboard"></i>   Pitches<% end %></li>
-              <li class="list-group-item"><%= link_to profiles_path do %><i class="fa-solid fa-users"></i>    Connect<% end %></li>
+              <li class="list-group-item"><%= link_to projects_path do %><i class="fa-solid fa-magnifying-glass"></i>   Projects<% end %></li>
             </ul>
+          </div>
+        </div>
+        <div class="justify-content-center">
+          <div class="my-4">
+            <%= link_to "Chat with Connections", chatrooms_path, class: 'btn btn-roxo btn-sm center d-flex align-items-end justify-content-center '%>
           </div>
         </div>
       </div>
     </div>
 
-  <%# CONNECT %>
+    <%# CONNECT %>
     <div class="col-md-9">
-      <h1 class="conect-title">Connect</h1>
-      <h1 class="conect-search">Search here:</h1>
+      <h1 class="text-center">Connect</h1>
     <div class="my-3">
       <%= form_with url: profiles_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
@@ -45,15 +49,30 @@
                 <%= link_to profile_path(user) do %> <%= image_tag "profile_placeholder.png",class: "rounded-circle", height: 120, width: 120, crop: :fill %> <% end %>
               <% end %>
             </div>
+
             <div class="text-center mt-2">
               <h5> <%= user.first_name %> <%= user.last_name %> </h5>
+              <%# this block is for disable button "Connect" %>
+              <% if Connection.where(
+      '(user_id = ? AND friend_id = ?) OR (user_id = ? AND friend_id = ?)',
+      current_user.id, user.id, user.id, current_user.id
+    ).where(status: true).first%>
+                <p>Connected!</p>
+              <% elsif Connection.where(
+      '(user_id = ? AND friend_id = ?) OR (user_id = ? AND friend_id = ?)',
+      current_user.id, user.id, user.id, current_user.id
+    ).where(status: false).first%>
+                <p>Pending Connection</p>
+              <% else %>
               <%= link_to connections_path(friend_id: user.id), data: { turbo_method: :post} do %> <button type="button" class="btn btn-success">Connect</button> <% end %>
-              <%#= link_to "disconnect", connections_path(), data: { turbo_method: :delete} %>
+              <% end %>
+              <%# this block is for disable button "Connect" %>
             </div>
           </div>
         <% end %>
       <% end  %>
     </div>
+
     </div>
   </div>
 </div>
