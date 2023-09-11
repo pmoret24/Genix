@@ -12,6 +12,10 @@ body {
   padding: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
+.card-category{
+  font-size: 20px;
+
+}
 
 h1 {
   font-size: 28px;
@@ -41,9 +45,13 @@ h1 {
   margin-bottom: 20px;
 }
 
-.card-title {
-  font-size: 20px;
+.card-title-show {
+  font-size: 32px;
   color: #333;
+
+}
+.comments-icons i {
+  color: rgb(210, 169, 4);
 }
 
 .card-subtitle {
@@ -64,17 +72,7 @@ h1 {
   text-align: center;
 }
 
-.comment-user-img{
-  width: 20px;
-  height: 20px;
-  object-fit: cover;
-  border: 50%;
-}
-
-
-/* Estilos para a caixa de comentários */
-/* Estilos para a caixa de comentários estilo Facebook */
-.comment-box {
+.comment-box-pitch {
   background-color: #f0f2f5;
   border: 1px solid #dddfe2;
   border-radius: 8px;
@@ -83,35 +81,30 @@ h1 {
   display: flex;
 }
 
-.comment-box .comment-user-img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-right: 12px;
-}
-
-.comment-box .comment-user-img img {
-  width: 100%;
-  height: 100%;
+.comment-user-img {
+  width: 58px;
+  height: 58px;
   object-fit: cover;
+  border-radius: 50%;
+  margin-right: 12px;
+
 }
 
-.comment-box .comment-box-content {
+.comment-box-pitch .comment-box-content {
   flex-grow: 1;
 }
 
-.comment-box h5 {
+.comment-box-pitch h5 {
   margin-bottom: 6px;
   font-size: 16px;
   font-weight: bold;
 }
 
-.comment-box .form-group {
+.comment-box-pitch .form-group {
   margin-bottom: 8px;
 }
 
-.comment-box textarea {
+.comment-box-pitch textarea {
   width: 100%;
   min-height: 40px;
   padding: 8px;
@@ -120,15 +113,7 @@ h1 {
   resize: vertical;
 }
 
-.comment-box .btn-primary {
-  background-color: #1877f2;
-  border-color: #1877f2;
-  color: #fff;
-  font-weight: bold;
-  transition: background-color 0.2s;
-}
-
-.comment-box .btn-primary:hover {
+.comment-box-pitch .btn-primary:hover {
   background-color: #0e5aeb;
 }
 
@@ -140,4 +125,8 @@ h1 {
 /* Estilize o botão de envio */
 .comment-box .btn-submit {
   margin-top: 8px;
+}
+
+.card-body-pitch{
+
 }
