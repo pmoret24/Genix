@@ -12,12 +12,12 @@ class ConnectionsController < ApplicationController
   def update
     connection = Connection.find(params[:id])
     connection.update(status: true)
-    redirect_to profile_path, notice: "Connection Approved with #{connection.user.first_name}!"
+    redirect_to profile_path(current_user), notice: "Connection Approved with #{connection.user.first_name}!"
   end
 
   def destroy
     connection = Connection.find(params[:id])
     connection.destroy
-    redirect_to profile_path(current_user), notice: "Pending connection deleted!", status: :see_other
+    redirect_to profile_path(current_user), notice: "Connection deleted!", status: :see_other
   end
 end
