@@ -83,8 +83,8 @@
                 <div class="form-group-show w-100 ">
                   <%= f.input :content, label: false, placeholder:  "Type your comment here...", input_html: { class: "form-control " } %>
                 </div>
-                <div class="form-group">
-                  <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: { data: { controller: "star-rating" } } %>
+                <div class="form-group-s">
+                  <%= f.input :rating, collection: (1..5).to_a, label: "Rate this pitch", input_html: { data: { controller: "star-rating" } } %>
                 </div>
                 <%= f.submit "Add Comment", class: "btn btn-primary btn-block" %>
               <% end %>
