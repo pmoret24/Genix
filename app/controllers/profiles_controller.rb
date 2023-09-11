@@ -1,5 +1,8 @@
 class ProfilesController < ApplicationController
   before_action :set_user, only: %i[show]
+  before_action :skip_authorization, exept: :index
+  before_action :skip_policy_scope, only: :index
+
   def show
     @chatroom = Chatroom.new
     @chatroom_available = Chatroom.where(sender: current_user, receiver: @user).or(Chatroom.where(sender: @user, receiver: current_user)).first
