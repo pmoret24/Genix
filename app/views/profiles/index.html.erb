@@ -40,6 +40,12 @@
         </div>
       </div>
 
+        <div class="row justify-content-center button-mobile">
+          <div class="my-4">
+            <%= link_to "Chat with Connections", chatrooms_path, class: "btn btn-roxo btn-success btn-sm center d-flex align-items-end justify-content-center"%>
+          </div>
+        </div>
+
       <div class="row">
         <% @users.each do |user| %>
           <% if user != current_user  %>
