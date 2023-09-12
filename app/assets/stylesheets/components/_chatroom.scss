@@ -67,3 +67,9 @@
     clear: both;
   }
 }
+
+@media (max-width: 576px) {
+  .chat-user {
+    margin-top: 20px;
+  }
+}

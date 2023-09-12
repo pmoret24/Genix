@@ -32,8 +32,8 @@
             <p class="card-category-show text-center"><%= @pitch.description %></p>
 
             <div class="d-flex justify-content-between mt-4 ">
-              <%= link_to "Edit this pitch", edit_pitch_path(@pitch), class: "btn btn-outline-primary" if @pitch.user == current_user %>
               <%= link_to "Back to pitches", pitches_path, class: "btn btn-outline-success" %>
+              <%= link_to "Edit this pitch", edit_pitch_path(@pitch), class: "btn btn-outline-primary" if @pitch.user == current_user %>
               <% if @pitch.user == current_user %>
                 <%= button_to "Delete this pitch", @pitch, method: :delete, class: "btn btn-outline-danger", data: { confirm: "Are you sure?" } %>
               <% end %>

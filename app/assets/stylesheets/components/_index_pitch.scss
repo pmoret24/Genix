@@ -61,10 +61,12 @@ body {
     height: 90px;
 
   }
-  .card-body{
+  .card-body-pitches{
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid #8246EA;
+    border-radius: 10px;
 
   }
 
