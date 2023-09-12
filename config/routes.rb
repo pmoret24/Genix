@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :chatrooms, only: [:create]
   end
 
-  resources :members, only: %i[update]
+  resources :members, only: %i[update destroy]
   # Defines the root path route ("/")
 
   get "users/:id", to: "profiles#show", as: "profile"
