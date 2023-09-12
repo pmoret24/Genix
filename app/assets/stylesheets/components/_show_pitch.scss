@@ -54,13 +54,16 @@ h1 {
   color: #333;
 
 }
+.card-body-pitches{
+  border: 1px solid #8246EA;
+}
 .comments-icons i {
   color: rgb(255, 204, 0);
 }
 
 .card-subtitle {
   font-size: 16px;
-  color: #cfc8c8;
+  color: #8246EA;
 }
 
 .btn-roxo {
@@ -121,7 +124,7 @@ h1 {
   width: 100%;
   min-height: 40px;
   padding: 12px;
-  border: 1px solid #dddfe2;
+  border: 1px solid #8246EA;
   border-radius: 4px;
   resize: vertical;
 }
@@ -154,4 +157,7 @@ h1 {
 }
 .img-pitches{
   border: 2px solid #8246EA;
+}
+.card-shadow{
+  border: 1px solid #8246EA;
 }
