@@ -1,5 +1,7 @@
- <h1 class="text-center">New Project</h1>
+<div class="container mb-3">
+  <h1 class="text-center">New Project</h1>
 
-<%= render "form", project: @project %>
-
-<br>
+  <%= render "form", project: @project %>
+  <br>
+  <%= link_to "Back to projects", projects_path, class: "btn btn btn-outline-success btn-sm" %>
+</div>
