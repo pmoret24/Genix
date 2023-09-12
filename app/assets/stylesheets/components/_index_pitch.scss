@@ -113,8 +113,17 @@ body {
   display: block;
   word-wrap: break-word;
   max-height: 6em;
+}
 
+.button-mobile {
+  display: none;
+}
 
-
-
+@media (max-width: 576px) {
+  .button-mobile {
+    display: inline;
+  }
+  .sticky {
+    display: none;
+  }
 }
