@@ -11,6 +11,7 @@ body {
 .title {
   color: #8246EA;
   font-size: 128px;
+  text-align: left;
 }
 
 .slogan {
@@ -161,9 +162,13 @@ hr {
 @media(max-width: 576px) {
   .title {
     font-size: 56px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
   }
   .slogan {
-    font-size: 12px;
+    margin-top: 0px;
+    padding-top: 0px;
+    font-size: 16px;
   }
   .main-btn {
     font-size: 6px;
@@ -175,6 +180,7 @@ hr {
   .lighthouse {
     width: 125px;
     height: 125px;
+    padding-left: 10px;
   }
   .left-content {
     padding-left: 0px;
@@ -189,6 +195,8 @@ hr {
   }
   .index-title {
     font-size: 22px;
+    margin-top: 0px;
+    padding-top: 0px;
   }
   .logo-genix {
     width: 40px;
