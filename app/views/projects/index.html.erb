@@ -38,13 +38,20 @@
           <% end %>
         </div>
       </div>
+
+        <div class="row justify-content-center button-mobile">
+          <div class="my-4">
+            <%= link_to "Post a project",  new_project_path, class: "btn btn-roxo btn-success btn-sm center d-flex align-items-end justify-content-center"%>
+          </div>
+        </div>
+
       <div id="projects">
         <% @projects.each do |project| %>
           <div class="mb-4">
             <%= link_to project_path(project) do  %>
               <div class="card whole-card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
                 <div class="card-proj "  data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" title="Description" data-bs-content="
-             <%= project.description %>" > 
+             <%= project.description %>" >
                   <% if project.photo.attached? %>
                     <%= cl_image_tag project.photo.key, height: 70, width: 70, crop: :fill %>
                   <% else %>
