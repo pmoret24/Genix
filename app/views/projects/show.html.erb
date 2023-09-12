@@ -29,11 +29,14 @@
         <p>Member Request(s):</p>
           <% @members_users.each do |member| %>
             <li>
-              <%= link_to member.user.first_name, root_path(member.user), class: "btn btn-outline-dark" %>
+              <%= link_to member.user.first_name, profile_path(member.user), class: "btn btn-outline-dark" %>
               <% if member.status %>
                 <p>Your membership is approved!</p>
               <% else %>
                 <%= link_to "Approve?", member_path(member), data: {turbo_method: :patch}, class: "btn btn-outline-success btn-sm center m-3" %>
+                <%= link_to member_path(member), data: {turbo_method: :delete} do %>
+                  <i class="fa-regular fa-trash-can center m-3 garbage"></i>
+                <% end %>
               <% end %>
             </li>
         <% end %>

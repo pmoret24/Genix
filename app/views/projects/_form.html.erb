@@ -6,50 +6,44 @@
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
         <div class="form-group">
-          <label for="title">Project Name</label>
+          <i class="fas fa-user"></i>     <label for="title">Project Name</label>
           <div class="input-icon">
-            <i class="fas fa-user"></i>
             <%= f.input_field :title, class: 'form-control' %>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="category">Category Name</label>
+          <i class="fas fa-tags"></i>     <label for="category">Category Name</label>
           <div class="input-icon">
-            <i class="fas fa-tags"></i>
             <%= f.input_field :category, class: 'form-control' %>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="languages">Skills</label>
+          <i class="fas fa-code"></i>     <label for="languages">Skills</label>
           <div class="input-icon">
-            <i class="fas fa-code"></i>
             <%= f.input_field :languages, collection: ['Ruby', 'Python', 'Java', 'JavaScript', 'C++', 'PHP', 'SQL', 'others'], class: 'form-control' %>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="description">Description</label>
+          <i class="fas fa-info-circle"></i>     <label for="description">Description</label>
           <div class="input-icon">
-            <i class="fas fa-info-circle"></i>
             <%= f.input_field :description, as: :text, rows: 4, class: 'form-control' %>
           </div>
         </div>
 
 
         <div class="form-group">
-          <label for="photo">Github:</label>
+          <i class="fa-brands fa-github"></i>     <label for="photo">Github:</label>
           <div class="input-icon">
-            <i class="fa-brands fa-github"></i>
             <%= f.input_field :github, class: 'form-control' %>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="photo">Upload Photo</label>
+          <i class="fas fa-camera"></i>     <label for="photo">Upload Photo</label>
           <div class="input-icon">
-            <i class="fas fa-camera"></i>
             <%= f.input_field :photo, as: :file, class: 'form-control-file' %>
           </div>
         </div>
@@ -59,6 +53,5 @@
         </div>
       <% end %>
     </div>
-    <%= link_to "Back to projects", projects_path, class: "btn" %>
   </div>
 </div>

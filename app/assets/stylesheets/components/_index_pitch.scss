@@ -77,6 +77,9 @@ body {
     background-color: #ddd;
 
   }
+  .border-index{
+    border: 1px solid #8246EA;
+  }
 
   .img-pitches {
     width: 80%;
@@ -86,6 +89,7 @@ body {
     background-color: #ddd;
     display: flex;
     align-items: center;
+
   }
 .pitch-container{
   margin-bottom: 20px;
@@ -109,6 +113,7 @@ body {
   display: block;
   word-wrap: break-word;
   max-height: 6em;
+
 
 
 

@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: :destroy
+  before_action :set_member, only: %i[destroy update]
   before_action :set_project, only: %i[new create]
   before_action :skip_authorization
 
@@ -23,7 +23,6 @@ class MembersController < ApplicationController
   end
 
   def update
-    @member = Member.find(params[:id])
     @member.update(status: true)
     redirect_to project_path(@member.project), notice: "Member Approved!"
   end
@@ -41,5 +40,9 @@ class MembersController < ApplicationController
 
   def set_project
     @project = Project.find(params[:project_id])
+  end
+
+  def set_member
+    @member = Member.find(params[:id])
   end
 end
