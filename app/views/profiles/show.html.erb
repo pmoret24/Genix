@@ -1,13 +1,13 @@
 <div class="container mb-3 ">
   <div class="subcontainer d-flex justify-content-between gap-3">
-    <div class="card d-flex flex-column col-md-4 ">
+    <div class="card profile-design rounded-boundary d-flex flex-column col-md-4 ">
 
       <div class="profile-image text-center mt-2">
         <% if @user.photo.attached? %>
-          <%= cl_image_tag @user.photo.key,class: "rounded-circle", height: 120, width: 120, crop: :fill %>
+          <%= cl_image_tag @user.photo.key,class: "img-profile img-thumbnail" %>
           <h1 class="profile-name mt-1 text-center"><%= @user.first_name %> <%= @user.last_name %></h1>
         <% else %>
-          <%= image_tag "profile_placeholder.png",class: "rounded-circle", height: 120, width: 120, crop: :fill %>
+          <%= image_tag "profile_placeholder.png",class: "img-profile" %>
           <h1 class="profile-name mt-1 text-center"><%= @user.first_name %> <%= @user.last_name %></h1>
         <% end %>
       </div>
@@ -18,7 +18,7 @@
             <p> <strong> Friends: </strong> </p>
           <% end %>
           <% @approved_connections.each do |connection| %>
-            <%= link_to  (cl_image_tag connection.other_person(current_user).photo.key , class: "rounded-circle", height:50, width:50, crop: :fill ), profile_path(connection.other_person(current_user))  %>
+            <%= link_to  (cl_image_tag connection.other_person(current_user).photo.key , class: "rounded-circle", height:50, width:50 ), profile_path(connection.other_person(current_user))  %>
           <% end %>
 
           <% if @pending_connections.each.count >= 1  %>
@@ -32,20 +32,22 @@
             <p> <strong> Friends: </strong> </p>
           <% end %>
           <% @approved_connections.each do |connection| %>
-            <%= link_to  (cl_image_tag connection.other_person(current_user).photo.key , class: "rounded-circle", height:50, width:50, crop: :fill ), profile_path(connection.other_person(current_user))  %>
+            <%= link_to  (cl_image_tag connection.other_person(@user).photo.key , class: "rounded-circle", height:50, width:50 ), profile_path(connection.other_person(current_user))  %>
           <% end %>
         <% end %>
       </div>
 
     </div>
 
-    <div class="profile-details card d-flex flex-column justify-content-center col-md-8">
+    <div class="profile-details card rounded-boundary d-flex flex-column justify-content-center col-md-8">
       <div class="profile-text text-start mx-3">
         <p> <strong>Description: </strong> <%= @user.description %></p>
         <p><strong> Skills:</strong> <%= @user.skills %></p>
-        <%= link_to @user.github, target: "_blank" do %>
-        <i class="fa-brands fa-github"></i> View on Github
-      <% end %>
+        <div class="github-link">
+          <%= link_to @user.github, target: "_blank" do %>
+            <i class="fa-brands fa-github"></i> View on Github
+          <% end %>
+        </div>
       </div>
     </div>
 

@@ -26,7 +26,7 @@
 
     <%# CONNECT SEARCH BAR %>
     <div class="col-md-9"> <%# column ta 9 %>
-      <h1 class="text-center" ><i class="fa-solid fa-users"></i> Connect</h1>
+      <h1 class="text-center mt-3" ><i class="fa-solid fa-users"></i> Connect</h1>
       <div class="row justify-content-center">
         <div class="col-sm-8 my-3">
           <%= form_with url: profiles_path, method: :get, class: "d-flex" do %>
@@ -46,9 +46,9 @@
             <div class="col-4 mt-3">
               <div class="text-center">
                 <% if user.photo.attached? %>
-                  <%= link_to profile_path(user) do %> <%= cl_image_tag user.photo.key,class: "rounded-circle img-thumbnail", height: 120, width: 120, crop: :fill %> <% end %>
+                  <%= link_to profile_path(user) do %> <%= cl_image_tag user.photo.key,class: "img-thumbnail" %> <% end %>
                 <% else %>
-                  <%= link_to profile_path(user) do %> <%= image_tag "profile_placeholder.png",class: "rounded-circle", height: 120, width: 120, crop: :fill %> <% end %>
+                  <%= link_to profile_path(user) do %> <%= image_tag "profile_placeholder.png",class: "img-thumbnail" %> <% end %>
                 <% end %>
               </div>
 
