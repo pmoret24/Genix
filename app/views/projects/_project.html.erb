@@ -17,7 +17,9 @@
     <div>
       <strong>Prog. Languages</strong>
       <p class="gray">
-        <%= project.languages %>
+        <% project.languages.each do |language| %>
+          <p><%= language %></p>
+        <% end %>
       </p>
 
       <strong>Description</strong>

@@ -22,7 +22,10 @@
               <% end %>
               <div>
                 <h2 class="card-title-show d-flex p-1"> <i class="fa-solid fa-pencil"></i> <%= @pitch.title %></h2>
-                <p class="card-text-pitch comment-text"><strong>Skills:</strong> <%= @pitch.languages %></p>
+                <p class="card-text-pitch comment-text"><strong>Skills:</strong></p>
+                 <% @pitch.languages.each do |language| %>
+                  <p><%= language %></p>
+                 <% end %>
                 <p class="card-category "><strong>Category:</strong> <%= @pitch.category %></p>
               </div>
             </div>
