@@ -45,13 +45,13 @@
              <%= pitch.description  %>" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
                 <div class="card-body">
                         <h5 class="card-title">
-                      
+
                       <%= pitch.title %>
                       <i class="fa-solid fa-circle-info" data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= pluralize(pitch.comments.size, "review") %>"></i>
                         </h5>
                   <p class="card-pitches"><%= pitch.description %></p>
                   <% if pitch.photo.attached? %>
-                    <%= cl_image_tag pitch.photo.key, height: 200, width: 200, crop: :fill %>
+                    <%= cl_image_tag pitch.photo.key, height: 200, width: 200, crop: :fill , class: "border-index" %>
                   <% else %>
                     <%= image_tag "placeholder.webp", height: 200, width: 200, crop: :fill %>
                   <% end %>
