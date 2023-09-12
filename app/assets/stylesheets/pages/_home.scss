@@ -53,6 +53,8 @@ body {
 
 .lighthouse {
   text-align: right;
+  width: 450px;
+  height: 450px;
 }
 
 .container.home-container {
@@ -148,6 +150,61 @@ hr {
 
 .index-title img {
   padding-right: 10px;
+}
+
+
+.logo-genix {
+  width: 65px;
+  height: 65px;
+}
+
+@media(max-width: 576px) {
+  .title {
+    font-size: 56px;
+  }
+  .slogan {
+    font-size: 12px;
+  }
+  .main-btn {
+    font-size: 6px;
+    width: 125px;
+    height: 13px;
+    margin-top: 0px;
+    padding-top: 2px;
+  }
+  .lighthouse {
+    width: 125px;
+    height: 125px;
+  }
+  .left-content {
+    padding-left: 0px;
+  }
+  .bottom {
+    display:flex;
+    flex-direction: column;
+    margin: auto 5px;
+  }
+  .index {
+    position:static;
+  }
+  .index-title {
+    font-size: 22px;
+  }
+  .logo-genix {
+    width: 40px;
+    height: 40px;
+  }
+  .index-intro {
+    font-size: 12px;
+  }
+  .index-elements{
+    font-size: 16px;
+  }
+  .logo-text-home {
+    font-size: 20px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
 }
 
 .description-item {
