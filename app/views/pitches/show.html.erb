@@ -14,12 +14,13 @@
 
               <%= cl_image_tag @pitch.photo.key, alt: current_user.first_name, class: "img-pitches img-thumbnail m-3" %>
               <div>
-                <h2 class="card-title-show d-flex p-1"> <i class="fa-solid fa-pencil"></i> <%= @pitch.title %></h2>
-                <p class="card-text-pitch comment-text"><strong>Skills:</strong> <%= @pitch.languages %></p>
-                <p class="card-category "><strong>Category:</strong> <%= @pitch.category %></p>
+                <h2 class="card-title-show d-flex p-1"><%= @pitch.title %></h2>
+                <p class="card-category-show"> <i class="fa-brands fa-dev fa-sm"></i> <strong>Skills:</strong> <%= @pitch.languages %></p>
+                <p class="card-text-pitch comment-text "><strong>Category:</strong> <%= @pitch.category %></p>
               </div>
+
           </div>
-          <p class="card-category text-center"><%= @pitch.description %></p>
+          <p class="card-category-show text-center"><%= @pitch.description %></p>
 
           <div class="d-flex justify-content-between mt-4 ">
             <%= link_to "Edit this pitch", edit_pitch_path(@pitch), class: "btn btn-primary" if @pitch.user == current_user %>

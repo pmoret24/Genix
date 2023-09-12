@@ -6,12 +6,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://ga.jspm.io/npm:star-rating.js@4.3.0/dist/star-rating.css">
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body><%= render "shared/navbar" %>
+    
   <%= render "shared/flashes" %>
 <body style="background-color: #4D04C4;">
     <%= yield %>
