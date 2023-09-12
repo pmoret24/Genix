@@ -11,15 +11,18 @@
             <h4 class="card-title mt-3"><%=  @pitch.user.first_name %> <%=  @pitch.user.last_name %></h4>
           </div>
           <div class="d-flex align-items-center w-75">
-
+            <% if @pitch.photo.attached? %>
               <%= cl_image_tag @pitch.photo.key, alt: current_user.first_name, class: "img-pitches img-thumbnail m-3" %>
-              <div>
-                <h2 class="card-title-show d-flex p-1"> <i class="fa-solid fa-pencil"></i> <%= @pitch.title %></h2>
-                <p class="card-text-pitch comment-text"><strong>Skills:</strong> <%= @pitch.languages %></p>
-                <p class="card-category "><strong>Category:</strong> <%= @pitch.category %></p>
-              </div>
+            <% else %>
+              <%= image_tag "placeholder.webp", alt: current_user.first_name, class: "img-pitches img-thumbnail m-3" %>
+            <% end %>
+            <div>
+              <h2 class="card-title-show d-flex p-1"> <i class="fa-solid fa-pencil"></i> <%= @pitch.title %></h2>
+              <p class="card-text-pitch comment-text"><strong>Skills:</strong> <%= @pitch.languages %></p>
+              <p class="card-category "><strong>Category:</strong> <%= @pitch.category %></p>
+            </div>
           </div>
-          <p class="card-category text-center"><%= @pitch.description %></p>
+          <p class="card-category-show text-center"><%= @pitch.description %></p>
 
           <div class="d-flex justify-content-between mt-4 ">
             <%= link_to "Edit this pitch", edit_pitch_path(@pitch), class: "btn btn-primary" if @pitch.user == current_user %>

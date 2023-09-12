@@ -14,6 +14,7 @@ body {
 }
 .card-category{
   font-size: 20px;
+  color: black;
 
 }
 
@@ -54,7 +55,7 @@ h1 {
 
 }
 .comments-icons i {
-  color: rgb(210, 169, 4);
+  color: rgb(255, 204, 0);
 }
 
 .card-subtitle {
@@ -134,7 +135,6 @@ h1 {
   box-shadow: none;
 }
 
-/* Estilize o botão de envio */
 .comment-box .btn-submit {
   margin-top: 8px;
 }
@@ -142,4 +142,13 @@ h1 {
 .form-group-show{
   width: 100%;
   height: 100%;
+}
+
+.card-category-show{
+  font-size: 20px;
+  color: #7e7d7d;
+}
+
+.card-text-pitch {
+  color: #7e7d7d
 }
