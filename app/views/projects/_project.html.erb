@@ -14,9 +14,11 @@
     <% end %>
 
     <div>
-      <strong class=" mx-3 p-2 ">Skills</strong>
-      <p class="gray mx-3 p-2">
-        <%= project.languages %>
+      <strong>Prog. Languages</strong>
+      <p class="gray">
+        <% project.languages.each do |language| %>
+          <p><%= language %></p>
+        <% end %>
       </p>
 
       <strong class="mx-3 p-2">Description</strong>

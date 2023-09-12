@@ -21,9 +21,12 @@
                 <%= image_tag "placeholder.webp", alt: current_user.first_name, class: "img-pitches  m-3" %>
               <% end %>
               <div>
-                <h2 class="card-title-show d-flex p-1"> <%= @pitch.title %></h2>
-                <p class="card-text-pitch comment-text"><strong>Skills:</strong> <%= @pitch.languages %></p>
-                <p class="card-text-pitch  comment-text"><strong>Category:</strong> <%= @pitch.category %></p>
+                <h2 class="card-title-show d-flex p-1"> <i class="fa-solid fa-pencil"></i> <%= @pitch.title %></h2>
+                <p class="card-text-pitch comment-text"><strong>Skills:</strong></p>
+                 <% @pitch.languages.each do |language| %>
+                  <p><%= language %></p>
+                 <% end %>
+                <p class="card-category "><strong>Category:</strong> <%= @pitch.category %></p>
               </div>
             </div>
             <p class="card-category-show text-center"><%= @pitch.description %></p>

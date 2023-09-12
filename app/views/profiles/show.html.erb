@@ -10,7 +10,10 @@
   <div class="profile-details">
     <h1 class="profile-name mt-1 text-center"><%= @user.first_name %> <%= @user.last_name %></h1>
     <p class="profile-info text-left"> <strong>Description: </strong> <%= @user.description %></p>
-    <p class="profile-info text-left"><strong> Skills:</strong> <%= @user.skills %></p>
+    <p class="profile-info text-left"><strong> Skills:</strong></p>
+    <% @user.skills.each do |language| %>
+      <p><%= language %></p>
+    <% end %>
     <p class="profile-info text-left"><strong>Github:</strong> <%= @user.github %></p>
   </div>
   <% if current_user == @user %>
