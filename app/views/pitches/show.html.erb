@@ -22,7 +22,7 @@
               <p class="card-category "><strong>Category:</strong> <%= @pitch.category %></p>
             </div>
           </div>
-          <p class="card-category text-center"><%= @pitch.description %></p>
+          <p class="card-category-show text-center"><%= @pitch.description %></p>
 
           <div class="d-flex justify-content-between mt-4 ">
             <%= link_to "Edit this pitch", edit_pitch_path(@pitch), class: "btn btn-primary" if @pitch.user == current_user %>
