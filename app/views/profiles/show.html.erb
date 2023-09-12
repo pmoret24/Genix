@@ -18,21 +18,21 @@
             <p> <strong> Friends: </strong> </p>
           <% end %>
           <% @approved_connections.each do |connection| %>
-            <%= link_to  (cl_image_tag connection.other_person(current_user).photo.key , class: "rounded-circle", height:50, width:50 ), profile_path(connection.other_person(current_user))  %>
+            <%= link_to  (cl_image_tag connection.other_person(@user).photo.key , class: "rounded-circle", height:50, width:50 ), profile_path(connection.other_person(@user))  %>
           <% end %>
 
           <% if @pending_connections.each.count >= 1  %>
             <p> <strong> Pending connections requests: </strong> </p>
           <% end %>
           <% @pending_connections.each do |connection| %>
-            <p> <%= connection.other_person(current_user).first_name%> <%= connection.other_person(current_user).last_name %> <%= link_to  connection_path(connection), data: {turbo_method: :patch}, class: "text-decoration-none" do %> <button type="button" class="btn btn-success">Approve!</button> <% end %> or <%= link_to connection_path(connection), data: {turbo_method: :delete} do %> <button type="button" class="btn btn-danger text-white"><i class="fa-regular fa-trash-can"></i></button> <% end %></p>
+            <p> <%= cl_image_tag connection.other_person(current_user).photo.key , class: "rounded-circle", height:50, width:50 %> <%= connection.other_person(current_user).first_name%> <%= connection.other_person(current_user).last_name %> <%= link_to  connection_path(connection), data: {turbo_method: :patch}, class: "text-decoration-none" do %> <button type="button" class="btn btn-success">Approve!</button> <% end %> <%= link_to connection_path(connection), data: {turbo_method: :delete} do %> <button type="button" class="btn btn-danger text-white"><i class="fa-regular fa-trash-can"></i></button> <% end %></p>
           <% end  %>
         <%else%>
           <% if @approved_connections.each.count >= 1  %>
             <p> <strong> Friends: </strong> </p>
           <% end %>
-          <% @approved_connections.each do |connection| %>
-            <%= link_to  (cl_image_tag connection.other_person(@user).photo.key , class: "rounded-circle", height:50, width:50 ), profile_path(connection.other_person(current_user))  %>
+          <% @approved_connections1.each do |connection| %>
+            <%= link_to  (cl_image_tag connection.other_person(@user).photo.key , class: "rounded-circle", height:50, width:50 ), profile_path(connection.other_person(@user))  %>
           <% end %>
         <% end %>
       </div>
