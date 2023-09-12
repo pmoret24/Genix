@@ -4,7 +4,11 @@
       <div class="sticky">
         <div class="sidebar border rounded pitches-bar">
           <div class="d-flex  flex-column align-items-center p-2 gap-4 m-2">
-            <%= cl_image_tag current_user.photo.key, class: "img-fluid rounded-circle img-thumbnail mx-auto d-block" %>
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, alt: current_user.first_name, class: "img-fluid rounded-circle img-thumbnail mx-auto d-block" %>
+            <% else %>
+              <%= image_tag "profile_placeholder.png", alt: current_user.first_name, class: "img-fluid rounded-circle img-thumbnail mx-auto d-block" %>
+            <% end %>
             <p><strong><%= current_user.first_name %> <%= current_user.last_name %> </strong></p>
               <ul class="list-group">
                 <li class="list-group-item"><%= link_to root_path do %><i class="fa-solid fa-circle-user"></i>   My Profile<% end %></li>
