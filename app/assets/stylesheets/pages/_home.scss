@@ -35,6 +35,7 @@ body {
   width: 500px;
   height: 50px;
   justify-content: center;
+
 }
 
 .main-btn:hover {
@@ -58,6 +59,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
 }
 
 .left-content {
@@ -130,10 +132,13 @@ hr {
 .details {
   padding-left: 50px;
   padding-right: 50px;
+  text-align: left;
 }
 
 .description-item {
   color: #fff;
+  color: fff
+
 }
 
 .index-title{
@@ -143,4 +148,10 @@ hr {
 
 .index-title img {
   padding-right: 10px;
+}
+
+.description-item {
+  h1 {
+    color: #fff;
+  }
 }
