@@ -1,33 +1,32 @@
-<div class="proj-container">
+<div class="proj-container mx-2">
 
   <H2 class="proj-title">
    <%= project.title %>
   </H2>
-  <hr class="proj-hr">
+
 
   <div class="proj-content">
-    <hr class="proj-hr">
 
     <% if project.photo.attached? %>
-        <%= cl_image_tag project.photo.key %>
+        <%= cl_image_tag project.photo.key, class: "card-shadow" %>
       <% else %>
         <%= image_tag "placeholder.webp" %>
     <% end %>
 
     <div>
-      <strong>Prog. Languages</strong>
-      <p class="gray">
+      <strong class=" mx-3 p-2 ">Skills</strong>
+      <p class="gray mx-3 p-2">
         <%= project.languages %>
       </p>
 
-      <strong>Description</strong>
-      <p class="gray">
+      <strong class="mx-3 p-2">Description</strong>
+      <p class="gray mx-3 p-2">
         <%= project.description %>
       </p>
 
 
-      <strong>Category</strong>
-      <p class="gray">
+      <strong class=" mx-3 p-2">Category</strong>
+      <p class="gray mx-3 p-2">
         <%= project.category %>
       </p>
 

@@ -59,6 +59,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :description, :category, :languages, :github, :photo)
+    params.require(:project).permit(:title, :description, :category, {languages:[]} , :github, :photo)
   end
 end

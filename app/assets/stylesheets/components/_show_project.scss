@@ -7,6 +7,7 @@
   width: 30%;
   font-weight: 700;
   text-align: center;
+
 }
 
 
@@ -31,3 +32,15 @@
   color: #8246EA;
   font-size: 20px;
 }
+
+.img-owner {
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  object-fit: cover;
+  h4{
+    align-items: center;
+    color: #8246EA;
+  }
+}
+
