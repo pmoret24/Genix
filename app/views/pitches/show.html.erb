@@ -21,16 +21,16 @@
                 <%= image_tag "placeholder.webp", alt: current_user.first_name, class: "img-pitches  m-3" %>
               <% end %>
               <div>
-                <h2 class="card-title-show d-flex p-1"> <i class="fa-solid fa-pencil"></i> <%= @pitch.title %></h2>
+                <h2 class="card-title-show d-flex p-1"> <%= @pitch.title %></h2>
                 <p class="card-text-pitch comment-text"><strong>Skills:</strong> <%= @pitch.languages %></p>
-                <p class="card-category "><strong>Category:</strong> <%= @pitch.category %></p>
+                <p class="card-text-pitch  comment-text"><strong>Category:</strong> <%= @pitch.category %></p>
               </div>
             </div>
             <p class="card-category-show text-center"><%= @pitch.description %></p>
 
             <div class="d-flex justify-content-between mt-4 ">
-              <%= link_to "Edit this pitch", edit_pitch_path(@pitch), class: "btn btn-outline-primary" if @pitch.user == current_user %>
               <%= link_to "Back to pitches", pitches_path, class: "btn btn-outline-success" %>
+              <%= link_to "Edit this pitch", edit_pitch_path(@pitch), class: "btn btn-outline-primary" if @pitch.user == current_user %>
               <% if @pitch.user == current_user %>
                 <%= button_to "Delete this pitch", @pitch, method: :delete, class: "btn btn-outline-danger", data: { confirm: "Are you sure?" } %>
               <% end %>
