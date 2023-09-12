@@ -7,11 +7,11 @@
     <% end %>
   </div>
 
-  <div class="profile-details text-center">
-    <h1 class="profile-name mt-1"><%= @user.first_name %> <%= @user.last_name %></h1>
-    <p class="profile-info">Description: <%= @user.description %></p>
-    <p class="profile-info">Skills: <%= @user.skills %></p>
-    <p class="profile-info">Github: <%= @user.github %></p>
+  <div class="profile-details">
+    <h1 class="profile-name mt-1 text-center"><%= @user.first_name %> <%= @user.last_name %></h1>
+    <p class="profile-info text-left"> <strong>Description: </strong> <%= @user.description %></p>
+    <p class="profile-info text-left"><strong> Skills:</strong> <%= @user.skills %></p>
+    <p class="profile-info text-left"><strong>Github:</strong> <%= @user.github %></p>
   </div>
   <% if current_user == @user %>
     <div class="request-details text-center mt-2">
@@ -19,27 +19,27 @@
         <p> <strong> Pending connections requests: </strong> </p>
       <% end %>
       <% @pending_connections.each do |connection| %>
-          <p> <%= connection.other_person(current_user).first_name%> <%= connection.other_person(current_user).last_name %> <%= link_to "Approve!", connection_path(connection), data: {turbo_method: :patch} %> or <%= link_to connection_path(connection), data: {turbo_method: :delete} do %> <i class="fa-regular fa-trash-can"></i> <% end %></p>
+          <p> <%= connection.other_person(current_user).first_name%> <%= connection.other_person(current_user).last_name %> <%= link_to  connection_path(connection), data: {turbo_method: :patch}, class: "text-decoration-none" do %> <button type="button" class="btn btn-success">Approve!</button> <% end %> or <%= link_to connection_path(connection), data: {turbo_method: :delete} do %> <button type="button" class="btn btn-danger text-white"><i class="fa-regular fa-trash-can"></i></button> <% end %></p>
       <% end  %>
 
       <% if @approved_connections.each.count >= 1  %>
         <p> <strong> Friends: </strong> </p>
       <% end %>
       <% @approved_connections.each do |connection| %>
-            <%= link_to  connection.other_person(current_user).first_name, profile_path(connection.other_person(current_user)), class:"d-flex" %>
+            <%= link_to  (cl_image_tag connection.other_person(current_user).photo.key , class: "rounded-circle", height:50, width:50, crop: :fill ), profile_path(connection.other_person(current_user))  %>
       <% end %>
     </div>
   <% else (current_user != @user)  %>
     <% if  @connection_two %>
-      <%= link_to "Delete Connection?", connection_path(@connection_two), data: {turbo_method: :delete} %>
+      <%= link_to "Delete Connection?", connection_path(@connection_two), data: {turbo_method: :delete} do %> <button type="button" class="btn btn-danger text-white"></button> <% end %>
     <% end %>
 
     <% if @chatroom_available.present? %>
       <%= link_to "Keep talking to #{@user.first_name} #{@user.last_name}", chatroom_path(@chatroom_available) %>
     <% else %>
-      <%= link_to "Start a new chat", profile_chatrooms_path(@user), data: {turbo_method: :post} %>
+      <%= link_to profile_chatrooms_path(@user), data: {turbo_method: :post}, class: "text-decoration-none" do %> <button type="button" class="btn btn-success">Start a new chat</button> <% end %>
     <% end %>
   <% end %>
 
-  <%= link_to "Back to users", profiles_path %>
+  <%= link_to profiles_path , class: "text-decoration-none" do %> <button type="button" class="btn btn-success">Back to users</button> <% end %>
 </div>
