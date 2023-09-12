@@ -1,6 +1,8 @@
 <body>
     <div class="main-container">
-        <div class="container home-container">
+
+        <%# Genix Main %>
+        <div class="container home-container col-12 col-lg-12">
           <div class="left-content">
             <h1 class="title">Genix</h1>
             <p class="slogan">
@@ -8,17 +10,16 @@
             </p>
               <%= link_to "Explore Pitches", pitches_path, class: "main-btn" %>
           </div>
-          <div class="right-content">
-            <div class="lighthouse">
-              <%= image_tag "lighthouse.svg", width: 450, height: 450%>
-            </div>
-          </div>
+              <%= image_tag "lighthouse.svg", class: "lighthouse" %>
         </div>
 
+      <%# Bottom Half %>
         <div class="bottom">
-          <div class="index">
+
+        <%# Index %>
+          <div class="index col-sm-12 col-lg-6">
             <div class="container">
-              <h1 class="index-title"><%= image_tag "logo-genix.svg", width: 65, height: 65 %>Genix</h1>
+              <h1 class="index-title"><%= image_tag "logo-genix.svg", class: "logo-genix"%>Genix</h1>
               <p class="index-intro">
                 <strong>Welcome to Genix</strong> - the innovative social hub for passionate creators and dreamers. Dive into a sea of groundbreaking project ideas, offer your invaluable insights, and forge meaningful connections with like-minded individuals. Whether you're seeking inspiration, feedback, or collaboration, Genix brings your visions closer to reality. Turn ideas into action, and dreams into projects. Join the Genix community today.
               </p>
@@ -35,7 +36,9 @@
               <i class="fa-brands fa-instagram"></i>
             </p>
           </div>
-          <div class="details">
+
+          <%# Details %>
+          <div class="details col-sm-12 col-lg-6">
             <div class="description-container">
                 <div class="description-item">
                   <%= image_tag "pitch.svg", width: 150, height: 150 %>
