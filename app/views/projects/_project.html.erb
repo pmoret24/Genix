@@ -12,20 +12,26 @@
     <% end %>
 
     <div>
-        <strong class=" mx-3 p-2">Category</strong>
-        <p class="gray mx-3 p-2">
-          <%= project.category %>
-        </p>
-        <strong class=" mx-3 p-2 ">Skills</strong>
-        <p class="gray mx-3 p-2">
-          <%= project.languages %>
-        </p>
-        <strong class="mx-3 p-2">Description</strong>
-        <p class="gray mx-3 p-2">
-          <%= project.description %>
-        </p>
-    <div class="github-link mx-3 p-2">
-        <%= link_to project.github, target: "_blank" do %>
+      <strong>Prog. Languages</strong>
+      <p class="gray">
+        <% project.languages.each do |language| %>
+          <p><%= language %></p>
+        <% end %>
+      </p>
+
+      <strong class="mx-3 p-2">Description</strong>
+      <p class="gray mx-3 p-2">
+        <%= project.description %>
+      </p>
+
+
+      <strong class=" mx-3 p-2">Category</strong>
+      <p class="gray mx-3 p-2">
+        <%= project.category %>
+      </p>
+
+    <div class="github-link">
+      <%= link_to project.github, target: "_blank" do %>
         <i class="fa-brands fa-github"></i> View on Github
           <% end %>
       </div>
