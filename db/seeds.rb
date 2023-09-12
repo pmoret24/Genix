@@ -100,7 +100,7 @@ skills = [
   'JavaScript',
   'Flutter',
   'Rust',
-  'COOBOL',
+  'COBOL',
   'C'
 
 ]
