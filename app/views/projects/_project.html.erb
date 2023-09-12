@@ -1,11 +1,9 @@
 <div class="proj-container mx-2">
 
-  <H2 class="proj-title">
-   <%= project.title %>
-  </H2>
-
-
-  <div class="proj-content">
+    <h2 class="proj-title">
+      <%= project.title %>
+    </h2>
+    <div class="proj-content mt-2">
 
     <% if project.photo.attached? %>
         <%= cl_image_tag project.photo.key, class: "card-shadow" %>
@@ -14,28 +12,22 @@
     <% end %>
 
     <div>
-      <strong class=" mx-3 p-2 ">Skills</strong>
-      <p class="gray mx-3 p-2">
-        <%= project.languages %>
-      </p>
-
-      <strong class="mx-3 p-2">Description</strong>
-      <p class="gray mx-3 p-2">
-        <%= project.description %>
-      </p>
-
-
-      <strong class=" mx-3 p-2">Category</strong>
-      <p class="gray mx-3 p-2">
-        <%= project.category %>
-      </p>
-
-    <div class="github-link">
-      <%= link_to project.github, target: "_blank" do %>
+        <strong class=" mx-3 p-2">Category</strong>
+        <p class="gray mx-3 p-2">
+          <%= project.category %>
+        </p>
+        <strong class=" mx-3 p-2 ">Skills</strong>
+        <p class="gray mx-3 p-2">
+          <%= project.languages %>
+        </p>
+        <strong class="mx-3 p-2">Description</strong>
+        <p class="gray mx-3 p-2">
+          <%= project.description %>
+        </p>
+    <div class="github-link mx-3 p-2">
+        <%= link_to project.github, target: "_blank" do %>
         <i class="fa-brands fa-github"></i> View on Github
-      <% end %>
+          <% end %>
+      </div>
     </div>
-
-    </div>
-  </div>
 </div>
