@@ -22,7 +22,7 @@
         <div class="form-group">
           <i class="fas fa-code"></i>     <label for="languages">Skills</label>
           <div class="input-icon">
-            <%= f.input_field :languages, collection: ['Ruby', 'Python', 'Java', 'JavaScript', 'C++', 'PHP', 'SQL', 'others'], class: 'form-control' %>
+           <%= f.input :languages, as: :check_boxes, collection: ['Ruby', 'Python', 'Java', 'JavaScript', 'C++', 'PHP', 'SQL', 'others'], legend_tag: false , input_html: { class: 'form-check-input' } %>
           </div>
         </div>
 

@@ -70,3 +70,14 @@
   text-decoration: none;
   color: rgb(115, 115, 115);
 }
+
+@media (max-width: 576px) {
+  #projects{
+    display: flex;
+    flex-direction: column;
+  }
+  .card-content-proj {
+    flex-grow: 1;
+    padding-left: 1em;
+  }
+}

@@ -91,7 +91,6 @@ body {
     background-color: #ddd;
     display: flex;
     align-items: center;
-
   }
 .pitch-container{
   margin-bottom: 20px;
@@ -115,8 +114,17 @@ body {
   display: block;
   word-wrap: break-word;
   max-height: 6em;
+}
 
+.button-mobile {
+  display: none;
+}
 
-
-
+@media (max-width: 576px) {
+  .button-mobile {
+    display: inline;
+  }
+  .sticky {
+    display: none;
+  }
 }

@@ -11,6 +11,7 @@ body {
 .title {
   color: #8246EA;
   font-size: 128px;
+  text-align: left;
 }
 
 .slogan {
@@ -53,6 +54,8 @@ body {
 
 .lighthouse {
   text-align: right;
+  width: 450px;
+  height: 450px;
 }
 
 .container.home-container {
@@ -148,6 +151,71 @@ hr {
 
 .index-title img {
   padding-right: 10px;
+}
+
+
+.logo-genix {
+  width: 65px;
+  height: 65px;
+}
+
+@media(max-width: 576px) {
+  .title {
+    font-size: 56px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+  .slogan {
+    margin-top: 0px;
+    padding-top: 0px;
+    font-size: 16px;
+  }
+  .main-btn {
+    font-size: 6px;
+    width: 125px;
+    height: 13px;
+    margin-top: 0px;
+    padding-top: 2px;
+  }
+  .lighthouse {
+    width: 125px;
+    height: 125px;
+    padding-left: 10px;
+  }
+  .left-content {
+    padding-left: 0px;
+  }
+  .bottom {
+    display:flex;
+    flex-direction: column;
+    margin: auto 5px;
+  }
+  .index {
+    position:static;
+  }
+  .index-title {
+    font-size: 22px;
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+  .logo-genix {
+    width: 40px;
+    height: 40px;
+  }
+  .index-intro {
+    font-size: 12px;
+  }
+  .index-elements{
+    font-size: 16px;
+  }
+  .logo-text-home {
+    font-size: 20px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  .highlight-pitches, .highlight-projects, .highlight-connect, .highlight-about {
+    background-color: transparent;
+  }
 }
 
 .description-item {
