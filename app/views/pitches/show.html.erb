@@ -11,7 +11,7 @@
             <h4 class="card-title mt-3"><%=  @pitch.user.first_name %> <%=  @pitch.user.last_name %></h4>
           </div>
                 <h2 class="card-title-show align-text-center"> <%= @pitch.title %></h2>
-          <div class="d-flex align-items-center w-100">
+          <div class="d-flex align-items-center w-75">
 
               <%= cl_image_tag @pitch.photo.key, alt: current_user.first_name, class: "img-pitches img-thumbnail m-3" %>
               <div>
