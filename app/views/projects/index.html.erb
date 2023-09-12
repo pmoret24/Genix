@@ -4,7 +4,11 @@
       <div class="sticky">
         <div class="sidebar border rounded bar">
           <div class="d-flex  flex-column align-items-center p-2 gap-4 m-2">
-            <%= cl_image_tag current_user.photo.key, class: "img-fluid rounded-circle  img-thumbnail mx-auto d-block" %>
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, alt: current_user.first_name, class: "img-fluid rounded-circle img-thumbnail mx-auto d-block" %>
+            <% else %>
+              <%= image_tag "profile_placeholder.png", alt: current_user.first_name, class: "img-fluid rounded-circle img-thumbnail mx-auto d-block" %>
+            <% end %>
             <p><strong><%= current_user.first_name %> <%= current_user.last_name %> </strong></p>
             <ul class="list-group">
               <li class="list-group-item"><%= link_to profile_path(current_user) do %><i class="fa-solid fa-circle-user"></i>   My Profile<% end %></li>
@@ -44,7 +48,7 @@
             <%= link_to project_path(project) do  %>
               <div class="card whole-card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
                 <div class="card-proj "  data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" title="Description" data-bs-content="
-             <%= project.description %>" > 
+             <%= project.description %>" >
                   <% if project.photo.attached? %>
                     <%= cl_image_tag project.photo.key, height: 70, width: 70, crop: :fill %>
                   <% else %>
