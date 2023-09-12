@@ -1,10 +1,7 @@
- <h1 class="text-center">Editing a project</h1>
-
-<%= render "form", project: @project %>
-
-<br>
-
-<div>
-  <%= link_to "Show this project", @project , class: "btn btn-outline-success " %> |
-  <%= link_to "Back to projects", projects_path, class: "btn btn-outline-success "%>
+<div class="container mb-3">
+ <h1 class="text-center">Edit your project</h1>
+  <%= render "form", project: @project %>
+  <br>
+  <%= link_to "Back to projects", projects_path, class: "btn btn btn-outline-success btn-sm"%>
+  <%= link_to "Show this project", @project , class: "btn btn-success " %>
 </div>
