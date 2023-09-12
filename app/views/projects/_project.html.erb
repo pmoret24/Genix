@@ -1,11 +1,9 @@
 <div class="proj-container mx-2">
 
-  <H2 class="proj-title">
-   <%= project.title %>
-  </H2>
-
-
-  <div class="proj-content">
+    <h2 class="proj-title">
+      <%= project.title %>
+    </h2>
+    <div class="proj-content mt-2">
 
     <% if project.photo.attached? %>
         <%= cl_image_tag project.photo.key, class: "card-shadow" %>
@@ -35,9 +33,7 @@
     <div class="github-link">
       <%= link_to project.github, target: "_blank" do %>
         <i class="fa-brands fa-github"></i> View on Github
-      <% end %>
+          <% end %>
+      </div>
     </div>
-
-    </div>
-  </div>
 </div>

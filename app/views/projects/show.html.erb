@@ -1,7 +1,7 @@
 <div class="show-cont">
   <div class="d-flex justify-content-center m-5 my-3">
     <div class="card proj-card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1); width: 42rem;">
-        <div class="d-flex m-3  ">
+        <div class="d-flex align-items-center m-3  ">
               <%= cl_image_tag @project.owner.photo.key, alt:  @project.owner , class: " img-owner comment-user-img img-thumbnail mb-7" %>
               <h4><%= @project.owner.first_name %> <%= @project.owner.last_name %></h4>
             </div>
@@ -30,10 +30,13 @@
     <div class="members">
       <% if @project.owner == current_user %>
       <div class="container member-container">
+
         <p>Member Request(s):</p>
           <% @members_users.each do |member| %>
-            <li>
+
+            <%= cl_image_tag @project.owner.photo.key, alt:  @project.owner , class: " img-owner comment-user-img img-thumbnail mb-7" %>
               <%= link_to member.user.first_name, profile_path(member.user), class: "btn btn-outline-dark" %>
+
               <% if member.status %>
                 <p>Your membership is approved!</p>
               <% else %>
@@ -42,7 +45,8 @@
                   <i class="fa-regular fa-trash-can center m-3 garbage"></i>
                 <% end %>
               <% end %>
-            </li>
+
+            
         <% end %>
       </div>
       <% end %>
