@@ -42,6 +42,13 @@
           <% end %>
         </div>
       </div>
+
+        <div class="row justify-content-center button-mobile">
+          <div class="my-4">
+            <%= link_to "Post a project",  new_project_path, class: "btn btn-roxo btn-success btn-sm center d-flex align-items-end justify-content-center"%>
+          </div>
+        </div>
+
       <div id="projects">
         <% @projects.each do |project| %>
           <div class="mb-4">

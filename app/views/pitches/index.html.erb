@@ -16,8 +16,8 @@
                 <li class="list-group-item"><%= link_to projects_path do %><i class="fa-solid fa-magnifying-glass"></i>   Projects<% end %></li>
                 <li class="list-group-item"><%= link_to profiles_path do %><i class="fa-solid fa-users"></i>    Connect<% end %></li>
               </ul>
+          </div>
         </div>
-      </div>
         <div class="row justify-content-center">
           <div class="my-4">
             <%= link_to "Add a new pitch", new_pitch_path, class: 'btn btn-roxo btn-success btn-sm center d-flex align-items-end justify-content-center '%>
@@ -40,6 +40,12 @@
           <% end %>
         </div>
       </div>
+
+       <div class="row justify-content-center button-mobile">
+          <div class="my-4">
+            <%= link_to "Add a new pitch", new_pitch_path, class: "btn btn-roxo btn-success btn-sm center d-flex align-items-end justify-content-center"%>
+          </div>
+        </div>
 
       <div id="pitches" class="row">
         <% @pitches.each do |pitch| %>
