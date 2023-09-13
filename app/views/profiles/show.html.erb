@@ -25,7 +25,7 @@
 
     </div>
 
-    <div class="profile-details card rounded-boundary d-flex flex-column justify-content-around col-md-8">
+    <div class="profile-details card rounded-boundary d-flex flex-column justify-content-center col-md-8">
       <div class="profile-text text-start mx-3">
         <p> <strong>Description: </strong> <%= @user.description %></p>
         <p><strong> Skills:</strong>
@@ -42,19 +42,19 @@
       <div class="profile-text text-start mx-3">
         <% if current_user == @user %>
           <% if @approved_connections.count >= 1  %>
-            <p> <strong> Friends: </strong>
+              <p> <strong> Friends: </strong>
               <% @approved_connections.each do |connection| %>
                 <%= link_to  (cl_image_tag connection.other_person(@user).photo.key , class: "rounded-circle", height:50, width:50 ), profile_path(connection.other_person(@user))  %>
               <% end %>
-            </p>
+              </p>
           <% end %>
         <% else %>
-          <% if @approved_connections.count >= 1  %>
-            <p> <strong> Friends: </strong>
+          <% if @approved_connections1.count >= 1  %>
+              <p> <strong> Friends: </strong>
               <% @approved_connections1.each do |connection| %>
                 <%= link_to  (cl_image_tag connection.other_person(@user).photo.key , class: "rounded-circle", height:50, width:50 ), profile_path(connection.other_person(@user))  %>
               <% end %>
-            </p>
+              </p>
           <% end %>
         <% end %>
       </div>
