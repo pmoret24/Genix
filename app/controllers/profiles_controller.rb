@@ -9,6 +9,7 @@ class ProfilesController < ApplicationController
     @connection = Connection.new
     @pending_connections = Connection.where(status: false).where(friend: current_user)
     @approved_connections = Connection.where(status: true, user: current_user).or(Connection.where(status: true, friend: current_user))
+    @approved_connections1 = Connection.where(status: true, user: @user).or(Connection.where(status: true, friend: @user))
     # o acima é essa query otimizada @approved_connections = Connection.where(status: true).where(user: current_user).or(Connection.where(status: true).where(friend_id: current_user))
     @connection_two = Connection.where(
       '(user_id = ? AND friend_id = ?) OR (user_id = ? AND friend_id = ?)',
