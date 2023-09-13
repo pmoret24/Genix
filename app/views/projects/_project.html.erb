@@ -4,7 +4,7 @@
       <%= project.title %>
     </h2>
 
-      <div class="foto-show-project">
+      <div class="foto-show-project  d-flex  align-items-center">
         <% if project.photo.attached? %>
             <%= cl_image_tag project.photo.key, class: "card-shadow" %>
           <% else %>
@@ -13,29 +13,32 @@
       </div>
 
 
-  <div class="proj-content mt-2">
-      <div>
-        <strong>Prog. Languages</strong>
-        <div class="gray">
-          <% project.languages.each do |language| %>
-            <% next if language.blank? %>
-            <p class="mb-0"><%= language %></p>
-          <% end %>
-        </div>
-
-        <strong class="mx-3 p-2">Description</strong>
-        <p class="gray mx-3 p-2">
-          <%= project.description %>
-        </p>
-        <strong class=" mx-3 p-2">Category</strong>
+  <div class="proj-content mx-3 mt-2 ">
+      <div class=" d-flex bd-highlight" >
+        <strong class=" mx-3 p-2">Category:</strong>
         <p class="gray mx-3 p-2">
           <%= project.category %>
         </p>
-
-    <div class="github-link">
-      <%= link_to project.github, target: "_blank" do %>
-        <i class="fa-brands fa-github"></i> View on Github
+        <strong class=" mx-3 p-2 ">Prog. Languages: </strong>
+        <div class="gray">
+          <% project.languages.each do |language| %>
+            <% next if language.blank? %>
+            <p class="mx-3"><%= language %></p>
           <% end %>
+          </div>
       </div>
-    </div>
+  </div>
+
+
+        <strong class="mx-3 p-2">Description:</strong>
+        <p class="gray mx-3 p-2">
+          <%= project.description %>
+        </p>
+
+
+    <div class=" github-link text-center">
+  <%= link_to project.github, target: "_blank" do %>
+    <i class="fa-brands fa-github"></i> View on Github
+  <% end %>
+</div>
 </div>
