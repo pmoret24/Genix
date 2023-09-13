@@ -1,6 +1,6 @@
 <div class="container mb-3">
   <div class="subcontainer d-flex gap-3">
-    <div class="card profile-design rounded-boundary col-md-4 ">
+    <div class="card profile-design rounded-boundary d-flex col-md-4 ">
 
       <div class="profile-image text-center mt-2">
         <% if @user.photo.attached? %>
@@ -12,6 +12,11 @@
         <% end %>
       </div>
 
+      <div class="text-center mb-2">
+        <%if @connection_two && current_user != @user%>
+          <%= link_to connection_path(@connection_two), class: "text-decoration-none", data: {turbo_method: :delete} do %> <button type="button" class="btn btn-outline-danger mt-2">Delete Connection</button> <% end %>
+        <% end %>
+      </div>
     </div>
 
     <div class="profile-details card rounded-boundary d-flex flex-column justify-content-center col-md-8">
@@ -61,9 +66,6 @@
         <% else %>
           <%= link_to profile_chatrooms_path(@user), data: {turbo_method: :post}, class: "text-decoration-none" do %> <button type="button" class="btn btn-success">Start a new chat</button> <% end %>
         <% end %>
-        <% if  @connection_two %>
-          <%= link_to connection_path(@connection_two), class: "text-decoration-none", data: {turbo_method: :delete} do %> <button type="button" class="btn btn-outline-danger">Delete Connection</button> <% end %>
-        <% end %>
       <% end %>
     </div>
 
@@ -72,7 +74,11 @@
         <div class="mx-3 mt-2">
           <p> <strong> Pending connections requests: </strong> </p>
           <% @pending_connections.each do |connection| %>
-            <p> <%= cl_image_tag connection.other_person(current_user).photo.key , class: "rounded-circle", height:50, width:50 %> <%= connection.other_person(current_user).first_name%> <%= connection.other_person(current_user).last_name %> <%= link_to  connection_path(connection), data: {turbo_method: :patch}, class: "text-decoration-none" do %> <button type="button" class="btn btn-success">Approve!</button> <% end %> <%= link_to connection_path(connection), data: {turbo_method: :delete} do %> <button type="button" class="btn btn-danger text-white"><i class="fa-regular fa-trash-can"></i></button> <% end %></p>
+            <% if connection.other_person(current_user).photo.attached? %>
+              <p> <%= link_to (cl_image_tag connection.other_person(current_user).photo.key , class: "rounded-circle", height:50, width:50), profile_path(connection.other_person(@user)) %> <%= connection.other_person(current_user).first_name%> <%= connection.other_person(current_user).last_name %> <%= link_to  connection_path(connection), data: {turbo_method: :patch}, class: "text-decoration-none" do %> <button type="button" class="btn btn-success">Approve!</button> <% end %> <%= link_to connection_path(connection), data: {turbo_method: :delete} do %> <button type="button" class="btn btn-outline-danger text-red"><i class="fa-regular fa-trash-can"></i></button> <% end %></p>
+            <% else %>
+              <p> <%= link_to ( image_tag "profile_placeholder.png" , class: "rounded-circle", height:50, width:50), profile_path(connection.other_person(@user)) %> <%= connection.other_person(current_user).first_name%> <%= connection.other_person(current_user).last_name %> <%= link_to  connection_path(connection), data: {turbo_method: :patch}, class: "text-decoration-none" do %> <button type="button" class="btn btn-success">Approve!</button> <% end %> <%= link_to connection_path(connection), data: {turbo_method: :delete} do %> <button type="button" class="btn btn-outline-danger text-red"><i class="fa-regular fa-trash-can"></i></button> <% end %></p>
+            <% end %>
           <% end  %>
         </div>
       </div>
