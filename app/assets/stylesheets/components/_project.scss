@@ -6,13 +6,14 @@
 .proj-content{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: end;
 
 
   img{
     width: 350px;
     height: 550px;
     object-fit: cover;
+    border: 2px solid  #8246EA;
   }
 }
 
@@ -31,7 +32,7 @@
 .proj-card {
   border-radius: 10px;
   width: 1000px;
-  height: 800px;
+  
 }
 
 .gray{

@@ -240,7 +240,7 @@ end
 
   pitch = Pitch.new({
     title: pitches.sample,
-    languages: skills.sample(3).join(", " ),
+    languages: skills.sample(3),
     category: Faker::Company.suffix,
     description: Faker::Lorem.paragraph_by_chars,
     source: "link"
@@ -258,7 +258,7 @@ end
 
   project = Project.new({
     title: projects.sample,
-    languages: skills.sample(3).join(", " ),
+    languages: skills.sample(3),
     category: Faker::Company.suffix,
     description: Faker::Lorem.paragraph_by_chars,
     github: Faker::Internet.url
