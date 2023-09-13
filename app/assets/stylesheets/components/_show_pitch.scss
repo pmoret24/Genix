@@ -53,6 +53,7 @@ h1 {
 .card-title-show {
   font-size: 34px;
   color: #8246EA;
+  font-weight: bold;
 
 }
 .card-body-pitches{
@@ -110,11 +111,13 @@ h1 {
 .comment-box-pitch .comment-box-content {
   flex-grow: 3;
 }
+.hr-pitch{
+  border: 1px solid rgb(219, 219, 219);
+  margin: 24px 0 ;
+}
 
 .p-descr{
 color: gray;
-margin-right: 230px;
-
 }
 .comment-box-pitch h5 {
   margin-bottom: 6px;
@@ -155,8 +158,9 @@ margin-right: 230px;
 }
 
 .card-category-show{
-  font-size: 20px;
+  font-size: 16px;
   color: #7e7d7d;
+
 }
 
 .card-text-pitch {
@@ -166,7 +170,7 @@ margin-right: 230px;
   border: 2px solid #8246EA;
 }
 .card-shadow{
-  width: 100%;
+  width: 450px;
 
   border: 1px solid #8246EA;
 }

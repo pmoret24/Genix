@@ -84,13 +84,14 @@ body {
   }
 
   .img-pitches {
-    width: 80%;
+    width: 60%;
     height: 100%;
-    margin: -30px auto 1.2rem;
+    margin: 0 20px 20px 0;
     border: #f8f9fa 2px solid var(--color-background-container);
     background-color: #ddd;
     display: flex;
     align-items: center;
+    border-radius: 8px;
   }
 .pitch-container{
   margin-bottom: 20px;

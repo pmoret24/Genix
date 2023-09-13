@@ -4,33 +4,36 @@
       <%= project.title %>
     </h2>
 
+      <div class=" d-flex bd-highlight" >
+      <hr class="hr-pitch">
       <div class="foto-show-project  d-flex  align-items-center">
+      <hr class="hr-pitch">
         <% if project.photo.attached? %>
             <%= cl_image_tag project.photo.key, class: "card-shadow" %>
           <% else %>
             <%= image_tag "placeholder.webp" %>
         <% end %>
+
       </div>
 
 
   <div class="proj-content mx-3 mt-2 ">
-      <div class=" d-flex bd-highlight" >
-        <strong class=" mx-3 p-2">Category:</strong>
+        <strong> <i class="fa-regular fa-circle-check"></i>   Category</strong>
         <p class="gray mx-3 p-2">
           <%= project.category %>
         </p>
-        <strong class=" mx-3 p-2 ">Prog. Languages: </strong>
+        <strong>  <i class="fa-solid fa-code"></i>  Prog. Languages </strong>
         <div class="gray">
           <% project.languages.each do |language| %>
             <% next if language.blank? %>
-            <p class="mx-3"><%= language %></p>
+            <p class="paragrafo-bom"><%= language %></p>
           <% end %>
           </div>
       </div>
   </div>
 
 
-        <strong class="mx-3 p-2">Description:</strong>
+        <strong class="mx-3 p-2"> <i class="fa-solid fa-quote-left"></i> Description</strong>
         <p class="gray mx-3 p-2">
           <%= project.description %>
         </p>
