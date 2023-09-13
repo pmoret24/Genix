@@ -17,6 +17,9 @@ gem "pg_search"
 gem "puma", "~> 5.0"
 
 #gema instalada
+gem 'omniauth-google-oauth2'
+gem "omniauth"
+gem "omniauth-rails_csrf_protection"
 # gem "psych", "~> 4.0.6"
 
 # Pundit
