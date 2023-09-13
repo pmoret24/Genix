@@ -1,5 +1,7 @@
 .show-cont{
   margin-bottom: 48px;
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -8,10 +10,13 @@
   font-weight: 700;
   text-align: center;
   margin: 20px;
-
-
 }
 
+.foto-show-project{
+
+object-fit: cover;
+
+}
 
 .btn-apply {
   background-color: #9971df;
@@ -33,6 +38,7 @@
 .garbage {
   color: #8246EA;
   font-size: 20px;
+  border: 1px solid #8246EA;
 }
 
 .img-owner {

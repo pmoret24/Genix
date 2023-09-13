@@ -35,7 +35,6 @@ user_pics = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHDRlp-KGr_M
 
 pitches_pics = [
   'https://itajai.sc.gov.br/img/noticias/foto/121857.jpg',
-  'https://cdn.abcdoabc.com.br/braco-mecanico-cps_089e9a76.jpg',
   'https://idocode.com.br/blog/wp-content/uploads/2020/07/impressora-3d.jpg',
   'https://paginazero.com.br/homologacao/wp-content/uploads/2020/07/Barueri-Marcos-Pontes-1.jpg',
   'https://img.ibxk.com.br/2012/7/materias/2587374894125317.jpg?ims=328x',
@@ -57,7 +56,6 @@ pitches_pics = [
 
 project_pics = [
   'https://itajai.sc.gov.br/img/noticias/foto/121857.jpg',
-  'https://cdn.abcdoabc.com.br/braco-mecanico-cps_089e9a76.jpg',
   'https://idocode.com.br/blog/wp-content/uploads/2020/07/impressora-3d.jpg',
   'https://paginazero.com.br/homologacao/wp-content/uploads/2020/07/Barueri-Marcos-Pontes-1.jpg',
   'https://img.ibxk.com.br/2012/7/materias/2587374894125317.jpg?ims=328x',
@@ -242,7 +240,7 @@ end
 
   pitch = Pitch.new({
     title: pitches.sample,
-    languages: skills.sample(3).join(", " ),
+    languages: skills.sample(3),
     category: Faker::Company.suffix,
     description: Faker::Lorem.paragraph_by_chars,
     source: "link"
@@ -260,7 +258,7 @@ end
 
   project = Project.new({
     title: projects.sample,
-    languages: skills.sample(3).join(", " ),
+    languages: skills.sample(3),
     category: Faker::Company.suffix,
     description: Faker::Lorem.paragraph_by_chars,
     github: Faker::Internet.url

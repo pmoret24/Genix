@@ -37,6 +37,7 @@ h1 {
   border-radius: 5px;
 }
 
+
 .btn-success:hover {
   background-color: #9971df;
   box-shadow: 0 10px 20px rgba(0,0,0,0.3);
@@ -50,8 +51,8 @@ h1 {
 }
 
 .card-title-show {
-  font-size: 32px;
-  color: #333;
+  font-size: 34px;
+  color: #8246EA;
 
 }
 .card-body-pitches{
@@ -93,6 +94,7 @@ h1 {
   width: 60px;
   border-radius: 50%;
   object-fit: cover;
+
 }
 .form-group-s{
   color: black;
@@ -101,11 +103,19 @@ h1 {
   width: 80%;
 
 }
+.title-show-descp{
+  color: #000000;
+}
 
 .comment-box-pitch .comment-box-content {
   flex-grow: 3;
 }
 
+.p-descr{
+color: gray;
+margin-right: 230px;
+
+}
 .comment-box-pitch h5 {
   margin-bottom: 6px;
   font-size: 20px;
@@ -121,7 +131,7 @@ h1 {
   width: 100%;
   min-height: 40px;
   padding: 12px;
-  border: 1px solid #8246EA;
+  border: 1px solid #cccbce;
   border-radius: 4px;
   resize: vertical;
 }
@@ -156,5 +166,7 @@ h1 {
   border: 2px solid #8246EA;
 }
 .card-shadow{
+  width: 100%;
+
   border: 1px solid #8246EA;
 }
