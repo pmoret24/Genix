@@ -14,32 +14,18 @@
 
       <div class="request-details text-center mb-2">
         <% if current_user == @user %>
-          <% if @approved_connections.each.count >= 1  %>
-            <p> <strong> Friends: </strong> </p>
-          <% end %>
-          <% @approved_connections.each do |connection| %>
-            <%= link_to  (cl_image_tag connection.other_person(@user).photo.key , class: "rounded-circle", height:50, width:50 ), profile_path(connection.other_person(@user))  %>
-          <% end %>
-
-          <% if @pending_connections.each.count >= 1  %>
+          <% if @pending_connections.count >= 1  %>
             <p> <strong> Pending connections requests: </strong> </p>
           <% end %>
           <% @pending_connections.each do |connection| %>
             <p> <%= cl_image_tag connection.other_person(current_user).photo.key , class: "rounded-circle", height:50, width:50 %> <%= connection.other_person(current_user).first_name%> <%= connection.other_person(current_user).last_name %> <%= link_to  connection_path(connection), data: {turbo_method: :patch}, class: "text-decoration-none" do %> <button type="button" class="btn btn-success">Approve!</button> <% end %> <%= link_to connection_path(connection), data: {turbo_method: :delete} do %> <button type="button" class="btn btn-danger text-white"><i class="fa-regular fa-trash-can"></i></button> <% end %></p>
           <% end  %>
-        <%else%>
-          <% if @approved_connections.each.count >= 1  %>
-            <p> <strong> Friends: </strong> </p>
-          <% end %>
-          <% @approved_connections1.each do |connection| %>
-            <%= link_to  (cl_image_tag connection.other_person(@user).photo.key , class: "rounded-circle", height:50, width:50 ), profile_path(connection.other_person(@user))  %>
-          <% end %>
         <% end %>
       </div>
 
     </div>
 
-    <div class="profile-details card rounded-boundary d-flex flex-column justify-content-center col-md-8">
+    <div class="profile-details card rounded-boundary d-flex flex-column justify-content-around col-md-8">
       <div class="profile-text text-start mx-3">
         <p> <strong>Description: </strong> <%= @user.description %></p>
         <p><strong> Skills:</strong> <%= @user.skills %></p>
@@ -49,6 +35,26 @@
           <% end %>
         </div>
       </div>
+      <div class="profile-text text-start mx-3">
+        <% if current_user == @user %>
+          <% if @approved_connections.count >= 1  %>
+            <p> <strong> Friends: </strong>
+              <% @approved_connections.each do |connection| %>
+                <%= link_to  (cl_image_tag connection.other_person(@user).photo.key , class: "rounded-circle", height:50, width:50 ), profile_path(connection.other_person(@user))  %>
+              <% end %>
+            </p>
+          <% end %>
+        <% else %>
+          <% if @approved_connections.count >= 1  %>
+            <p> <strong> Friends: </strong>
+              <% @approved_connections1.each do |connection| %>
+                <%= link_to  (cl_image_tag connection.other_person(@user).photo.key , class: "rounded-circle", height:50, width:50 ), profile_path(connection.other_person(@user))  %>
+              <% end %>
+            </p>
+          <% end %>
+        <% end %>
+      </div>
+
     </div>
 
   </div>
