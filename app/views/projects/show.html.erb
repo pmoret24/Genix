@@ -34,7 +34,7 @@
         <p>Member Request(s):</p>
           <% @members_users.each do |member| %>
 
-            <%= cl_image_tag @project.owner.photo.key, alt:  @project.owner , class: " img-owner comment-user-img img-thumbnail mb-7" %>
+            <%= cl_image_tag member.user.photo.key, alt:  member.user , class: " img-owner comment-user-img img-thumbnail mb-7" %>
               <%= link_to member.user.first_name, profile_path(member.user), class: "btn btn-outline-dark" %>
 
               <% if member.status %>
@@ -46,7 +46,7 @@
                 <% end %>
               <% end %>
 
-            
+
         <% end %>
       </div>
       <% end %>
