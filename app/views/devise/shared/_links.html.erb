@@ -22,9 +22,10 @@
   <%- resource_class.omniauth_providers.each do |provider| %>
       <%= form_for "Login",
       url: omniauth_authorize_path(resource_name, provider),
+      class: 'd-flex justify-content-center',
       method: :post,
       data: {turbo: "false"} do |f| %>
-        <%= f.submit "Login", type: "image", src: url_for("/assets/btn-google.png"), class: "btn-google" %>
+        <%= f.submit "Login", type: "image", src: url_for("/assets/btn-google.png"), class: "my-4", width: "200px" %>
     <% end %>
   <% end %>
 <% end %>
