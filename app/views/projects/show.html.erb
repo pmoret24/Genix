@@ -55,12 +55,34 @@
           </div>
         </div>
 
+    </div>
+
 
               </div>
             </div>
           </div>
         </div>
+
+    <div class="members d-flex justify-content-center ">
+      <% if @project.owner == current_user %>
+      <div class="container member-container ">
+
+        <p><i class="fa-regular fa-handshake"></i> Member Request(s) </p>
+          <% @members_users.each do |member| %>
+
+            <%= cl_image_tag member.user.photo.key, alt:  member.user , class: " img-owner comment-user-img img-thumbnail mb-7" %>
+              <%= link_to member.user.first_name, profile_path(member.user), class: "btn btn-outline-dark" %>
+
+              <% if member.status %>
+                <p>Your membership is approved!</p>
+              <% else %>
+                <%= link_to "Approve?", member_path(member), data: {turbo_method: :patch}, class: "btn btn-outline-success btn-sm center m-3" %>
+                <%= link_to member_path(member), data: {turbo_method: :delete} do %>
+                  <i class="fa-regular fa-trash-can center m-3 garbage"></i>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+          </div>
       </div>
-    </div>
-  </div>
-</div>
+      </div>
