@@ -26,6 +26,7 @@
 .whole-card{
   border-radius: 20px;
   margin: 0px 8px 0px 0px;
+  border: 1px solid #8246EA;
   a{
     text-decoration: none;
   }
@@ -33,6 +34,7 @@
 
 .img-proj{
   align-self: flex-end;
+  border: 1px solid #8246EA;
 }
 
 
@@ -67,4 +69,15 @@
 .list-group-item a{
   text-decoration: none;
   color: rgb(115, 115, 115);
+}
+
+@media (max-width: 576px) {
+  #projects{
+    display: flex;
+    flex-direction: column;
+  }
+  .card-content-proj {
+    flex-grow: 1;
+    padding-left: 1em;
+  }
 }

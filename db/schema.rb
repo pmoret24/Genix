@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_06_145335) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_12_204623) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -104,7 +104,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_145335) do
 
   create_table "pitches", force: :cascade do |t|
     t.string "title"
-    t.string "languages"
+    t.string "languages", default: [], array: true
     t.string "category"
     t.text "description"
     t.text "source"
@@ -120,7 +120,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_145335) do
     t.string "title"
     t.text "description"
     t.string "category"
-    t.string "languages"
+    t.string "languages", default: [], array: true
     t.text "github"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -137,7 +137,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_145335) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "skills"
+    t.string "skills", default: [], array: true
     t.text "description"
     t.string "github"
     t.index ["email"], name: "index_users_on_email", unique: true

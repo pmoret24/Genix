@@ -8,14 +8,17 @@
   justify-content: space-between;
   align-items: center;
 
+
   img{
-    width: 50%;
+    width: 350px;
+    height: 550px;
     object-fit: cover;
   }
 }
 
 .proj-title {
   text-align: center;
+  color: #8246EA;
 }
 
 .proj-hr {
@@ -27,6 +30,8 @@
 
 .proj-card {
   border-radius: 10px;
+  width: 1000px;
+  height: 800px;
 }
 
 .gray{
