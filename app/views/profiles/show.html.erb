@@ -64,7 +64,7 @@
   </div>
 
   <div class="buttons">
-    <%= link_to profiles_path , class: "text-decoration-none" do %> <button type="button" class="btn btn-outline-success btn-sm ">Back to users</button> <% end %>
+    <%= link_to profiles_path , class: "text-decoration-none" do %> <button type="button" class="btn btn-outline-success btn-sm ">Back</button> <% end %>
     <% if current_user != @user%>
       <% if @chatroom_available.present? %>
         <%= link_to chatroom_path(@chatroom_available), class: "text-decoration-none" do %> <button type="button" class="btn btn-success"><i class="fa-regular fa-comments"></i> Keep chating </button> <% end %>

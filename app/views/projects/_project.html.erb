@@ -1,12 +1,11 @@
 <div class="proj-container mx-2">
 
-    <h2 class="proj-title">
-      <%= project.title %>
-    </h2>
-    <div class="proj-content mt-2">
+  <h2 class="proj-title"><%= project.title %> </h2>
+
+  <div class="proj-content mt-2">
 
     <% if project.photo.attached? %>
-        <%= cl_image_tag project.photo.key, class: "card-shadow" %>
+        <%= cl_image_tag project.photo.key, class: "card-shadow img-proj" %>
       <% else %>
         <%= image_tag "placeholder.webp" %>
     <% end %>
@@ -20,20 +19,15 @@
       </p>
 
       <strong class="mx-3 p-2">Description</strong>
-      <p class="gray mx-3 p-2">
-        <%= project.description %>
-      </p>
-
+      <p class="gray mx-3 p-2"> <%= project.description %> </p>
 
       <strong class=" mx-3 p-2">Category</strong>
-      <p class="gray mx-3 p-2">
-        <%= project.category %>
-      </p>
+      <p class="gray mx-3 p-2"> <%= project.category %> </p>
 
     <div class="github-link">
       <%= link_to project.github, target: "_blank" do %>
         <i class="fa-brands fa-github"></i> View on Github
           <% end %>
-      </div>
     </div>
+  </div>
 </div>
