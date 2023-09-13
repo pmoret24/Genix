@@ -28,7 +28,7 @@
     <div class="col-md-9">
       <p style="color: green"><%= notice %></p>
       <h1 class="text-center"><i class="fa-solid fa-person-chalkboard"></i> Pitches</h1>
-      <div class="row justify-content-center">
+      <div class="row justify-content-center m-5">
         <div class="col-sm-8 my-3">
           <%= form_with url: pitches_path, method: :get, class: "d-flex" do %>
             <%= text_field_tag :query,
@@ -50,11 +50,11 @@
       <div id="pitches" class="row">
         <% @pitches.each do |pitch| %>
 
-          <div class=" col-md-4 mb-4">
+          <div class=" col-md-4 mb-4 ">
              <div class="card pitch-card"  data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" title="Description" data-bs-content="
              <%= pitch.description  %>" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
                 <div class="card-body-pitches">
-                        <h5 class="card-title">
+                        <h5 class="card-title m-2">
 
                       <%= pitch.title %>
                       <i class="fa-solid fa-circle-info" data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= pluralize(pitch.comments.size, "review") %>"></i>

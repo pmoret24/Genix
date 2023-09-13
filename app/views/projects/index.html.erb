@@ -1,4 +1,4 @@
-<div class="container proj-container mb-3">
+<div class="container proj-container mb-3 m-3x">
   <div class="row justify-content-center">
     <div class="col-md-3">
       <div class="sticky">
@@ -30,7 +30,7 @@
     <div class="col-md-9">
       <p style="color: green"><%= notice %></p>
       <h1 class="text-center"><i class="fa-solid fa-magnifying-glass"></i> Projects</h1>
-      <div class="row justify-content-center">
+      <div class="row justify-content-center m-5">
         <div class="col-sm-8 my-3">
           <%= form_with url: projects_path, method: :get, class: "d-flex" do %>
             <%= text_field_tag :query,
@@ -66,7 +66,7 @@
                     <h2 class="card-category-proj w-100"><%= project.category %></h2>
                   </div>
                 </div>
-                <%= link_to "Show this project", project, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center' %>
+                <%= link_to "View details ", project, class: 'btn btn-success btn-sm center d-flex align-items-end m-2 justify-content-center' %>
               </div>
             <% end %>
           </div>
