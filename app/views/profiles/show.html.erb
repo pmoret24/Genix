@@ -39,7 +39,13 @@
           <% if @approved_connections.count >= 1  %>
               <p> <strong> Friends: </strong>
               <% @approved_connections.each do |connection| %>
-                <%= link_to  (cl_image_tag connection.other_person(@user).photo.key , class: "rounded-circle", height:50, width:50 ), profile_path(connection.other_person(@user))  %>
+                <%= link_to profile_path(connection.other_person(@user)) do %>
+                  <% if connection.other_person(@user).photo.attached? %>
+                    <%= cl_image_tag connection.other_person(@user).photo.key, class: "rounded-circle", height:50, width:50 %>
+                  <% else %>
+                    <%= image_tag "placeholder.webp", class: "rounded-circle", height:50, width:50 %>
+                  <% end %>
+                <% end %>
               <% end %>
               </p>
           <% end %>
