@@ -10,12 +10,17 @@
   font-weight: 700;
   text-align: center;
   margin: 20px;
+
 }
 
 .foto-show-project{
 
 object-fit: cover;
 
+}
+.members{
+  display: flex;
+  align-items:  center;
 }
 
 .btn-apply {

@@ -20,14 +20,14 @@
         </div>
 
         <div class="form-group">
-          <i class="fas fa-code"></i>     <label for="languages">Skills</label>
+          <i class="fas fa-code"></i>     <label for="languages"> Skills</label>
           <div class="input-icon">
            <%= f.input :languages, as: :check_boxes, collection: ['Ruby', 'Python', 'Java', 'JavaScript', 'C++', 'PHP', 'SQL', 'others'], legend_tag: false , input_html: { class: 'form-check-input' } %>
           </div>
         </div>
 
         <div class="form-group">
-          <i class="fas fa-info-circle"></i>     <label for="description">Description</label>
+          <i class="fas fa-info-circle"></i>  <label for="description">Description</label>
           <div class="input-icon">
             <%= f.input_field :description, as: :text, rows: 4, class: 'form-control' %>
           </div>
