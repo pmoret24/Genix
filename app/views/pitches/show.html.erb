@@ -16,15 +16,15 @@
               <% end %>
                 <h4 class="card-title mt-3"><%=  @pitch.user.first_name %> <%=  @pitch.user.last_name %></h4>
             </div>
-            <div class="d-flex align-items-center w-75 pitch-info">
+            <div class="pitch-info">
               <% if @pitch.photo.attached? %>
-                <%= cl_image_tag @pitch.photo.key, alt: current_user.first_name, class: "img-pitches  m-3" %>
+                <%= cl_image_tag @pitch.photo.key, alt: current_user.first_name, class: "img-pitches" %>
               <% else %>
-                <%= image_tag "placeholder.webp", alt: current_user.first_name, class: "img-pitches  m-3" %>
+                <%= image_tag "placeholder.webp", alt: current_user.first_name, class: "img-pitches" %>
               <% end %>
-              <div>
-                <h2 class="card-title-show d-flex p-1"><%= @pitch.title %></h2>
-                <p class="card-text-pitch  p-3"><strong class="title-show-descp">Skills:</strong></p>
+              <div class="pitch-text">
+                <h2 class="card-title-show"><%= @pitch.title %></h2>
+                <p class="card-text-pitch"><strong class="title-show-descp">Skills:</strong></p>
                  <% @pitch.languages.each do |language| %>
                   <p class=" p-descr"><%= language %></p>
                  <% end %>
