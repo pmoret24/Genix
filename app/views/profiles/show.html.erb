@@ -6,6 +6,7 @@
         <% if @user.photo.attached? %>
           <%= cl_image_tag @user.photo.key,class: "img-profile img-thumbnail" %>
           <h1 class="profile-name mt-1 text-center"><%= @user.first_name %> <%= @user.last_name %></h1>
+          <p class="profile-email mt-1 text-center"><%= @user.email %></p>
         <% else %>
           <%= image_tag "profile_placeholder.png",class: "img-profile" %>
           <h1 class="profile-name mt-1 text-center"><%= @user.first_name %> <%= @user.last_name %></h1>
@@ -21,15 +22,15 @@
 
     <div class="profile-details card rounded-boundary d-flex flex-column justify-content-center col-md-8">
       <div class="profile-text text-start mx-3">
-        <p> <strong>Description: </strong> <%= @user.description %></p>
+        <p> <strong>About me: </strong> <%= @user.description %></p>
         <p><strong> Skills:</strong>
           <% @user.skills.each do |language| %>
-            <%= language %>
+            <%= language %>,
           <% end %>
         </p>
         <div class="github-link">
           <%= link_to @user.github, target: "_blank" do %>
-            <i class="fa-brands fa-github"></i> View on Github
+            <i class="fa-brands fa-github"></i> Github
           <% end %>
         </div>
       </div>
@@ -59,7 +60,7 @@
 
   <div class="subcontainer d-flex gap-3">
     <div class="buttons col-md-4">
-      <%= link_to profiles_path , class: "text-decoration-none" do %> <button type="button" class="btn btn-outline-success btn-sm ">Back</button> <% end %>
+      <%= link_to profiles_path , class: "text-decoration-none" do %> <button type="button" class="btn btn-outline-success btn-sm ">Connections</button> <% end %>
       <% if current_user != @user%>
         <% if @chatroom_available.present? %>
           <%= link_to chatroom_path(@chatroom_available), class: "text-decoration-none" do %> <button type="button" class="btn btn-success"><i class="fa-regular fa-comments"></i> Keep chating </button> <% end %>

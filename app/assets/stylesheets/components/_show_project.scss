@@ -58,4 +58,15 @@ object-fit: cover;
 }
 
 @media (max-width: 576px) {
+  .main-body{
+    flex-direction: column;
+  }
+  .members{
+    flex-direction: column;
+  }
+  .card-title-show {
+    h2{
+      font-size: 18px;
+    }
+  }
 }
