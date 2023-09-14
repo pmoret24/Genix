@@ -23,7 +23,11 @@
     <div class="profile-details card rounded-boundary d-flex flex-column justify-content-center col-md-8">
       <div class="profile-text text-start mx-3">
         <p> <strong>About me: </strong> <%= @user.description %></p>
-        <p><strong> Skills:</strong> <%= @user.skills %> </p>
+        <p><strong> Skills:</strong>
+          <% @user.skills.each do |language| %>
+            <%= language %>,
+          <% end %>
+        </p>
         <div class="github-link">
           <%= link_to @user.github, target: "_blank" do %>
             <i class="fa-brands fa-github"></i> Github
