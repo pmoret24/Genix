@@ -17,10 +17,18 @@
         <div class="chat-user">
           <div>
             <% if current_user == chat.sender %>
-              <%= image_tag(chat.receiver.photo) %>
+                  <% if chat.receiver.photo.attached? %>
+                    <%= cl_image_tag chat.receiver.photo.key, height: 200, width: 200, crop: :fill , class: "border-index" %>
+                  <% else %>
+                    <%= image_tag "placeholder.webp", height: 200, width: 200, crop: :fill, class: "border-index" %>
+                  <% end %>
               <%= chat.receiver.first_name %>
             <% else %>
-              <%= image_tag(chat.sender.photo) %>
+                  <% if chat.sender.photo.attached? %>
+                    <%= cl_image_tag chat.sender.photo.key, height: 200, width: 200, crop: :fill , class: "border-index" %>
+                  <% else %>
+                    <%= image_tag "placeholder.webp", height: 200, width: 200, crop: :fill, class: "border-index" %>
+                  <% end %>
               <%= chat.sender.first_name %>
             <% end %>
           </div>

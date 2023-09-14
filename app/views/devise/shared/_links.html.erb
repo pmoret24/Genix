@@ -25,7 +25,7 @@
       class: 'd-flex justify-content-center',
       method: :post,
       data: {turbo: "false"} do |f| %>
-        <%= f.submit "Login", type: "image", src: url_for("/assets/btn-google.png"), class: "my-4", width: "200px" %>
+        <%= f.submit "Login", type: "image", src: asset_path("btn-google.png"), class: "my-4", width: "200px" %>
     <% end %>
   <% end %>
 <% end %>

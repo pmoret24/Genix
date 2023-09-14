@@ -10,7 +10,7 @@ class User < ApplicationRecord
          # Google sign in:
          :omniauthable, omniauth_providers: [:google_oauth2]
   # validations
-  validates :first_name, :last_name, :skills, :description, :github, presence: true
+  # validates :first_name, :last_name, :skills, :description, :github, presence: true
 
   has_many :projects, foreign_key: "owner_id"
   has_many :members
