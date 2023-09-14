@@ -1,7 +1,11 @@
 <div class="container pitch-container">
   <div class="row">
+
+   <%# Sticky %>
     <div class="col-md-3">
       <div class="sticky">
+
+        <%# Sidebar %>
         <div class="sidebar border rounded pitches-bar">
           <div class="d-flex  flex-column align-items-center p-2 gap-4 m-2">
             <% if current_user.photo.attached? %>
@@ -18,6 +22,8 @@
               </ul>
           </div>
         </div>
+
+        <%# Button %>
         <div class="row justify-content-center">
           <div class="my-4">
             <%= link_to "Add a new pitch", new_pitch_path, class: 'btn btn-roxo btn-success btn-sm center d-flex align-items-end justify-content-center '%>
@@ -25,10 +31,12 @@
         </div>
       </div>
     </div>
+
+    <%# Info %>
     <div class="col-md-9">
       <p style="color: green"><%= notice %></p>
       <h1 class="text-center"><i class="fa-solid fa-person-chalkboard"></i> Pitches</h1>
-      <div class="row justify-content-center m-5">
+      <div class="row justify-content-center">
         <div class="col-sm-8 my-3">
           <%= form_with url: pitches_path, method: :get, class: "d-flex" do %>
             <%= text_field_tag :query,

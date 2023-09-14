@@ -14,3 +14,10 @@
   background: linear-gradient(#8246EA 25%, 0, #f8f9fa 75%);
 
 }
+
+@media (max-width: 576px) {
+  .subcontainer {
+    display: flex;
+    flex-direction: column;
+  }
+}
