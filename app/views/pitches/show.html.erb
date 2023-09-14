@@ -26,6 +26,14 @@
               <hr class="hr-pitch">
                 <h2 class="card-title-show d-flex p-1"><%= @pitch.title %></h2>
                 <hr class="hr-pitch">
+                <%# Phone Picture %>
+                <% if @pitch.photo.attached? %>
+                  <%= cl_image_tag @pitch.photo.key, alt: current_user.first_name, class: "img-mobile" %>
+                <% else %>
+                  <%= image_tag "placeholder.webp", alt: current_user.first_name, class: "img-mobile " %>
+               <% end %>
+
+
                 <p class="card-text-pitch"><strong class="title-show-descp"><i class="fa-solid fa-code"></i> Skills</strong></p>
                 <p class=" p-descr"> •
                  <% @pitch.languages.each do |language| %>
